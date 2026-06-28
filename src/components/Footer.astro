@@ -1,0 +1,77 @@
+---
+import OrbitMark from './OrbitMark.astro';
+
+const year = new Date().getFullYear();
+const links = [
+  { href: '/', label: '首頁' },
+  { href: '/about', label: '關於我們' },
+  { href: '/products', label: '產品' },
+  { href: '/contact', label: '聯絡我們' },
+];
+---
+
+<footer class="border-t border-ink-line bg-ink-soft">
+  <div class="mx-auto max-w-7xl px-6 py-14 lg:px-10">
+    <div class="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+      <div class="max-w-sm">
+        <div class="flex items-center gap-3">
+          <OrbitMark size={36} />
+          <div class="leading-tight">
+            <p class="font-display text-base font-bold text-paper">Dongyu Tech</p>
+            <p class="text-xs tracking-[0.3em] text-muted">動域科技</p>
+          </div>
+        </div>
+        <p class="mt-4 text-sm leading-relaxed text-muted">
+          結合軟體、硬體與 AI 能力,將創新構想轉化為真正可落地的產品與服務。
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-8 sm:flex-row sm:gap-16">
+        <nav>
+          <p class="text-xs font-semibold uppercase tracking-widest text-faint">
+            導覽
+          </p>
+          <ul class="mt-4 space-y-3">
+            {
+              links.map((l) => (
+                <li>
+                  <a
+                    href={l.href}
+                    class="text-sm text-muted transition-colors hover:text-paper"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-faint">
+            聯絡
+          </p>
+          <ul class="mt-4 space-y-3 text-sm text-muted">
+            <li>
+              <a
+                href="mailto:dongyu.company@gmail.com"
+                class="transition-colors hover:text-orbit"
+              >
+                dongyu.company@gmail.com
+              </a>
+            </li>
+            <li>動域科技股份有限公司</li>
+            <li>Dongyu Tech</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="mt-12 flex flex-col gap-2 border-t border-ink-line pt-6 text-xs text-faint sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>© {year} 動域科技股份有限公司. All rights reserved.</p>
+      <p>打造下一代智慧產品體驗</p>
+    </div>
+  </div>
+</footer>

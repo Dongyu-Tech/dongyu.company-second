@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+
+const products = [
+  {
+    name: 'SilverSole 銀足',
+    en: 'Smart Insole',
+    tagline: '延青春 — 延長行動自主歲月',
+    status: '最成熟產品',
+    desc: '銀足智慧鞋墊面向高齡照護,將慣性與壓力感測整合進一雙鞋墊,以三維度跌倒演算法即時偵測風險,協助長者與照護者在意外發生前掌握行動狀態。',
+    features: [
+      { t: 'Step-to-Wake 自動喚醒', d: '踩踏即喚醒的省電設計,為核心發明專利(申請中)。' },
+      { t: '三維度跌倒偵測', d: '結合慣性與壓力感測資料,以三維度演算法提升跌倒判定準確度。' },
+      { t: '非對稱式後跟模組', d: '貼合步態的非對稱結構,兼顧久站舒適與量測穩定。' },
+      { t: '長照場域驗證', d: '與長照機構合作進行真實場域 PoC。' },
+    ],
+    tags: ['發明專利申請中', '三維度跌倒演算法', '高齡照護', '長照場域 PoC'],
+  },
+  {
+    name: 'QuickPlate 智慧槓片',
+    en: 'Smart Weight Plate',
+    tagline: '側開秒拆 — 一片即槓、啞、鈴、輪',
+    status: '開發中',
+    desc: '智慧健身槓片系統,以已取得中華民國發明專利的「扣合式槓片結構」(I900457)為核心。獨家側開機構讓你免卸安全扣、從側邊秒級抽換重量;一組槓片更能變形為槓鈴、啞鈴、壺鈴與健腹輪,把整間器材室收進一個角落。',
+    features: [
+      { t: '側開式扣合機構', d: '免卸安全扣、側邊秒級換重,核心發明專利 I900457(已核准)。' },
+      { t: '一機多用變形', d: '一組槓片變形為槓鈴、啞鈴、壺鈴、健腹輪,極致空間坪效。' },
+      { t: 'NFC + IMU 自動紀錄', d: '掃 NFC 辨識動作,外掛 6 軸 IMU 自動計次並做 VBT 速度訓練分析。' },
+      { t: '數位捕手安全機制', d: '偵測單人力竭受困風險,主動發出警示與求救通知,縮短救援時間。' },
+    ],
+    tags: ['發明專利 I900457', '側開式扣合機構', 'NFC 辨識', '6 軸 IMU', 'VBT 速度訓練'],
+  },
+];
+---
+
+<Layout
+  title="產品"
+  description="動域科技的主打商品:SilverSole 銀足智慧鞋墊與 QuickPlate 智慧槓片。"
+>
+  <!-- ── 標題 ─────────────────────────────────────────────── -->
+  <section class="border-b border-ink-line">
+    <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
+      <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+        Products
+      </p>
+      <h1 class="mt-4 text-4xl font-bold leading-tight text-paper sm:text-5xl">
+        把感測，<span class="text-orbit">化為日常的洞察</span>
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+        我們的產品橫跨高齡照護與運動健身,共同點是:用軟硬整合,讓看不見的動作數據變得有意義。
+      </p>
+    </div>
+  </section>
+
+  <!-- ── 產品詳細 ─────────────────────────────────────────── -->
+  {
+    products.map((p, i) => (
+      <section
+        id={`product-${i}`}
+        class:list={[
+          'border-b border-ink-line',
+          i % 2 === 1 ? 'bg-ink-soft/40' : '',
+        ]}
+      >
+        <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
+          <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <!-- 左:文字 -->
+            <div class="reveal">
+              <p class="font-display text-xs font-semibold uppercase tracking-[0.2em] text-orbit">
+                {p.en}
+              </p>
+              <h2 class="mt-3 text-3xl font-bold text-paper lg:text-4xl">
+                {p.name}
+              </h2>
+              <p class="mt-2 text-lg font-medium text-orbit/90">{p.tagline}</p>
+              <p class="mt-5 text-sm leading-relaxed text-muted lg:text-base">
+                {p.desc}
+              </p>
+
+              <ul class="mt-7 flex flex-wrap gap-2">
+                {p.tags.map((t) => (
+                  <li class="rounded-full bg-ink px-3 py-1 text-xs text-muted ring-1 ring-ink-line">
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- 右:特色清單 -->
+            <div class="relative">
+              <!-- 品牌裝飾:軌道弧(細線 + 亮橘行星) -->
+              <ul data-stagger class="relative space-y-4">
+                {p.features.map((f) => (
+                  <li class="reveal flex gap-4 rounded-2xl border border-ink-line bg-ink-soft p-5 transition duration-300 hover:-translate-y-0.5 hover:border-orbit/30">
+                    <span class="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-orbit" />
+                    <div>
+                      <h3 class="font-bold text-paper">{f.t}</h3>
+                      <p class="mt-1 text-sm leading-relaxed text-muted">{f.d}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  <!-- ── 法規說明 ─────────────────────────────────────────── -->
+  <section class="border-b border-ink-line">
+    <div class="mx-auto max-w-7xl px-6 py-10 lg:px-10">
+      <p class="text-xs leading-relaxed text-faint">
+        ※ 本網站產品資訊僅供參考。SilverSole 銀足現階段為消費級智慧裝置,非醫療器材,不提供診斷、治療或處方用途。
+      </p>
+    </div>
+  </section>
+
+  <!-- ── CTA ──────────────────────────────────────────────── -->
+  <section>
+    <div class="mx-auto max-w-7xl px-6 py-20 text-center lg:px-10">
+      <h2 class="text-3xl font-bold text-paper sm:text-4xl">
+        想了解技術細節或合作?
+      </h2>
+      <div class="mt-8 flex justify-center">
+        <Button href="/contact">與我們聯絡</Button>
+      </div>
+    </div>
+  </section>
+</Layout>

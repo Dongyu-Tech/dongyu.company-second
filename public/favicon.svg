@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Orbit mark · 白 ink + accent (深底用) -->
+  <g transform="translate(64 64)">
+    <path d="M 0 -56 A 56 56 0 1 1 -39.6 39.6"
+          fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="-39.6" cy="39.6" r="11" fill="#D9472B"/>
+    <circle cx="0" cy="0" r="4" fill="#ffffff"/>
+  </g>
+</svg>

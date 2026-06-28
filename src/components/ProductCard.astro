@@ -1,0 +1,40 @@
+---
+interface Props {
+  name: string;
+  en: string;
+  tagline: string;
+  desc: string;
+  tags: string[];
+  status?: string;
+  class?: string;
+}
+const { name, en, tagline, desc, tags, status, class: className = '' } = Astro.props;
+---
+
+<article
+  class:list={[
+    'group relative overflow-hidden rounded-3xl border border-ink-line bg-ink-soft p-8 transition-all duration-500 hover:-translate-y-1 hover:border-orbit/40 lg:p-10',
+    className,
+  ]}
+>
+  <!-- 背景軌道弧:品牌裝飾,hover 旋轉。細線 + 亮橘行星,避免低透明度橘色變濁 -->
+  <div class="relative">
+    <p class="font-display text-xs font-semibold uppercase tracking-[0.2em] text-orbit">
+      {en}
+    </p>
+
+    <h3 class="mt-2 text-2xl font-bold text-paper lg:text-3xl">{name}</h3>
+    <p class="mt-1 text-base font-medium text-orbit/90">{tagline}</p>
+    <p class="mt-4 max-w-xl text-sm leading-relaxed text-muted">{desc}</p>
+
+    <ul class="mt-6 flex flex-wrap gap-2">
+      {
+        tags.map((t) => (
+          <li class="rounded-full bg-ink px-3 py-1 text-xs text-muted ring-1 ring-ink-line">
+            {t}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</article>

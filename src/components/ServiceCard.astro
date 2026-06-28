@@ -1,0 +1,32 @@
+---
+// 三大能力卡:icon 用 inline SVG(以 slot 傳入),文字 props
+interface Props {
+  title: string;
+  en: string;
+  desc: string;
+  class?: string;
+}
+const { title, en, desc, class: className = '' } = Astro.props;
+---
+
+<div
+  class:list={[
+    'group relative overflow-hidden rounded-2xl border border-ink-line bg-ink-soft p-7 transition duration-300 hover:-translate-y-1 hover:border-orbit/50',
+    className,
+  ]}
+>
+  <!-- hover 時右上角浮現的軌道弧線 -->
+  <div
+    class="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/30"
+  >
+  </div>
+
+  <div class="mb-5 text-orbit">
+    <slot />
+  </div>
+  <p class="font-display text-xs font-medium uppercase tracking-[0.2em] text-faint">
+    {en}
+  </p>
+  <h3 class="mt-1 text-xl font-bold text-paper">{title}</h3>
+  <p class="mt-3 text-sm leading-relaxed text-muted">{desc}</p>
+</div>

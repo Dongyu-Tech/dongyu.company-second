@@ -1,0 +1,56 @@
+---
+// Orbit 標記 — 可調色的品牌 SVG(來自 00_品牌 brand system 幾何)
+// ink = 軌道與核心色, accent = 行星色
+interface Props {
+  ink?: string;
+  accent?: string;
+  size?: number | string;
+  class?: string;
+  spin?: boolean;
+}
+const {
+  ink = '#ffffff',
+  accent = '#D9472B',
+  size = 40,
+  class: className = '',
+  spin = false,
+} = Astro.props;
+---
+
+<svg
+  viewBox="0 0 128 128"
+  width={size}
+  height={size}
+  class={className}
+  role="img"
+  aria-label="動域科技 Orbit logo"
+>
+  <g transform="translate(64 64)">
+    <g class={spin ? 'orbit-rotor' : ''} style="transform-origin:0 0">
+      <path
+        d="M 0 -56 A 56 56 0 1 1 -39.6 39.6"
+        fill="none"
+        stroke={ink}
+        stroke-width="10"
+        stroke-linecap="round"></path>
+      <circle cx="-39.6" cy="39.6" r="11" fill={accent}></circle>
+      <circle cx="0" cy="0" r="4" fill={ink}></circle>
+    </g>
+  </g>
+</svg>
+
+<style>
+  .orbit-rotor {
+    animation: mark-spin 24s linear infinite;
+  }
+  @keyframes mark-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .orbit-rotor {
+      animation: none;
+    }
+  }
+</style>

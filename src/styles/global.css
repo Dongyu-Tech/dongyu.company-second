@@ -1,0 +1,127 @@
+@import 'tailwindcss';
+
+/* ── 動域科技 Orbit 品牌設計 token ───────────────────────────── */
+@theme {
+  /* 品牌色:由 LOGO 推導 */
+  --color-ink: #0e0e10; /* 墨黑 — 底色 */
+  --color-ink-soft: #161619; /* 卡片/區塊 */
+  --color-ink-line: #26262b; /* 分隔線/邊框 */
+  --color-orbit: #d9472b; /* 磚橙 — 主重點色(Orbit 行星) */
+  --color-orbit-bright: #e85d40; /* hover 亮橙 */
+  --color-orbit-dim: #8f2d1b; /* 深橙 */
+
+  /* 文字灰階 */
+  --color-paper: #f5f4f2; /* 主要文字(近白) */
+  --color-muted: #9b9aa0; /* 次要文字 */
+  --color-faint: #6a6a70; /* 更淡 */
+
+  /* 字體 — 中文走系統正黑體優先(Windows 微軟正黑體 / Mac 蘋方),
+     與配客嘉參考圖一致;Latin/數字用 Space Grotesk;思源黑體做跨裝置 fallback */
+  --font-cjk: 'PingFang TC', 'PingFang SC', 'Microsoft JhengHei', '微軟正黑體',
+    'Noto Sans TC', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', var(--font-cjk);
+  --font-sans: 'Space Grotesk', var(--font-cjk);
+
+  /* 動畫 */
+  --ease-orbit: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── 基礎 ─────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--color-orbit);
+  color: #fff;
+}
+
+/* 字距:中文標題稍微收一點 */
+.font-display {
+  font-family: var(--font-display);
+  /* 中文標題不收字距(避免擠);Latin 字距交給各別 utility 控制 */
+  letter-spacing: normal;
+}
+
+/* ── Orbit 軌道旋轉動畫 ───────────────────────────────────── */
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-spin-rev {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-orbit {
+  animation: orbit-spin 40s linear infinite;
+}
+.animate-orbit-slow {
+  animation: orbit-spin-rev 80s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-orbit,
+  .animate-orbit-slow {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ── 進場淡入 ─────────────────────────────────────────────── */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise-in {
+  animation: rise-in 0.7s var(--ease-orbit) both;
+}
+
+/* ── 捲動進場(IntersectionObserver 觸發 .is-visible)──────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s var(--ease-orbit),
+    transform 0.7s var(--ease-orbit);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

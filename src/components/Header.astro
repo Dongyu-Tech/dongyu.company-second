@@ -1,0 +1,100 @@
+---
+import OrbitMark from './OrbitMark.astro';
+
+const path = Astro.url.pathname;
+const links = [
+  { href: '/', label: '首頁' },
+  { href: '/about', label: '關於' },
+  { href: '/products', label: '產品' },
+  { href: '/contact', label: '聯絡' },
+];
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-ink-line/70 bg-ink/80 backdrop-blur-md"
+>
+  <nav
+    class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10"
+  >
+    <a href="/" class="group flex items-center gap-3" aria-label="動域科技 首頁">
+      <OrbitMark size={34} spin={true} />
+      <span class="font-display text-lg font-bold tracking-tight text-paper">
+        動域科技
+      </span>
+    </a>
+
+    <!-- 桌面導覽 -->
+    <ul class="hidden items-center gap-8 md:flex">
+      {
+        links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              class:list={[
+                'relative text-sm font-medium transition-colors hover:text-paper',
+                isActive(l.href) ? 'text-paper' : 'text-muted',
+              ]}
+            >
+              {l.label}
+              {isActive(l.href) && (
+                <span class="absolute -bottom-1.5 left-0 h-0.5 w-full bg-orbit" />
+              )}
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <a
+          href="/contact"
+          class="rounded-full bg-orbit px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-orbit-bright"
+        >
+          聯絡我們
+        </a>
+      </li>
+    </ul>
+
+    <!-- 行動裝置:漢堡按鈕 -->
+    <button
+      id="menu-toggle"
+      class="flex flex-col gap-1.5 p-2 md:hidden"
+      aria-label="開啟選單"
+      aria-expanded="false"
+    >
+      <span class="block h-0.5 w-6 bg-paper transition-transform"></span>
+      <span class="block h-0.5 w-6 bg-paper transition-opacity"></span>
+      <span class="block h-0.5 w-6 bg-paper transition-transform"></span>
+    </button>
+  </nav>
+
+  <!-- 行動裝置選單 -->
+  <div id="mobile-menu" class="hidden border-t border-ink-line bg-ink md:hidden">
+    <ul class="flex flex-col px-6 py-4">
+      {
+        links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              class:list={[
+                'block py-3 text-base font-medium',
+                isActive(l.href) ? 'text-orbit' : 'text-paper',
+              ]}
+            >
+              {l.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(open === false));
+  });
+</script>

@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import OrbitMark from '../components/OrbitMark.astro';
+---
+
+<Layout
+  title="聯絡我們"
+  description="與動域科技聯絡 — dongyu.company@gmail.com。軟硬整合、產品設計與技術合作洽詢。"
+>
+  <section class="relative overflow-hidden">
+    <!-- 背景 Orbit -->
+    <div
+      class="pointer-events-none absolute -left-24 top-1/2 -translate-y-1/2 opacity-[0.06]"
+      aria-hidden="true"
+    >
+      <svg class="animate-orbit-slow h-[30rem] w-[30rem] text-orbit" viewBox="0 0 128 128">
+        <g transform="translate(64 64)">
+          <path d="M 0 -56 A 56 56 0 1 1 -39.6 39.6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+          <circle cx="-39.6" cy="39.6" r="8" fill="currentColor"></circle>
+        </g>
+      </svg>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
+      <div class="grid gap-14 lg:grid-cols-2 lg:gap-20">
+        <!-- 左:資訊 -->
+        <div>
+          <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+            Contact
+          </p>
+          <h1 class="mt-4 text-4xl font-bold leading-tight text-paper sm:text-5xl">
+            一起把想法<br /><span class="text-orbit">送上軌道</span>
+          </h1>
+          <p class="mt-6 max-w-md text-lg leading-relaxed text-muted">
+            無論是軟硬整合專案、產品設計需求,或單純想交流,都歡迎留下訊息,我們會盡快回覆。
+          </p>
+
+          <div class="reveal mt-10 space-y-5">
+            <a
+              href="mailto:dongyu.company@gmail.com"
+              class="group flex items-center gap-4 rounded-2xl border border-ink-line bg-ink-soft p-5 transition-colors hover:border-orbit/40"
+            >
+              <span class="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-orbit ring-1 ring-ink-line">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <path d="m22 7-10 5L2 7"></path>
+                </svg>
+              </span>
+              <div>
+                <p class="text-xs uppercase tracking-widest text-faint">Email</p>
+                <p class="font-medium text-paper transition-colors group-hover:text-orbit">
+                  dongyu.company@gmail.com
+                </p>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-4 rounded-2xl border border-ink-line bg-ink-soft p-5">
+              <span class="flex h-11 w-11 items-center justify-center rounded-full bg-ink ring-1 ring-ink-line">
+                <OrbitMark size={22} />
+              </span>
+              <div>
+                <p class="text-xs uppercase tracking-widest text-faint">Company</p>
+                <p class="font-medium text-paper">動域科技股份有限公司</p>
+                <p class="text-sm text-muted">Dongyu Tech</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右:表單 -->
+        <div class="reveal rounded-3xl border border-ink-line bg-ink-soft p-7 lg:p-9">
+          <form id="contact-form" class="space-y-5">
+            <div>
+              <label for="name" class="mb-2 block text-sm font-medium text-paper">
+                姓名
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                placeholder="您的稱呼"
+                class="w-full rounded-xl border border-ink-line bg-ink px-4 py-3 text-paper placeholder:text-faint focus:border-orbit focus:outline-none focus:ring-1 focus:ring-orbit"
+              />
+            </div>
+            <div>
+              <label for="email" class="mb-2 block text-sm font-medium text-paper">
+                Email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="you@example.com"
+                class="w-full rounded-xl border border-ink-line bg-ink px-4 py-3 text-paper placeholder:text-faint focus:border-orbit focus:outline-none focus:ring-1 focus:ring-orbit"
+              />
+            </div>
+            <div>
+              <label for="message" class="mb-2 block text-sm font-medium text-paper">
+                訊息
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                placeholder="想跟我們聊些什麼?"
+                class="w-full resize-none rounded-xl border border-ink-line bg-ink px-4 py-3 text-paper placeholder:text-faint focus:border-orbit focus:outline-none focus:ring-1 focus:ring-orbit"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="group inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-orbit px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-orbit-bright hover:shadow-lg hover:shadow-orbit/25"
+            >
+              送出訊息
+              <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+            <p class="text-center text-xs text-faint">
+              送出後將開啟您的郵件軟體,以預先填好的內容寄給我們。
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = String(data.get('name') ?? '');
+    const email = String(data.get('email') ?? '');
+    const message = String(data.get('message') ?? '');
+    const subject = encodeURIComponent(`網站來信:${name}`);
+    const body = encodeURIComponent(
+      `姓名:${name}\nEmail:${email}\n\n${message}`
+    );
+    window.location.href = `mailto:dongyu.company@gmail.com?subject=${subject}&body=${body}`;
+  });
+</script>

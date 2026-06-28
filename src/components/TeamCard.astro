@@ -1,0 +1,35 @@
+---
+interface Props {
+  name: string;
+  role: string;
+  en: string;
+  dept: string;
+  class?: string;
+}
+const { name, role, en, dept, class: className = '' } = Astro.props;
+const initial = name.charAt(0);
+---
+
+<div
+  class:list={[
+    'group flex items-center gap-4 rounded-2xl border border-ink-line bg-ink-soft p-5 transition duration-300 hover:-translate-y-1 hover:border-orbit/40',
+    className,
+  ]}
+>
+  <!-- 頭像佔位:Orbit 風格圓 + 首字 -->
+  <div
+    class="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-ink ring-1 ring-ink-line"
+  >
+    <span class="font-display text-lg font-bold text-paper">{initial}</span>
+    <span
+      class="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full bg-orbit ring-2 ring-ink-soft transition-transform duration-300 group-hover:scale-125"
+    ></span>
+  </div>
+  <div>
+    <p class="font-display text-xs font-semibold uppercase tracking-[0.15em] text-orbit">
+      {role} · {en}
+    </p>
+    <h3 class="mt-0.5 text-lg font-bold text-paper">{name}</h3>
+    <p class="text-sm text-muted">{dept}</p>
+  </div>
+</div>

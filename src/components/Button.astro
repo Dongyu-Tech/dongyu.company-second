@@ -1,0 +1,31 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'outline';
+  class?: string;
+}
+const { href, variant = 'primary', class: className = '' } = Astro.props;
+
+const base =
+  'group inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-semibold transition-all duration-300';
+const styles = {
+  primary: 'bg-orbit text-white hover:bg-orbit-bright hover:shadow-lg hover:shadow-orbit/25',
+  outline: 'border border-ink-line text-paper hover:border-orbit hover:text-orbit',
+};
+---
+
+<a href={href} class:list={[base, styles[variant], className]}>
+  <slot />
+  <svg
+    class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+    <polyline points="12 5 19 12 12 19"></polyline>
+  </svg>
+</a>

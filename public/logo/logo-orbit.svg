@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Orbit mark · ink + accent (淺底用) -->
+  <g transform="translate(64 64)">
+    <!-- 軌道 (有缺口的 3/4 圓環,從 12 點順時針繞到 7:30 點) -->
+    <path d="M 0 -56 A 56 56 0 1 1 -39.6 39.6"
+          fill="none" stroke="#0E0E10" stroke-width="10" stroke-linecap="round"/>
+    <!-- 軌道上的行星 -->
+    <circle cx="-39.6" cy="39.6" r="11" fill="#D9472B"/>
+    <!-- 中心核點 -->
+    <circle cx="0" cy="0" r="4" fill="#0E0E10"/>
+  </g>
+</svg>
