@@ -4,11 +4,13 @@
 
 ## 開發
 
+本專案使用 **pnpm**(已用 `packageManager` 欄位釘住版本)。
+
 ```bash
-npm install      # 安裝依賴
-npm run dev      # 本機開發 → http://localhost:4321
-npm run build    # 產生靜態網站到 dist/
-npm run preview  # 預覽 build 結果
+pnpm install     # 安裝依賴
+pnpm dev         # 本機開發 → http://localhost:4321
+pnpm build       # 產生靜態網站到 dist/
+pnpm preview     # 預覽 build 結果
 ```
 
 ## 頁面
