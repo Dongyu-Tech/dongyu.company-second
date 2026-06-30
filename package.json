@@ -11,8 +11,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.13.0",
     "@tailwindcss/vite": "^4.1.0",
+    "astro": "^5.13.0",
     "tailwindcss": "^4.1.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.105.0"
   }
 }
