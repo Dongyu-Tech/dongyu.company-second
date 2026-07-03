@@ -13,22 +13,26 @@ const isActive = (href: string) =>
 ---
 
 <header
-  class="sticky top-0 z-50 border-b border-ink-line/70 bg-ink/80 backdrop-blur-md"
+  id="site-header"
+  class="sticky top-0 z-50 border-b border-transparent transition-colors duration-300"
 >
   <nav
     class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10"
   >
     <a href="/" class="group flex items-center gap-3" aria-label="動域科技 首頁">
       <OrbitMark size={34} spin={true} />
-      <span class="font-display text-lg font-bold tracking-tight text-paper">
-        動域科技
-      </span>
+      <div class="leading-tight">
+        <p class="font-display text-base font-bold text-paper">Dongyu Tech</p>
+        <p class="text-xs tracking-[0.3em] text-muted">動域科技</p>
+      </div>
     </a>
 
     <!-- 桌面導覽 -->
     <ul class="hidden items-center gap-8 md:flex">
       {
-        links.map((l) => (
+        links
+          .filter((l) => l.href !== '/contact')
+          .map((l) => (
           <li>
             <a
               href={l.href}
@@ -69,7 +73,10 @@ const isActive = (href: string) =>
   </nav>
 
   <!-- 行動裝置選單 -->
-  <div id="mobile-menu" class="hidden border-t border-ink-line bg-ink md:hidden">
+  <div
+    id="mobile-menu"
+    class="absolute inset-x-0 top-full z-40 border-t border-ink-line bg-ink shadow-xl shadow-black/40 md:hidden"
+  >
     <ul class="flex flex-col px-6 py-4">
       {
         links.map((l) => (
@@ -90,11 +97,67 @@ const isActive = (href: string) =>
   </div>
 </header>
 
+<style>
+  /* 置頂時透明,捲動超過門檻後淡入墨底 + 毛玻璃 + 分隔線 */
+  #site-header {
+    backdrop-filter: blur(0px);
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      backdrop-filter 0.3s ease;
+  }
+  #site-header[data-scrolled] {
+    background-color: color-mix(in oklab, var(--color-ink) 80%, transparent);
+    border-bottom-color: color-mix(in oklab, var(--color-ink-line) 70%, transparent);
+    backdrop-filter: blur(12px);
+  }
+
+  /* 行動選單:淡入淡出(關閉時淡出並隱藏,避免仍可點擊) */
+  #mobile-menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+  }
+  #mobile-menu[data-open] {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #mobile-menu {
+      transition: none;
+      transform: none;
+    }
+  }
+</style>
+
 <script>
-  const toggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('mobile-menu');
-  toggle?.addEventListener('click', () => {
-    const open = menu?.classList.toggle('hidden');
-    toggle.setAttribute('aria-expanded', String(open === false));
+  function setupMenu() {
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.toggleAttribute('data-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+
+  // 置頂(0~50)透明,捲過 50px 後加上 data-scrolled
+  function updateHeader() {
+    const header = document.getElementById('site-header');
+    if (!header) return;
+    header.toggleAttribute('data-scrolled', window.scrollY > 50);
+  }
+
+  // scroll 監聽只綁一次(module 只執行一次,window 不會被 View Transitions 換掉)
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  // 每次 View Transitions 導覽都重跑:重綁選單 + 重設 header 初始狀態
+  document.addEventListener('astro:page-load', () => {
+    setupMenu();
+    updateHeader();
   });
 </script>

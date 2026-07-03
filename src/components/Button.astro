@@ -2,9 +2,16 @@
 interface Props {
   href: string;
   variant?: 'primary' | 'outline';
+  /** 顯示尾端箭頭。預設只有主要按鈕(primary)顯示,讓箭頭專屬強調主要動作 */
+  arrow?: boolean;
   class?: string;
 }
-const { href, variant = 'primary', class: className = '' } = Astro.props;
+const {
+  href,
+  variant = 'primary',
+  arrow = variant === 'primary',
+  class: className = '',
+} = Astro.props;
 
 const base =
   'group inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-semibold transition-all duration-300';
@@ -16,16 +23,20 @@ const styles = {
 
 <a href={href} class:list={[base, styles[variant], className]}>
   <slot />
-  <svg
-    class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <line x1="5" y1="12" x2="19" y2="12"></line>
-    <polyline points="12 5 19 12 12 19"></polyline>
-  </svg>
+  {
+    arrow && (
+      <svg
+        class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="5" y1="12" x2="19" y2="12" />
+        <polyline points="12 5 19 12 12 19" />
+      </svg>
+    )
+  }
 </a>

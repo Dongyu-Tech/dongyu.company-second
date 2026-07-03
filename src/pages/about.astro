@@ -51,10 +51,12 @@ const values = [
     <div data-stagger class="grid gap-5 md:grid-cols-3">
       {
         values.map((v) => (
-          <div class="reveal rounded-2xl border border-ink-line bg-ink-soft p-7 transition duration-300 hover:-translate-y-1 hover:border-orbit/40">
-            <div class="font-display text-2xl font-bold text-orbit">●</div>
-            <h3 class="mt-4 text-xl font-bold text-paper">{v.title}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-muted">{v.desc}</p>
+          <div class="reveal group">
+            <div class="h-full rounded-2xl border border-ink-line bg-ink-soft p-7 transition duration-300 group-hover:-translate-y-1 group-hover:border-orbit/40">
+              <div class="font-display text-2xl font-bold text-orbit">●</div>
+              <h3 class="mt-4 text-xl font-bold text-paper">{v.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-muted">{v.desc}</p>
+            </div>
           </div>
         ))
       }

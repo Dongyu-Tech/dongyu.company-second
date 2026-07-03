@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 /* ── 動域科技 Orbit 品牌設計 token ───────────────────────────── */
 @theme {
@@ -9,6 +9,7 @@
   --color-orbit: #d9472b; /* 磚橙 — 主重點色(Orbit 行星) */
   --color-orbit-bright: #e85d40; /* hover 亮橙 */
   --color-orbit-dim: #8f2d1b; /* 深橙 */
+  --color-orbit-light: #f08a55; /* 淺橙 — 漸層起點 */
 
   /* 文字灰階 */
   --color-paper: #f5f4f2; /* 主要文字(近白) */
@@ -17,10 +18,11 @@
 
   /* 字體 — 中文走系統正黑體優先(Windows 微軟正黑體 / Mac 蘋方),
      與配客嘉參考圖一致;Latin/數字用 Space Grotesk;思源黑體做跨裝置 fallback */
-  --font-cjk: 'PingFang TC', 'PingFang SC', 'Microsoft JhengHei', '微軟正黑體',
-    'Noto Sans TC', system-ui, sans-serif;
-  --font-display: 'Space Grotesk', var(--font-cjk);
-  --font-sans: 'Space Grotesk', var(--font-cjk);
+  --font-cjk:
+    "PingFang TC", "PingFang SC", "Microsoft JhengHei", "微軟正黑體",
+    "Noto Sans TC", system-ui, sans-serif;
+  --font-display: "Space Grotesk", var(--font-cjk);
+  --font-sans: "Space Grotesk", var(--font-cjk);
 
   /* 動畫 */
   --ease-orbit: cubic-bezier(0.22, 1, 0.36, 1);
@@ -30,6 +32,9 @@
 html {
   scroll-behavior: smooth;
   background-color: var(--color-ink);
+  /* sticky 導覽列高度(nav py-4 + logo);hero 靠它墊到 nav 後方,
+     讓置頂透明的導覽列露出 hero 背景。若改動 nav 高度,這裡要同步 */
+  --header-h: 73px;
 }
 
 body {
@@ -50,6 +55,12 @@ body {
   font-family: var(--font-display);
   /* 中文標題不收字距(避免擠);Latin 字距交給各別 utility 控制 */
   letter-spacing: normal;
+}
+
+/* 特粗標題:PingFang 最粗只到 Semibold,故 CJK 改用有 Black(900) 字重的
+   Noto Sans TC,Latin 仍保留 Space Grotesk。搭配 font-black 才會真的變粗 */
+.font-display-heavy {
+  font-family: "Space Grotesk", "Noto Sans TC", var(--font-cjk);
 }
 
 /* ── Orbit 軌道旋轉動畫 ───────────────────────────────────── */

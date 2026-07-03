@@ -7,7 +7,10 @@ import ProductCard from '../components/ProductCard.astro';
 
 <Layout>
   <!-- ── Hero ─────────────────────────────────────────────── -->
-  <section class="relative overflow-hidden">
+  <section
+    class="relative min-h-[100dvh] overflow-hidden"
+    style="margin-top: calc(-1 * var(--header-h)); padding-top: var(--header-h)"
+  >
     <!-- 背景:Orbit 雙環。圓心壓在畫面右緣,只露左半弧,不論螢幕寬窄或旋轉都碰不到左側標語。
          定位放在「不旋轉的 wrapper」上,旋轉只作用在內層 svg,避免 rotate 蓋掉位移。 -->
     <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -64,11 +67,14 @@ import ProductCard from '../components/ProductCard.astro';
         </div>
 
         <h1
-          class="rise-in font-display mt-6 text-5xl font-bold leading-[1.1] text-paper sm:text-6xl lg:text-7xl"
+          class="rise-in font-display font-display-heavy mt-6 text-5xl font-black leading-[1.1] text-paper sm:text-6xl lg:text-7xl"
           style="animation-delay:.05s"
         >
           讓創新構想，<br />
-          <span class="text-orbit">真正進入生活軌道。</span>
+          <span
+            class="bg-linear-to-br from-orbit-light to-orbit bg-clip-text text-transparent"
+            >真正進入生活軌道。</span
+          >
         </h1>
 
         <p
@@ -194,42 +200,48 @@ import ProductCard from '../components/ProductCard.astro';
 
       <div data-stagger class="grid gap-6 md:grid-cols-2">
         <!-- 技術合作 -->
-        <div class="reveal group relative overflow-hidden rounded-3xl border border-ink-line bg-ink p-8 transition duration-300 hover:-translate-y-1 hover:border-orbit/50 lg:p-10">
-          <div class="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/30"></div>
-          <div class="relative">
-            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-ink-soft text-orbit ring-1 ring-ink-line">
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path>
-                <path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4M8 22h8"></path>
-              </svg>
-            </span>
-            <h3 class="mt-5 text-xl font-bold text-paper">尋求技術合作</h3>
-            <p class="mt-3 max-w-md text-sm leading-relaxed text-muted">
-              想找軟硬整合、AIoT 或產品設計的開發夥伴?把你的構想或需求告訴我們,一起評估如何落地。
-            </p>
-            <div class="mt-7">
-              <Button href="/contact">談談合作</Button>
+        <div class="reveal group">
+          <!-- 內層才位移,外層 group 當固定的 hover 目標,避免邊界抖動 -->
+          <div class="relative h-full overflow-hidden rounded-3xl border border-ink-line bg-ink p-8 transition duration-300 group-hover:-translate-y-1 group-hover:border-orbit/50 lg:p-10">
+            <div class="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/30"></div>
+            <div class="relative">
+              <span class="flex h-12 w-12 items-center justify-center rounded-full bg-ink-soft text-orbit ring-1 ring-ink-line">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path>
+                  <path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4M8 22h8"></path>
+                </svg>
+              </span>
+              <h3 class="mt-5 text-xl font-bold text-paper">尋求技術合作</h3>
+              <p class="mt-3 max-w-md text-sm leading-relaxed text-muted">
+                想找軟硬整合、AIoT 或產品設計的開發夥伴?把你的構想或需求告訴我們,一起評估如何落地。
+              </p>
+              <div class="mt-7">
+                <Button href="/contact">談談合作</Button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- 產品需求 -->
-        <div class="reveal group relative overflow-hidden rounded-3xl border border-ink-line bg-ink p-8 transition duration-300 hover:-translate-y-1 hover:border-orbit/50 lg:p-10">
-          <div class="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/30"></div>
-          <div class="relative">
-            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-ink-soft text-orbit ring-1 ring-ink-line">
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-              </svg>
-            </span>
-            <h3 class="mt-5 text-xl font-bold text-paper">了解我們的產品</h3>
-            <p class="mt-3 max-w-md text-sm leading-relaxed text-muted">
-              對 SilverSole 銀足或 QuickPlate 智慧槓片有興趣?看看產品細節,或直接與我們聯絡洽詢。
-            </p>
-            <div class="mt-7">
-              <Button href="/products" variant="outline">查看產品</Button>
+        <div class="reveal group">
+          <!-- 內層才位移,外層 group 當固定的 hover 目標,避免邊界抖動 -->
+          <div class="relative h-full overflow-hidden rounded-3xl border border-ink-line bg-ink p-8 transition duration-300 group-hover:-translate-y-1 group-hover:border-orbit/50 lg:p-10">
+            <div class="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/30"></div>
+            <div class="relative">
+              <span class="flex h-12 w-12 items-center justify-center rounded-full bg-ink-soft text-orbit ring-1 ring-ink-line">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+              </span>
+              <h3 class="mt-5 text-xl font-bold text-paper">了解我們的產品</h3>
+              <p class="mt-3 max-w-md text-sm leading-relaxed text-muted">
+                對 SilverSole 銀足或 QuickPlate 智慧槓片有興趣?看看產品細節,或直接與我們聯絡洽詢。
+              </p>
+              <div class="mt-7">
+                <Button href="/products" variant="outline">查看產品</Button>
+              </div>
             </div>
           </div>
         </div>

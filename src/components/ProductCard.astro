@@ -11,14 +11,11 @@ interface Props {
 const { name, en, tagline, desc, tags, status, class: className = '' } = Astro.props;
 ---
 
-<article
-  class:list={[
-    'group relative overflow-hidden rounded-3xl border border-ink-line bg-ink-soft p-8 transition-all duration-500 hover:-translate-y-1 hover:border-orbit/40 lg:p-10',
-    className,
-  ]}
->
-  <!-- 背景軌道弧:品牌裝飾,hover 旋轉。細線 + 亮橘行星,避免低透明度橘色變濁 -->
-  <div class="relative">
+<article class:list={['group', className]}>
+  <!-- 內層才位移,外層 group 當固定的 hover 目標,避免上移時命中區脫離游標造成邊界抖動 -->
+  <div
+    class="relative h-full overflow-hidden rounded-3xl border border-ink-line bg-ink-soft p-8 transition-all duration-500 group-hover:-translate-y-1 group-hover:border-orbit/40 lg:p-10"
+  >
     <p class="font-display text-xs font-semibold uppercase tracking-[0.2em] text-orbit">
       {en}
     </p>
