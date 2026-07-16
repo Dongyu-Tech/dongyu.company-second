@@ -1,95 +1,126 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Button from '../components/Button.astro';
-import TeamCard from '../components/TeamCard.astro';
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import TeamCard from "../components/TeamCard.astro";
 
 const team = [
-  { name: '葉承均', role: 'CEO', en: 'Founder', dept: '中原大學 機械系' },
-  { name: '沈奕瑋', role: 'CTO', en: 'Tech Lead', dept: '中原大學 資訊工程系' },
-  { name: '曹亦霆', role: 'DM', en: 'Design / Marketing', dept: '中原大學 資訊工程系' },
-  { name: '賴奕涵', role: 'Material', en: 'R&D', dept: '材料研發(兼職)' },
+    { name: "葉承均", role: "CEO", en: "Founder", dept: "中原大學 機械系" },
+    {
+        name: "沈奕瑋",
+        role: "CTO",
+        en: "Co-Founder",
+        dept: "中原大學 資訊工程系",
+    },
+    { name: "王宥媗", role: "CMO", en: "", dept: "英屬哥倫比亞大學 商學學士" },
+    {
+        name: "曹亦霆",
+        role: "HW Design",
+        en: "Co-Founder",
+        dept: "中原大學 資訊工程系",
+    },
+    {
+        name: "賴奕涵",
+        role: "Materials Engineer",
+        en: "",
+        dept: "中原大學 化學工程學系",
+    },
 ];
 
 const values = [
-  {
-    title: '軟硬整合',
-    desc: '不只寫程式,也做硬體與工業設計。我們相信好的智慧產品來自軟體、硬體與資料的緊密結合。',
-  },
-  {
-    title: '真正落地',
-    desc: '從概念到原型,再到場域驗證。每個產品都以「能不能被真實使用」為標準,而非停留在 demo。',
-  },
-  {
-    title: '以人為本',
-    desc: '從長者的行動自主到訓練者的數據回饋,我們關心技術如何改善真實生活中的每個動作。',
-  },
+    {
+        title: "軟硬整合",
+        desc: "不只寫程式,也做硬體與工業設計。我們相信好的智慧產品來自軟體、硬體與資料的緊密結合。",
+    },
+    {
+        title: "真正落地",
+        desc: "從概念到原型,再到場域驗證。每個產品都以「能不能被真實使用」為標準,而非停留在 demo。",
+    },
+    {
+        title: "以人為本",
+        desc: "從長者的行動自主到訓練者的數據回饋,我們關心技術如何改善真實生活中的每個動作。",
+    },
 ];
 ---
 
 <Layout
-  title="關於我們"
-  description="動域科技 — 一群跨機械、資工與材料的創辦團隊,致力於把創新構想轉化為可落地的智慧產品。"
+    title="關於我們"
+    description="動域科技 — 一群跨機械、資工與材料的創辦團隊,致力於把創新構想轉化為可落地的智慧產品。"
 >
-  <!-- ── 標題區 ───────────────────────────────────────────── -->
-  <section class="relative overflow-hidden border-b border-ink-line">
-    <div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-      <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
-        About us
-      </p>
-      <h1 class="mt-4 max-w-3xl text-4xl font-bold leading-tight text-paper sm:text-5xl">
-        打造下一代<br /><span class="text-orbit">智慧產品體驗</span>
-      </h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-        動域科技股份有限公司(Dongyu Tech)是一支跨機械、資訊工程與材料的創辦團隊。
-        我們以軟硬整合與 AI 為核心,專注於把好點子打造成能被真實使用的智慧產品。
-      </p>
-    </div>
-  </section>
+    <!-- ── 標題區 ───────────────────────────────────────────── -->
+    <section class="relative overflow-hidden border-b border-ink-line">
+        <div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
+            <p
+                class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit"
+            >
+                About us
+            </p>
+            <h1
+                class="mt-4 max-w-3xl text-4xl font-bold leading-tight text-paper sm:text-5xl"
+            >
+                打造下一代<br /><span class="text-orbit">智慧產品體驗</span>
+            </h1>
+            <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+                動域科技股份有限公司(Dongyu
+                Tech)是一支跨機械、資訊工程與材料的創辦團隊。 我們以軟硬整合與
+                AI 為核心,專注於把好點子打造成能被真實使用的智慧產品。
+            </p>
+        </div>
+    </section>
 
-  <!-- ── 使命 / 價值 ──────────────────────────────────────── -->
-  <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-    <div data-stagger class="grid gap-5 md:grid-cols-3">
-      {
-        values.map((v) => (
-          <div class="reveal group">
-            <div class="h-full rounded-2xl border border-ink-line bg-ink-soft p-7 transition duration-300 group-hover:-translate-y-1 group-hover:border-orbit/40">
-              <div class="font-display text-2xl font-bold text-orbit">●</div>
-              <h3 class="mt-4 text-xl font-bold text-paper">{v.title}</h3>
-              <p class="mt-3 text-sm leading-relaxed text-muted">{v.desc}</p>
+    <!-- ── 使命 / 價值 ──────────────────────────────────────── -->
+    <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
+        <div data-stagger class="grid gap-5 md:grid-cols-3">
+            {
+                values.map((v) => (
+                    <div class="reveal group">
+                        <div class="h-full rounded-2xl border border-ink-line bg-ink-soft p-7 transition duration-300 group-hover:-translate-y-1 group-hover:border-orbit/40">
+                            <div class="font-display text-2xl font-bold text-orbit">
+                                ●
+                            </div>
+                            <h3 class="mt-4 text-xl font-bold text-paper">
+                                {v.title}
+                            </h3>
+                            <p class="mt-3 text-sm leading-relaxed text-muted">
+                                {v.desc}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- ── 團隊 ─────────────────────────────────────────────── -->
+    <section class="border-t border-ink-line bg-ink-soft/40">
+        <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
+            <div class="reveal mb-12 flex flex-col gap-3">
+                <p
+                    class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit"
+                >
+                    Our team
+                </p>
+                <h2 class="text-3xl font-bold text-paper sm:text-4xl">團隊</h2>
+                <p class="max-w-xl text-muted">
+                    四位來自不同領域的夥伴,從機械結構、軟體系統到材料研發,組成能完整把產品做出來的團隊。
+                </p>
             </div>
-          </div>
-        ))
-      }
-    </div>
-  </section>
 
-  <!-- ── 團隊 ─────────────────────────────────────────────── -->
-  <section class="border-t border-ink-line bg-ink-soft/40">
-    <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-      <div class="reveal mb-12 flex flex-col gap-3">
-        <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
-          Our team
-        </p>
-        <h2 class="text-3xl font-bold text-paper sm:text-4xl">創辦團隊</h2>
-        <p class="max-w-xl text-muted">
-          四位來自不同領域的夥伴,從機械結構、軟體系統到材料研發,組成能完整把產品做出來的團隊。
-        </p>
-      </div>
+            <div data-stagger class="grid gap-5 sm:grid-cols-2">
+                {team.map((m) => <TeamCard class="reveal" {...m} />)}
+            </div>
+        </div>
+    </section>
 
-      <div data-stagger class="grid gap-5 sm:grid-cols-2">
-        {team.map((m) => <TeamCard class="reveal" {...m} />)}
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CTA ──────────────────────────────────────────────── -->
-  <section class="border-t border-ink-line">
-    <div class="mx-auto max-w-7xl px-6 py-20 text-center lg:px-10">
-      <h2 class="text-3xl font-bold text-paper sm:text-4xl">想了解我們在做什麼?</h2>
-      <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <Button href="/products">查看產品</Button>
-        <Button href="/contact" variant="outline">聯絡我們</Button>
-      </div>
-    </div>
-  </section>
+    <!-- ── CTA ──────────────────────────────────────────────── -->
+    <section class="border-t border-ink-line">
+        <div class="mx-auto max-w-7xl px-6 py-20 text-center lg:px-10">
+            <h2 class="text-3xl font-bold text-paper sm:text-4xl">
+                想了解我們在做什麼?
+            </h2>
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+                <Button href="/products">查看產品</Button>
+                <Button href="/contact" variant="outline">聯絡我們</Button>
+            </div>
+        </div>
+    </section>
 </Layout>
