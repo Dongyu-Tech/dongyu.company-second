@@ -251,13 +251,13 @@ import ProductCard from "../components/ProductCard.astro";
         <div class="reveal group">
           <!-- 內層才位移,外層 group 當固定的 hover 目標,避免邊界抖動 -->
           <div
-            class="relative h-full overflow-hidden rounded-3xl border border-ink-line bg-ink p-8 transition duration-300 group-hover:-translate-y-1 group-hover:border-orbit/50 lg:p-10"
+            class="relative flex h-full flex-col overflow-hidden rounded-3xl border border-ink-line bg-ink p-8 transition duration-300 group-hover:-translate-y-1 group-hover:border-orbit/50 lg:p-10"
           >
             <div
               class="pointer-events-none absolute -top-12 -right-12 h-32 w-32 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/30"
             >
             </div>
-            <div class="relative">
+            <div class="relative flex flex-1 flex-col">
               <span
                 class="flex h-12 w-12 items-center justify-center rounded-full bg-ink-soft text-orbit ring-1 ring-ink-line"
               >
@@ -280,7 +280,7 @@ import ProductCard from "../components/ProductCard.astro";
                 想找軟硬整合、AIoT
                 或產品設計的開發夥伴?把你的構想或需求告訴我們,一起評估如何落地。
               </p>
-              <div class="mt-7">
+              <div class="mt-auto pt-7">
                 <Button href="/contact">談談合作</Button>
               </div>
             </div>
@@ -291,13 +291,13 @@ import ProductCard from "../components/ProductCard.astro";
         <div class="reveal group">
           <!-- 內層才位移,外層 group 當固定的 hover 目標,避免邊界抖動 -->
           <div
-            class="relative h-full overflow-hidden rounded-3xl border border-ink-line bg-ink p-8 transition duration-300 group-hover:-translate-y-1 group-hover:border-orbit/50 lg:p-10"
+            class="relative flex h-full flex-col overflow-hidden rounded-3xl border border-ink-line bg-ink p-8 transition duration-300 group-hover:-translate-y-1 group-hover:border-orbit/50 lg:p-10"
           >
             <div
               class="pointer-events-none absolute -top-12 -right-12 h-32 w-32 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/30"
             >
             </div>
-            <div class="relative">
+            <div class="relative flex flex-1 flex-col">
               <span
                 class="flex h-12 w-12 items-center justify-center rounded-full bg-ink-soft text-orbit ring-1 ring-ink-line"
               >
@@ -322,7 +322,7 @@ import ProductCard from "../components/ProductCard.astro";
                 對 SilverSole 銀足或 QuickPlate
                 智慧槓片有興趣?看看產品細節,或直接與我們聯絡洽詢。
               </p>
-              <div class="mt-7">
+              <div class="mt-auto pt-7">
                 <Button href="/products" variant="outline">查看產品</Button>
               </div>
             </div>
