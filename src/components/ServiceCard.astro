@@ -6,24 +6,26 @@ interface Props {
   desc: string;
   class?: string;
 }
-const { title, en, desc, class: className = '' } = Astro.props;
+const { title, en, desc, class: className = "" } = Astro.props;
 ---
 
-<div class:list={['group', className]}>
+<div class:list={["group", className]}>
   <!-- 內層才位移,外層 group 當固定的 hover 目標,避免邊界抖動 -->
   <div
     class="relative h-full overflow-hidden rounded-2xl border border-ink-line bg-ink-soft p-7 transition duration-300 group-hover:-translate-y-1 group-hover:border-orbit/50"
   >
     <!-- hover 時右上角浮現的軌道弧線 -->
     <div
-      class="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/30"
+      class="pointer-events-none absolute -top-10 -right-10 h-28 w-28 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/30"
     >
     </div>
 
     <div class="mb-5 text-orbit">
       <slot />
     </div>
-    <p class="font-display text-xs font-medium uppercase tracking-[0.2em] text-faint">
+    <p
+      class="font-display text-xs font-medium tracking-[0.2em] text-faint uppercase"
+    >
       {en}
     </p>
     <h3 class="mt-1 text-xl font-bold text-paper">{title}</h3>

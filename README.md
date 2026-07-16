@@ -15,12 +15,12 @@ pnpm preview     # 預覽 build 結果
 
 ## 頁面
 
-| 路徑 | 內容 |
-|---|---|
-| `/` | 首頁：Hero ＋ 三大核心能力 ＋ 代表產品 ＋ CTA |
-| `/about` | 關於我們：使命/價值 ＋ 創辦團隊 |
-| `/products` | 產品：SilverSole 銀足、QuickPlate 智慧槓片 |
-| `/contact` | 聯絡我們：表單（mailto）＋ Email |
+| 路徑        | 內容                                          |
+| ----------- | --------------------------------------------- |
+| `/`         | 首頁：Hero ＋ 三大核心能力 ＋ 代表產品 ＋ CTA |
+| `/about`    | 關於我們：使命/價值 ＋ 創辦團隊               |
+| `/products` | 產品：SilverSole 銀足、QuickPlate 智慧槓片    |
+| `/contact`  | 聯絡我們：表單（mailto）＋ Email              |
 
 ## 結構
 

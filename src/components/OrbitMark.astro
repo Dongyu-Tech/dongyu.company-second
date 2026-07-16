@@ -9,10 +9,10 @@ interface Props {
   spin?: boolean;
 }
 const {
-  ink = '#ffffff',
-  accent = '#D9472B',
+  ink = "#ffffff",
+  accent = "#D9472B",
   size = 40,
-  class: className = '',
+  class: className = "",
   spin = false,
 } = Astro.props;
 ---
@@ -26,7 +26,7 @@ const {
   aria-label="動域科技 Orbit logo"
 >
   <g transform="translate(64 64)">
-    <g class={spin ? 'orbit-rotor' : ''} style="transform-origin:0 0">
+    <g class={spin ? "orbit-rotor" : ""} style="transform-origin:0 0">
       <path
         d="M 0 -56 A 56 56 0 1 1 -39.6 39.6"
         fill="none"

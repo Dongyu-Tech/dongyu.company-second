@@ -1,8 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Button from '../components/Button.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-import ProductCard from '../components/ProductCard.astro';
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import ProductCard from "../components/ProductCard.astro";
 ---
 
 <Layout>
@@ -13,12 +13,18 @@ import ProductCard from '../components/ProductCard.astro';
   >
     <!-- 背景:Orbit 雙環。圓心壓在畫面右緣,只露左半弧,不論螢幕寬窄或旋轉都碰不到左側標語。
          定位放在「不旋轉的 wrapper」上,旋轉只作用在內層 svg,避免 rotate 蓋掉位移。 -->
-    <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div
+      class="pointer-events-none absolute inset-0 overflow-hidden"
+      aria-hidden="true"
+    >
       <!-- 外圈:亮環 + 行星 -->
       <div
-        class="absolute right-0 top-1/2 aspect-square h-[118%] -translate-y-1/2 translate-x-1/2"
+        class="absolute top-1/2 right-0 aspect-square h-[118%] translate-x-1/2 -translate-y-1/2"
       >
-        <svg class="animate-orbit h-full w-full text-orbit/10" viewBox="0 0 128 128">
+        <svg
+          class="animate-orbit h-full w-full text-orbit/10"
+          viewBox="0 0 128 128"
+        >
           <g transform="translate(64 64)">
             <path
               d="M 0 -56 A 56 56 0 1 1 -39.6 39.6"
@@ -26,15 +32,19 @@ import ProductCard from '../components/ProductCard.astro';
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"></path>
-            <circle cx="-39.6" cy="39.6" r="5" fill="var(--color-orbit)"></circle>
+            <circle cx="-39.6" cy="39.6" r="5" fill="var(--color-orbit)"
+            ></circle>
           </g>
         </svg>
       </div>
       <!-- 內圈:淡環 -->
       <div
-        class="absolute right-0 top-1/2 aspect-square h-[72%] -translate-y-1/2 translate-x-1/2"
+        class="absolute top-1/2 right-0 aspect-square h-[72%] translate-x-1/2 -translate-y-1/2"
       >
-        <svg class="animate-orbit-slow h-full w-full text-paper/5" viewBox="0 0 128 128">
+        <svg
+          class="animate-orbit-slow h-full w-full text-paper/5"
+          viewBox="0 0 128 128"
+        >
           <g transform="translate(64 64)">
             <path
               d="M 0 -56 A 56 56 0 1 1 -39.6 39.6"
@@ -67,7 +77,7 @@ import ProductCard from '../components/ProductCard.astro';
         </div>
 
         <h1
-          class="rise-in font-display font-display-heavy mt-6 text-5xl font-black leading-[1.1] text-paper sm:text-6xl lg:text-7xl"
+          class="rise-in font-display-heavy mt-6 font-display text-5xl leading-[1.1] font-black text-paper sm:text-6xl lg:text-7xl"
           style="animation-delay:.05s"
         >
           讓創新構想，<br />
@@ -99,7 +109,9 @@ import ProductCard from '../components/ProductCard.astro';
   <!-- ── 服務領域 ─────────────────────────────────────────── -->
   <section id="services" class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
     <div class="reveal mb-12 flex flex-col gap-3">
-      <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+      <p
+        class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+      >
         What we do
       </p>
       <h2 class="text-3xl font-bold text-paper sm:text-4xl">三大核心能力</h2>
@@ -112,10 +124,19 @@ import ProductCard from '../components/ProductCard.astro';
         en="AI · IoT"
         desc="感測器、低功耗韌體到雲端,一條鏈打通。像銀足鞋墊用慣性與壓力感測即時算出跌倒風險。"
       >
-        <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <svg
+          class="h-9 w-9"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <rect x="4" y="4" width="16" height="16" rx="2"></rect>
           <rect x="9" y="9" width="6" height="6"></rect>
-          <path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"></path>
+          <path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"
+          ></path>
         </svg>
       </ServiceCard>
 
@@ -125,8 +146,18 @@ import ProductCard from '../components/ProductCard.astro';
         en="Product Design"
         desc="不只畫概念圖 — 從 3D 建模到 3D 列印,直接做出可商品化的硬體;列印對我們不只是打樣,更是量產方式。"
       >
-        <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+        <svg
+          class="h-9 w-9"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+          ></path>
           <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
           <line x1="12" y1="22.08" x2="12" y2="12"></line>
         </svg>
@@ -138,7 +169,15 @@ import ProductCard from '../components/ProductCard.astro';
         en="Software Engineering"
         desc="Web、App 與資料後台自己寫,讓裝置吐出的數據變成使用者一眼看懂的畫面。"
       >
-        <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <svg
+          class="h-9 w-9"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <polyline points="16 18 22 12 16 6"></polyline>
           <polyline points="8 6 2 12 8 18"></polyline>
         </svg>
@@ -151,7 +190,9 @@ import ProductCard from '../components/ProductCard.astro';
     <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
       <div class="reveal mb-12 flex flex-wrap items-end justify-between gap-4">
         <div class="flex flex-col gap-3">
-          <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
             Our products
           </p>
           <h2 class="text-3xl font-bold text-paper sm:text-4xl">主打商品</h2>
@@ -172,7 +213,12 @@ import ProductCard from '../components/ProductCard.astro';
           en="Smart Insole"
           tagline="延青春 — 延長行動自主歲月"
           desc="銀足智慧鞋墊,結合慣性與壓力感測,以三維度演算法即時偵測跌倒風險,並具 Step-to-Wake 自動喚醒發明專利技術。"
-          tags={['即時跌倒偵測', 'Step-to-Wake 發明專利', '高齡照護', '長照場域驗證']}
+          tags={[
+            "即時跌倒偵測",
+            "Step-to-Wake 發明專利",
+            "高齡照護",
+            "長照場域驗證",
+          ]}
         />
         <ProductCard
           class="reveal"
@@ -180,7 +226,7 @@ import ProductCard from '../components/ProductCard.astro';
           en="Smart Weight Plate"
           tagline="側開秒拆 — 一片即槓、啞、鈴、輪"
           desc="以發明專利「扣合式槓片結構」(I900457)為核心,側邊秒級換重、一片變形為槓鈴／啞鈴／壺鈴／健腹輪,並用 NFC + IMU 自動計次與 VBT 速度分析。"
-          tags={['發明專利 I900457', '側開換重', 'NFC + IMU', 'VBT']}
+          tags={["發明專利 I900457", "側開換重", "NFC + IMU", "VBT"]}
         />
       </div>
     </div>
@@ -190,7 +236,9 @@ import ProductCard from '../components/ProductCard.astro';
   <section class="border-t border-ink-line bg-ink-soft/40">
     <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
       <div class="reveal mb-12 text-center">
-        <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+        <p
+          class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+        >
           Work with us
         </p>
         <h2 class="mt-3 text-3xl font-bold text-paper sm:text-4xl">
@@ -202,18 +250,35 @@ import ProductCard from '../components/ProductCard.astro';
         <!-- 技術合作 -->
         <div class="reveal group">
           <!-- 內層才位移,外層 group 當固定的 hover 目標,避免邊界抖動 -->
-          <div class="relative h-full overflow-hidden rounded-3xl border border-ink-line bg-ink p-8 transition duration-300 group-hover:-translate-y-1 group-hover:border-orbit/50 lg:p-10">
-            <div class="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/30"></div>
+          <div
+            class="relative h-full overflow-hidden rounded-3xl border border-ink-line bg-ink p-8 transition duration-300 group-hover:-translate-y-1 group-hover:border-orbit/50 lg:p-10"
+          >
+            <div
+              class="pointer-events-none absolute -top-12 -right-12 h-32 w-32 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/30"
+            >
+            </div>
             <div class="relative">
-              <span class="flex h-12 w-12 items-center justify-center rounded-full bg-ink-soft text-orbit ring-1 ring-ink-line">
-                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path>
+              <span
+                class="flex h-12 w-12 items-center justify-center rounded-full bg-ink-soft text-orbit ring-1 ring-ink-line"
+              >
+                <svg
+                  class="h-6 w-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"
+                  ></path>
                   <path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4M8 22h8"></path>
                 </svg>
               </span>
               <h3 class="mt-5 text-xl font-bold text-paper">尋求技術合作</h3>
               <p class="mt-3 max-w-md text-sm leading-relaxed text-muted">
-                想找軟硬整合、AIoT 或產品設計的開發夥伴?把你的構想或需求告訴我們,一起評估如何落地。
+                想找軟硬整合、AIoT
+                或產品設計的開發夥伴?把你的構想或需求告訴我們,一起評估如何落地。
               </p>
               <div class="mt-7">
                 <Button href="/contact">談談合作</Button>
@@ -225,19 +290,37 @@ import ProductCard from '../components/ProductCard.astro';
         <!-- 產品需求 -->
         <div class="reveal group">
           <!-- 內層才位移,外層 group 當固定的 hover 目標,避免邊界抖動 -->
-          <div class="relative h-full overflow-hidden rounded-3xl border border-ink-line bg-ink p-8 transition duration-300 group-hover:-translate-y-1 group-hover:border-orbit/50 lg:p-10">
-            <div class="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/30"></div>
+          <div
+            class="relative h-full overflow-hidden rounded-3xl border border-ink-line bg-ink p-8 transition duration-300 group-hover:-translate-y-1 group-hover:border-orbit/50 lg:p-10"
+          >
+            <div
+              class="pointer-events-none absolute -top-12 -right-12 h-32 w-32 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/30"
+            >
+            </div>
             <div class="relative">
-              <span class="flex h-12 w-12 items-center justify-center rounded-full bg-ink-soft text-orbit ring-1 ring-ink-line">
-                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <span
+                class="flex h-12 w-12 items-center justify-center rounded-full bg-ink-soft text-orbit ring-1 ring-ink-line"
+              >
+                <svg
+                  class="h-6 w-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  ></path>
                   <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                   <line x1="12" y1="22.08" x2="12" y2="12"></line>
                 </svg>
               </span>
               <h3 class="mt-5 text-xl font-bold text-paper">了解我們的產品</h3>
               <p class="mt-3 max-w-md text-sm leading-relaxed text-muted">
-                對 SilverSole 銀足或 QuickPlate 智慧槓片有興趣?看看產品細節,或直接與我們聯絡洽詢。
+                對 SilverSole 銀足或 QuickPlate
+                智慧槓片有興趣?看看產品細節,或直接與我們聯絡洽詢。
               </p>
               <div class="mt-7">
                 <Button href="/products" variant="outline">查看產品</Button>

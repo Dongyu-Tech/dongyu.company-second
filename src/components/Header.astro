@@ -1,15 +1,15 @@
 ---
-import OrbitMark from './OrbitMark.astro';
+import OrbitMark from "./OrbitMark.astro";
 
 const path = Astro.url.pathname;
 const links = [
-  { href: '/', label: '首頁' },
-  { href: '/about', label: '關於' },
-  { href: '/products', label: '產品' },
-  { href: '/contact', label: '聯絡' },
+  { href: "/", label: "首頁" },
+  { href: "/about", label: "關於" },
+  { href: "/products", label: "產品" },
+  { href: "/contact", label: "聯絡" },
 ];
 const isActive = (href: string) =>
-  href === '/' ? path === '/' : path.startsWith(href);
+  href === "/" ? path === "/" : path.startsWith(href);
 ---
 
 <header
@@ -19,7 +19,11 @@ const isActive = (href: string) =>
   <nav
     class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10"
   >
-    <a href="/" class="group flex items-center gap-3" aria-label="動域科技 首頁">
+    <a
+      href="/"
+      class="group flex items-center gap-3"
+      aria-label="動域科技 首頁"
+    >
       <OrbitMark size={34} spin={true} />
       <div class="leading-tight">
         <p class="font-display text-base font-bold text-paper">Dongyu Tech</p>
@@ -31,23 +35,23 @@ const isActive = (href: string) =>
     <ul class="hidden items-center gap-8 md:flex">
       {
         links
-          .filter((l) => l.href !== '/contact')
+          .filter((l) => l.href !== "/contact")
           .map((l) => (
-          <li>
-            <a
-              href={l.href}
-              class:list={[
-                'relative text-sm font-medium transition-colors hover:text-paper',
-                isActive(l.href) ? 'text-paper' : 'text-muted',
-              ]}
-            >
-              {l.label}
-              {isActive(l.href) && (
-                <span class="absolute -bottom-1.5 left-0 h-0.5 w-full bg-orbit" />
-              )}
-            </a>
-          </li>
-        ))
+            <li>
+              <a
+                href={l.href}
+                class:list={[
+                  "relative text-sm font-medium transition-colors hover:text-paper",
+                  isActive(l.href) ? "text-paper" : "text-muted",
+                ]}
+              >
+                {l.label}
+                {isActive(l.href) && (
+                  <span class="absolute -bottom-1.5 left-0 h-0.5 w-full bg-orbit" />
+                )}
+              </a>
+            </li>
+          ))
       }
       <li>
         <a
@@ -84,8 +88,8 @@ const isActive = (href: string) =>
             <a
               href={l.href}
               class:list={[
-                'block py-3 text-base font-medium',
-                isActive(l.href) ? 'text-orbit' : 'text-paper',
+                "block py-3 text-base font-medium",
+                isActive(l.href) ? "text-orbit" : "text-paper",
               ]}
             >
               {l.label}
@@ -108,7 +112,11 @@ const isActive = (href: string) =>
   }
   #site-header[data-scrolled] {
     background-color: color-mix(in oklab, var(--color-ink) 80%, transparent);
-    border-bottom-color: color-mix(in oklab, var(--color-ink-line) 70%, transparent);
+    border-bottom-color: color-mix(
+      in oklab,
+      var(--color-ink-line) 70%,
+      transparent
+    );
     backdrop-filter: blur(12px);
   }
 
@@ -137,26 +145,26 @@ const isActive = (href: string) =>
 
 <script>
   function setupMenu() {
-    const toggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('mobile-menu');
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("mobile-menu");
     if (!toggle || !menu) return;
-    toggle.addEventListener('click', () => {
-      const isOpen = menu.toggleAttribute('data-open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.addEventListener("click", () => {
+      const isOpen = menu.toggleAttribute("data-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
     });
   }
 
   // 置頂(0~50)透明,捲過 50px 後加上 data-scrolled
   function updateHeader() {
-    const header = document.getElementById('site-header');
+    const header = document.getElementById("site-header");
     if (!header) return;
-    header.toggleAttribute('data-scrolled', window.scrollY > 50);
+    header.toggleAttribute("data-scrolled", window.scrollY > 50);
   }
 
   // scroll 監聽只綁一次(module 只執行一次,window 不會被 View Transitions 換掉)
-  window.addEventListener('scroll', updateHeader, { passive: true });
+  window.addEventListener("scroll", updateHeader, { passive: true });
   // 每次 View Transitions 導覽都重跑:重綁選單 + 重設 header 初始狀態
-  document.addEventListener('astro:page-load', () => {
+  document.addEventListener("astro:page-load", () => {
     setupMenu();
     updateHeader();
   });
