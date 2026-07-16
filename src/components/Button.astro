@@ -1,23 +1,25 @@
 ---
 interface Props {
   href: string;
-  variant?: 'primary' | 'outline';
+  variant?: "primary" | "outline";
   /** 顯示尾端箭頭。預設只有主要按鈕(primary)顯示,讓箭頭專屬強調主要動作 */
   arrow?: boolean;
   class?: string;
 }
 const {
   href,
-  variant = 'primary',
-  arrow = variant === 'primary',
-  class: className = '',
+  variant = "primary",
+  arrow = variant === "primary",
+  class: className = "",
 } = Astro.props;
 
 const base =
-  'group inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-semibold transition-all duration-300';
+  "group inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-semibold transition-all duration-300";
 const styles = {
-  primary: 'bg-orbit text-white hover:bg-orbit-bright hover:shadow-lg hover:shadow-orbit/25',
-  outline: 'border border-ink-line text-paper hover:border-orbit hover:text-orbit',
+  primary:
+    "bg-orbit text-white hover:bg-orbit-bright hover:shadow-lg hover:shadow-orbit/25",
+  outline:
+    "border border-ink-line text-paper hover:border-orbit hover:text-orbit",
 };
 ---
 

@@ -1,23 +1,27 @@
 ---
-import OrbitMark from './OrbitMark.astro';
+import OrbitMark from "./OrbitMark.astro";
 
 const year = new Date().getFullYear();
 const links = [
-  { href: '/', label: '首頁' },
-  { href: '/about', label: '關於我們' },
-  { href: '/products', label: '產品' },
-  { href: '/contact', label: '聯絡我們' },
+  { href: "/", label: "首頁" },
+  { href: "/about", label: "關於我們" },
+  { href: "/products", label: "產品" },
+  { href: "/contact", label: "聯絡我們" },
 ];
 ---
 
 <footer class="border-t border-ink-line bg-ink-soft">
   <div class="mx-auto max-w-7xl px-6 py-14 lg:px-10">
-    <div class="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+    <div
+      class="flex flex-col gap-10 md:flex-row md:items-start md:justify-between"
+    >
       <div class="max-w-sm">
         <div class="flex items-center gap-3">
           <OrbitMark size={36} />
           <div class="leading-tight">
-            <p class="font-display text-base font-bold text-paper">Dongyu Tech</p>
+            <p class="font-display text-base font-bold text-paper">
+              Dongyu Tech
+            </p>
             <p class="text-xs tracking-[0.3em] text-muted">動域科技</p>
           </div>
         </div>
@@ -28,7 +32,7 @@ const links = [
 
       <div class="flex flex-col gap-8 sm:flex-row sm:gap-16">
         <nav>
-          <p class="text-xs font-semibold uppercase tracking-widest text-faint">
+          <p class="text-xs font-semibold tracking-widest text-faint uppercase">
             導覽
           </p>
           <ul class="mt-4 space-y-3">
@@ -48,7 +52,7 @@ const links = [
         </nav>
 
         <div>
-          <p class="text-xs font-semibold uppercase tracking-widest text-faint">
+          <p class="text-xs font-semibold tracking-widest text-faint uppercase">
             聯絡
           </p>
           <ul class="mt-4 space-y-3 text-sm text-muted">

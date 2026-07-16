@@ -1,8 +1,8 @@
 ---
-import '../styles/global.css';
-import { ClientRouter } from 'astro:transitions';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title?: string;
@@ -10,14 +10,12 @@ interface Props {
 }
 
 const {
-  title = '動域科技 Dongyu Tech',
-  description = '動域科技 — 結合軟體、硬體與 AI 能力,將創新構想轉化為真正可落地的智慧產品與服務。',
+  title = "動域科技 Dongyu Tech",
+  description = "動域科技 — 結合軟體、硬體與 AI 能力,將創新構想轉化為真正可落地的智慧產品與服務。",
 } = Astro.props;
 
 const fullTitle =
-  title === '動域科技 Dongyu Tech'
-    ? title
-    : `${title}｜動域科技 Dongyu Tech`;
+  title === "動域科技 Dongyu Tech" ? title : `${title}｜動域科技 Dongyu Tech`;
 ---
 
 <!doctype html>
@@ -48,7 +46,7 @@ const fullTitle =
     <!-- 頁面切換平滑轉場 -->
     <ClientRouter />
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="flex min-h-screen flex-col">
     <Header />
     <main class="flex-1">
       <slot />
@@ -58,32 +56,36 @@ const fullTitle =
     <!-- 捲動進場:元素進入視窗時加 .is-visible -->
     <script>
       function setupReveal() {
-        const els = document.querySelectorAll<HTMLElement>('.reveal:not(.is-visible)');
+        const els = document.querySelectorAll<HTMLElement>(
+          ".reveal:not(.is-visible)",
+        );
         // 群組交錯:為 [data-stagger] 的子元素加遞增延遲
-        document.querySelectorAll<HTMLElement>('[data-stagger]').forEach((group) => {
-          Array.from(group.children).forEach((child, i) => {
-            (child as HTMLElement).style.transitionDelay = `${i * 90}ms`;
+        document
+          .querySelectorAll<HTMLElement>("[data-stagger]")
+          .forEach((group) => {
+            Array.from(group.children).forEach((child, i) => {
+              (child as HTMLElement).style.transitionDelay = `${i * 90}ms`;
+            });
           });
-        });
-        if (!('IntersectionObserver' in window)) {
-          els.forEach((el) => el.classList.add('is-visible'));
+        if (!("IntersectionObserver" in window)) {
+          els.forEach((el) => el.classList.add("is-visible"));
           return;
         }
         const io = new IntersectionObserver(
           (entries) => {
             entries.forEach((en) => {
               if (en.isIntersecting) {
-                en.target.classList.add('is-visible');
+                en.target.classList.add("is-visible");
                 io.unobserve(en.target);
               }
             });
           },
-          { rootMargin: '0px 0px -8% 0px', threshold: 0.12 }
+          { rootMargin: "0px 0px -8% 0px", threshold: 0.12 },
         );
         els.forEach((el) => io.observe(el));
       }
       // 首次載入 + 每次 View Transition 導航後都重新掛載
-      document.addEventListener('astro:page-load', setupReveal);
+      document.addEventListener("astro:page-load", setupReveal);
     </script>
   </body>
 </html>
