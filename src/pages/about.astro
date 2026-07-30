@@ -4,25 +4,53 @@ import Button from "../components/Button.astro";
 import TeamCard from "../components/TeamCard.astro";
 
 const team = [
-  { name: "葉承均", role: "CEO", en: "Founder", dept: "中原大學 機械系" },
+  {
+    name: "葉承均",
+    role: "CEO",
+    en: "Founder",
+    dept: "中原大學 機械系・產品設計/募資",
+  },
   {
     name: "沈奕瑋",
     role: "CTO",
-    en: "Co-Founder",
-    dept: "中原大學 資訊工程系",
+    en: "Co-founder",
+    dept: "中原大學 資工系・演算法/韌體/App",
   },
-  { name: "王宥媗", role: "CMO", en: "", dept: "英屬哥倫比亞大學 商學學士" },
+  {
+    name: "王宥媗",
+    role: "CMO",
+    en: "Marketing",
+    dept: "英屬哥倫比亞大學 商學・行銷/通路合作",
+  },
   {
     name: "曹亦霆",
-    role: "HW Design",
-    en: "Co-Founder",
-    dept: "中原大學 資訊工程系",
+    role: "研發工程師",
+    en: "R&D Engineer",
+    dept: "中原大學 資工系・PCB/硬體整合",
+  },
+  {
+    name: "謝沅峰",
+    role: "硬體工程師",
+    en: "Hardware",
+    dept: "淡江大學 電機系・電路設計/電源",
   },
   {
     name: "賴奕涵",
-    role: "Materials Engineer",
-    en: "",
-    dept: "中原大學 化學工程學系",
+    role: "材料工程師",
+    en: "Materials",
+    dept: "中原大學 化工系・材料與可靠度",
+  },
+  {
+    name: "張哲語",
+    role: "公共事務專員",
+    en: "Public Affairs",
+    dept: "暨南大學 公共行政・長照政策/補助對接",
+  },
+  {
+    name: "廖苡叡",
+    role: "法務專員",
+    en: "Legal",
+    dept: "銘傳大學 法律系・專利/合約/法遵",
   },
 ];
 
@@ -44,10 +72,10 @@ const values = [
 
 <Layout
   title="關於我們"
-  description="動域科技 — 一群跨機械、資工與材料的創辦團隊,致力於把創新構想轉化為可落地的智慧產品。"
+  description="動域科技 — 跨校跨領域團隊,從機械、資工、電機到商學與法律,致力於把創新構想轉化為可落地的智慧產品。"
 >
   <!-- ── 標題區 ───────────────────────────────────────────── -->
-  <section class="relative overflow-hidden border-b border-ink-line">
+  <section class="relative overflow-hidden border-b border-line">
     <div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
       <p
         class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
@@ -55,29 +83,128 @@ const values = [
         About us
       </p>
       <h1
-        class="mt-4 max-w-3xl text-4xl leading-tight font-bold text-paper sm:text-5xl"
+        class="mt-4 max-w-3xl text-4xl leading-tight font-bold text-ink sm:text-5xl"
       >
         打造下一代<br /><span class="text-orbit">智慧產品體驗</span>
       </h1>
       <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-        動域科技股份有限公司(Dongyu
-        Tech)是一支跨機械、資訊工程與材料的創辦團隊。 我們以軟硬整合與 AI
-        為核心,專注於把好點子打造成能被真實使用的智慧產品。
+        動域科技股份有限公司(Dongyu Tech)是一支跨校跨領域團隊,
+        成員橫跨機械、資訊工程、電機、化工、商學、公共行政與法律。
+        我們以軟硬整合與 AI 為核心,專注於把好點子打造成能被真實使用的智慧產品。
       </p>
+    </div>
+  </section>
+
+  <!-- ── 我們的故事 ───────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
+      <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+        <div class="reveal">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
+            Our story
+          </p>
+          <h2 class="mt-3 text-3xl leading-snug font-bold text-ink sm:text-4xl">
+            從校園工作室,<br />做到真實場域
+          </h2>
+        </div>
+        <div class="reveal space-y-5 text-base leading-relaxed text-muted">
+          <p>
+            動域科技從中原大學的學生團隊出發。我們沒有先寫好企劃書再找題目,而是反過來
+            — 把每一場競賽都當成一次市場檢驗:累計參與超過 25
+            場創新創業與設計競賽,從評審的追問和使用者的反應裡,把產品一次次改到能真正被使用。
+          </p>
+          <p>
+            這條路讓我們拿到了發明專利、創業補助,也讓 SilverSole
+            銀足從簡報上的概念,變成長照場域裡實際運作的裝置。
+          </p>
+          <p>
+            2026 年,我們把戰場從簡報台搬進真實場域 —
+            與洄瀾樂齡團隊合作的高齡科技巡迴賦能計畫奪下花蓮 HSH
+            創新創業戰鬥營金獎,
+            樂齡運動課程與步態量測,正一站一站走進花蓮的文健站。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 名字與標誌 ───────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
+      <div class="reveal mb-12 flex flex-col gap-3">
+        <p
+          class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+        >
+          Name &amp; mark
+        </p>
+        <h2 class="text-3xl font-bold text-ink sm:text-4xl">名字與標誌</h2>
+      </div>
+      <div data-stagger class="grid gap-5 md:grid-cols-2">
+        <div
+          class="reveal rounded-2xl border border-line bg-card p-8 shadow-sm"
+        >
+          <h3 class="text-xl font-bold text-ink">「動域」— 動作的領域</h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted lg:text-base">
+            我們相信「動」是人最誠實的語言 — 步態、發力、平衡,
+            身體的狀態都藏在每一個動作裡。動域科技做的事,
+            就是用感測與演算法把這個領域打開,讓看不見的動作變成看得懂的資訊。
+          </p>
+        </div>
+        <div
+          class="reveal rounded-2xl border border-line bg-card p-8 shadow-sm"
+        >
+          <div class="flex items-center gap-4">
+            <svg
+              viewBox="0 0 128 128"
+              width="44"
+              height="44"
+              role="img"
+              aria-label="Orbit 標誌"
+            >
+              <g transform="translate(64 64)">
+                <path
+                  d="M 0 -56 A 56 56 0 1 1 -39.6 39.6"
+                  fill="none"
+                  stroke="#1A191D"
+                  stroke-width="10"
+                  stroke-linecap="round"></path>
+                <circle cx="-39.6" cy="39.6" r="11" fill="#D9472B"></circle>
+                <circle cx="0" cy="0" r="4" fill="#1A191D"></circle>
+              </g>
+            </svg>
+            <h3 class="text-xl font-bold text-ink">Orbit — 進入生活軌道</h3>
+          </div>
+          <p class="mt-3 text-sm leading-relaxed text-muted lg:text-base">
+            標誌是一顆沿著軌道繞行的行星。好的創新不該像流星劃過 —
+            驚豔一下就消失;它該進入生活的軌道,天天被使用、安靜地運轉。
+            這也是我們的一句話:<strong class="font-semibold text-ink"
+              >讓創新,進入生活軌道。</strong
+            >
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ── 使命 / 價值 ──────────────────────────────────────── -->
   <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
+    <div class="reveal mb-12 flex flex-col gap-3">
+      <p
+        class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+      >
+        What we believe
+      </p>
+      <h2 class="text-3xl font-bold text-ink sm:text-4xl">我們相信的事</h2>
+    </div>
     <div data-stagger class="grid gap-5 md:grid-cols-3">
       {
         values.map((v) => (
-          <div class="reveal group">
-            <div class="h-full rounded-2xl border border-ink-line bg-ink-soft p-7 transition duration-300 group-hover:-translate-y-1 group-hover:border-orbit/40">
-              <div class="font-display text-2xl font-bold text-orbit">●</div>
-              <h3 class="mt-4 text-xl font-bold text-paper">{v.title}</h3>
-              <p class="mt-3 text-sm leading-relaxed text-muted">{v.desc}</p>
-            </div>
+          <div class="reveal rounded-2xl border border-line bg-card p-7 transition duration-300 hover:-translate-y-1 hover:border-orbit/40">
+            <div class="font-display text-2xl font-bold text-orbit">●</div>
+            <h3 class="mt-4 text-xl font-bold text-ink">{v.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted">{v.desc}</p>
           </div>
         ))
       }
@@ -85,7 +212,7 @@ const values = [
   </section>
 
   <!-- ── 團隊 ─────────────────────────────────────────────── -->
-  <section class="border-t border-ink-line bg-ink-soft/40">
+  <section class="border-t border-line">
     <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
       <div class="reveal mb-12 flex flex-col gap-3">
         <p
@@ -93,9 +220,10 @@ const values = [
         >
           Our team
         </p>
-        <h2 class="text-3xl font-bold text-paper sm:text-4xl">團隊</h2>
+        <h2 class="text-3xl font-bold text-ink sm:text-4xl">創辦團隊</h2>
         <p class="max-w-xl text-muted">
-          五位來自不同領域的夥伴,從機械結構、軟體系統到材料研發,組成能完整把產品做出來的團隊。
+          從機械、資工、電機、化工,到商學、公共行政與法律 —
+          跨校跨領域的夥伴,組成能把產品從設計做到落地的一條龍團隊。
         </p>
       </div>
 
@@ -106,9 +234,9 @@ const values = [
   </section>
 
   <!-- ── CTA ──────────────────────────────────────────────── -->
-  <section class="border-t border-ink-line">
+  <section class="border-t border-line">
     <div class="mx-auto max-w-7xl px-6 py-20 text-center lg:px-10">
-      <h2 class="text-3xl font-bold text-paper sm:text-4xl">
+      <h2 class="text-3xl font-bold text-ink sm:text-4xl">
         想了解我們在做什麼?
       </h2>
       <div class="mt-8 flex flex-wrap justify-center gap-4">

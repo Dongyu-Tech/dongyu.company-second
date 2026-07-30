@@ -1,0 +1,204 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/Button.astro";
+
+// 功能皆為原型已做出的(依 2026-07 市調信),狀態誠實:原型可試用、需求調查中
+const features = [
+  {
+    t: "證件期限管理",
+    d: "聘僱許可、居留證、健檢的到期日集中管理,到期前主動提醒 — 不再靠紙本和記憶力。",
+  },
+  {
+    t: "出缺勤與薪資紀錄",
+    d: "出缺勤與薪資一站記錄,薪資明細同時有中文與移工母語版本,對帳清楚、爭議變少。",
+  },
+  {
+    t: "多語合約與公告",
+    d: "合約與重要公告多語呈現,規則說清楚,不因語言落差各說各話。",
+  },
+  {
+    t: "雙語即時翻譯訊息",
+    d: "你打中文、移工看母語;對話自動留存,溝通有憑有據。",
+  },
+];
+---
+
+<Layout
+  title="橋伴 BridgeMate 企業移工管理平台"
+  description="橋伴 BridgeMate — 為聘僱移工的企業設計的管理平台:證件期限提醒、雙語薪資明細、多語合約公告與即時翻譯訊息。產品原型可線上試用。"
+>
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-20">
+      <a
+        href="/products"
+        class="group inline-flex items-center gap-2 text-sm font-medium text-muted transition-colors hover:text-orbit"
+      >
+        返回產品列表
+      </a>
+
+      <div class="mt-10 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div class="reveal">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
+            BridgeMate
+          </p>
+          <h1
+            class="mt-4 text-4xl leading-tight font-bold text-ink sm:text-5xl"
+          >
+            橋伴
+          </h1>
+          <p class="mt-3 text-xl font-medium text-orbit">
+            讓每一份工作都有尊嚴。
+          </p>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+            為聘僱移工的企業而生的管理平台 —
+            證件期限、雙語薪資、多語溝通,一個系統管好,別讓一張過期證件變成罰單。
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href="https://bridgemate-sand.vercel.app/"
+              target="_blank"
+              rel="noopener"
+              class="group inline-flex items-center gap-2.5 rounded-full bg-orbit px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-orbit-bright hover:shadow-lg hover:shadow-orbit/25"
+            >
+              試用產品原型
+            </a>
+            <Button href="/contact" variant="outline">與我們聊聊</Button>
+          </div>
+          <p class="mt-4 text-xs text-faint">
+            ※ 免安裝、免註冊;目前為產品原型,畫面為示範資料。
+          </p>
+        </div>
+        <div
+          class="reveal overflow-hidden rounded-2xl border border-line bg-card shadow-sm"
+        >
+          <iframe
+            class="aspect-video w-full"
+            src="https://www.youtube-nocookie.com/embed/fINttklxvwk"
+            title="橋伴 BridgeMate 產品介紹影片(約 1 分鐘)"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 為什麼做橋伴 ─────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
+      <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+        <div class="reveal">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
+            Why BridgeMate
+          </p>
+          <h2 class="mt-3 text-3xl font-bold text-ink sm:text-4xl">
+            移工管理的地雷,<br />都藏在到期日裡
+          </h2>
+        </div>
+        <div class="reveal space-y-4 text-base leading-relaxed text-muted">
+          <p>
+            聘僱移工的工廠有一件事特別容易出事:聘僱許可、居留證、健檢的到期日,
+            分散在紙本和不同的 Excel 裡 — 漏掉一張,就可能面臨罰則。
+          </p>
+          <p>
+            而市面上的人資系統多半只管本國勞工,不會提醒你這些。
+            橋伴從這個缺口切入,把移工管理的證件、薪資與溝通做成一套系統。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 功能 ─────────────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
+      <div class="reveal mb-12 flex flex-col gap-3">
+        <p
+          class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+        >
+          Features
+        </p>
+        <h2 class="text-3xl font-bold text-ink sm:text-4xl">
+          目前做出來的功能
+        </h2>
+      </div>
+      <div data-stagger class="grid gap-5 sm:grid-cols-2">
+        {
+          features.map((f) => (
+            <div class="reveal rounded-2xl border border-line bg-card p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orbit/40 hover:shadow-md">
+              <span class="block h-2.5 w-2.5 rounded-full bg-orbit" />
+              <h3 class="mt-4 text-lg font-bold text-ink">{f.t}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted">{f.d}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 現況 ─────────────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
+      <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+        <div
+          class="reveal rounded-2xl border border-line bg-card p-8 shadow-sm"
+        >
+          <p
+            class="font-display text-xs font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
+            Status
+          </p>
+          <h3 class="mt-3 text-xl font-bold text-ink">
+            原型已可試用,需求調查中
+          </h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted">
+            產品原型已上線供企業試用(免安裝、免註冊),
+            目前正對聘僱移工的企業進行需求訪談與市場調查,持續打磨功能方向。
+          </p>
+        </div>
+        <div
+          class="reveal rounded-2xl border border-line bg-card p-8 shadow-sm"
+        >
+          <p
+            class="font-display text-xs font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
+            For whom
+          </p>
+          <h3 class="mt-3 text-xl font-bold text-ink">給誰用?</h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted">
+            聘僱移工的製造業與中小企業:人資與管理者用中文管好證件與薪資,
+            移工用母語看懂自己的權益與訊息。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ──────────────────────────────────────────────── -->
+  <section>
+    <div class="mx-auto max-w-7xl px-6 py-16 text-center lg:px-10 lg:py-20">
+      <h2 class="text-3xl font-bold text-ink sm:text-4xl">
+        你的工廠也在管移工?
+      </h2>
+      <p class="mx-auto mt-4 max-w-xl text-muted">
+        我們正在訪談企業的實務需求,歡迎聊聊你們遇到的問題 — 也可以直接試用原型。
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <Button href="/contact">與我們聯絡</Button>
+        <a
+          href="https://bridgemate-sand.vercel.app/"
+          target="_blank"
+          rel="noopener"
+          class="group inline-flex items-center gap-2.5 rounded-full border border-line bg-card/60 px-7 py-3.5 text-sm font-semibold text-ink transition-all duration-300 hover:border-orbit hover:text-orbit"
+        >
+          試用產品原型
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

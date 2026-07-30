@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import NewsCard from "../components/NewsCard.astro";
+
+const news = (await getCollection("news")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<Layout
+  title="最新動態"
+  description="動域科技的最新動態:獲獎、補助、專利與產品里程碑。"
+>
+  <!-- ── 標題 ─────────────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
+      <p
+        class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+      >
+        News
+      </p>
+      <h1 class="mt-4 text-4xl leading-tight font-bold text-ink sm:text-5xl">
+        最新動態
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+        獲獎、補助、專利與產品里程碑 — 記錄動域科技把創新推向落地的每一步。
+      </p>
+    </div>
+  </section>
+
+  <!-- ── 消息列表 ─────────────────────────────────────────── -->
+  <section>
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
+      <div data-stagger class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          news.map((n) => (
+            <NewsCard
+              class="reveal"
+              id={n.id}
+              title={n.data.title}
+              dateLabel={n.data.dateLabel}
+              summary={n.data.summary}
+              image={n.data.image}
+              imageAlt={n.data.imageAlt}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

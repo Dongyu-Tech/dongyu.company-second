@@ -1,0 +1,171 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/Button.astro";
+
+const features = [
+  {
+    t: "雙向即時翻譯",
+    d: "中文、印尼文、越南文即時互譯 — 雇主打中文、看護看母語,反過來也一樣,對話自動留存。",
+  },
+  {
+    t: "三端介面",
+    d: "看護端、雇主家庭端、仲介端各有專屬畫面,每個角色只看見自己需要的資訊。",
+  },
+  {
+    t: "照護情境包",
+    d: "長輩照護與嬰幼兒照護的常用情境句庫,吃藥、飲食、就寢這些關鍵溝通,句句到位。",
+  },
+  {
+    t: "一鍵求助",
+    d: "緊急狀況長按即發送求助通知,重要時刻不漏接。",
+  },
+];
+---
+
+<Layout
+  title="譯護 EasyCare 外籍看護溝通平台"
+  description="譯護 EasyCare — 讓雇主與外籍看護第一次真正聽懂彼此:雙向即時翻譯、三端介面、照護情境包。與人力仲介以 B2B2C 模式合作,原型驗證中。"
+>
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-20">
+      <a
+        href="/products"
+        class="group inline-flex items-center gap-2 text-sm font-medium text-muted transition-colors hover:text-orbit"
+      >
+        返回產品列表
+      </a>
+
+      <div class="mt-10 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div class="reveal">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
+            EasyCare
+          </p>
+          <h1
+            class="mt-4 text-4xl leading-tight font-bold text-ink sm:text-5xl"
+          >
+            譯護
+          </h1>
+          <p class="mt-3 text-xl font-medium text-orbit">
+            讓雇主與外籍看護,第一次真正聽懂彼此。
+          </p>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+            外籍看護與雇主家庭之間,隔著語言照顧一位家人 —
+            譯護把雙向翻譯、照護情境與求助機制做成一個平台,讓照護溝通不再用猜的。
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href="https://easycare.dongyu.company"
+              target="_blank"
+              rel="noopener"
+              class="group inline-flex items-center gap-2.5 rounded-full bg-orbit px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-orbit-bright hover:shadow-lg hover:shadow-orbit/25"
+            >
+              前往產品官網
+            </a>
+            <Button href="/contact" variant="outline">合作洽詢</Button>
+          </div>
+        </div>
+        <div class="reveal">
+          <img
+            src="/products/easycare-chat.webp"
+            alt="譯護 App 原型:雇主與外籍看護的雙向即時翻譯對話畫面,含 SOS 求助鍵"
+            width="410"
+            height="870"
+            fetchpriority="high"
+            class="mx-auto w-full max-w-[300px]"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 為什麼做譯護 ─────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
+      <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+        <div class="reveal">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
+            Why EasyCare
+          </p>
+          <h2 class="mt-3 text-3xl font-bold text-ink sm:text-4xl">
+            隔著語言,<br />照顧同一位家人
+          </h2>
+        </div>
+        <div class="reveal space-y-4 text-base leading-relaxed text-muted">
+          <p>
+            外籍看護撐起了台灣大量的家庭照護,但雇主與看護之間常常只能比手畫腳 —
+            吃什麼藥、什麼時候回診、長輩今天狀況如何,這些關鍵資訊不該用猜的。
+          </p>
+          <p>
+            譯護以 B2B2C 模式與人力仲介合作:仲介把譯護帶給服務的家庭與看護,
+            溝通品質變成仲介的服務競爭力。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 功能 ─────────────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
+      <div class="reveal mb-12 flex flex-col gap-3">
+        <p
+          class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+        >
+          Features
+        </p>
+        <h2 class="text-3xl font-bold text-ink sm:text-4xl">原型做了什麼</h2>
+      </div>
+      <div data-stagger class="grid gap-5 sm:grid-cols-2">
+        {
+          features.map((f) => (
+            <div class="reveal rounded-2xl border border-line bg-card p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orbit/40 hover:shadow-md">
+              <span class="block h-2.5 w-2.5 rounded-full bg-orbit" />
+              <h3 class="mt-4 text-lg font-bold text-ink">{f.t}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted">{f.d}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 現況 ─────────────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
+      <div
+        class="reveal max-w-3xl rounded-2xl border border-line bg-card p-8 shadow-sm"
+      >
+        <p
+          class="font-display text-xs font-semibold tracking-[0.2em] text-orbit uppercase"
+        >
+          Status
+        </p>
+        <h3 class="mt-3 text-xl font-bold text-ink">原型驗證中</h3>
+        <p class="mt-3 text-sm leading-relaxed text-muted">
+          產品定義、市場與法規查證已完成,產品官網已上線,展示原型可實際操作(含中文、印尼文、越南文介面與照護情境包),
+          目前正進行驗證與仲介端洽談。服務尚未正式推出,對合作有興趣歡迎聯絡。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ──────────────────────────────────────────────── -->
+  <section>
+    <div class="mx-auto max-w-7xl px-6 py-16 text-center lg:px-10 lg:py-20">
+      <h2 class="text-3xl font-bold text-ink sm:text-4xl">
+        你是仲介或照護機構?
+      </h2>
+      <p class="mx-auto mt-4 max-w-xl text-muted">
+        我們正在尋找一起驗證的仲介夥伴,歡迎聊聊你們服務家庭時遇到的溝通問題。
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <Button href="/contact">與我們聯絡</Button>
+      </div>
+    </div>
+  </section>
+</Layout>

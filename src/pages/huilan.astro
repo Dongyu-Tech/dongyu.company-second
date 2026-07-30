@@ -1,0 +1,160 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+---
+
+<Layout
+  title="洄瀾樂齡"
+  description="洄瀾樂齡 — 高齡科技巡迴賦能計畫:把樂齡運動課程與步態量測巡迴帶進花蓮的文健站。2026 HSH 創新創業戰鬥營金獎,動域科技擔任技術夥伴。"
+>
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-20">
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div class="reveal">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
+            Huilan Active Aging
+          </p>
+          <h1
+            class="mt-4 text-4xl leading-tight font-bold text-ink sm:text-5xl"
+          >
+            洄瀾樂齡
+          </h1>
+          <p class="mt-3 text-xl font-medium text-orbit">
+            把樂齡運動,開進花蓮的每一個文健站。
+          </p>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+            以「長照活動旅行社」的概念,把樂齡運動課程與科學化的步態量測,
+            巡迴帶進花蓮的社區據點。動域科技擔任技術夥伴, 提供 SilverSole
+            銀足智慧鞋墊與數據平台,讓長輩的行動能力變化在課程前後看得見。
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href="https://hlll.dongyu.company"
+              target="_blank"
+              rel="noopener"
+              class="group inline-flex items-center gap-2.5 rounded-full bg-orbit px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-orbit-bright hover:shadow-lg hover:shadow-orbit/25"
+            >
+              前往計畫官網
+            </a>
+            <Button href="/contact" variant="outline">與我們討論落地合作</Button
+            >
+          </div>
+        </div>
+        <div class="reveal">
+          <img
+            src="/news/hsh-gold-award.webp"
+            alt="洄瀾樂齡團隊於 2026 HSH 創新創業戰鬥營頒獎台上,手持花蓮縣政府金獎 15 萬元大支票"
+            width="1080"
+            height="714"
+            fetchpriority="high"
+            class="w-full rounded-2xl border border-line shadow-sm"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 計畫在做什麼 ─────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
+      <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+        <div class="reveal">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
+            What we do
+          </p>
+          <h2 class="mt-3 text-3xl font-bold text-ink sm:text-4xl">
+            偏鄉的據點,<br />也值得完整的健康課程
+          </h2>
+        </div>
+        <div class="reveal space-y-4 text-base leading-relaxed text-muted">
+          <p>
+            花蓮的文健站分散在狹長的縱谷與海線,課程與器材資源進不去、成效說不清,
+            是社區照護現場共同的難題。
+          </p>
+          <p>
+            洄瀾樂齡像一間「長照活動旅行社」:把課程、指導員、器材與成效報告打包成一條龍,
+            用巡迴的方式把完整的健康促進課程帶進每一個據點 — 長輩上課,SilverSole
+            順便完成足壓與步態量測,課程前後的變化用數據說話。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 合作內容 / 目前進展 ──────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
+      <div data-stagger class="grid gap-5 md:grid-cols-2">
+        <div
+          class="reveal rounded-2xl border border-line bg-card p-6 shadow-sm lg:p-8"
+        >
+          <h3 class="font-bold text-ink">動域科技的角色</h3>
+          <ul class="mt-4 space-y-3">
+            {
+              [
+                "SilverSole 銀足的足壓與步態量測,結合樂齡運動課程設計",
+                "巡迴文健站的行動化量測流程與器材規劃",
+                "量測數據的視覺化報表,課程前後的變化看得見",
+              ].map((t) => (
+                <li class="flex gap-3 text-sm leading-relaxed text-muted">
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-orbit" />
+                  {t}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div
+          class="reveal rounded-2xl border border-line bg-card p-6 shadow-sm lg:p-8"
+        >
+          <h3 class="font-bold text-ink">目前進展</h3>
+          <ul class="mt-4 space-y-3">
+            {
+              [
+                "奪 2026 HSH 創新創業戰鬥營金獎,獲 80 萬元落地執行資源",
+                "計畫官網上線,對外開放合作洽詢",
+                "花蓮文健站巡迴場次規劃執行中",
+              ].map((t) => (
+                <li class="flex gap-3 text-sm leading-relaxed text-muted">
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-orbit" />
+                  {t}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+      <div class="reveal mt-8">
+        <a
+          href="/news/2026-hsh-80w"
+          class="text-sm font-medium text-orbit underline decoration-orbit/40 underline-offset-4 transition-colors hover:decoration-orbit"
+        >
+          閱讀金獎報導:洄瀾樂齡奪 2026 HSH 創新創業戰鬥營金獎
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ──────────────────────────────────────────────── -->
+  <section>
+    <div class="mx-auto max-w-7xl px-6 py-16 text-center lg:px-10 lg:py-20">
+      <h2 class="text-3xl font-bold text-ink sm:text-4xl">
+        你的據點也想加入巡迴?
+      </h2>
+      <p class="mx-auto mt-4 max-w-xl text-muted">
+        文健站、社區據點或關心高齡健康的單位,歡迎與我們聯絡,一起把課程開進來。
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <Button href="/contact">與我們聯絡</Button>
+        <Button href="/products/silversole" variant="outline"
+          >認識 SilverSole 銀足</Button
+        >
+      </div>
+    </div>
+  </section>
+</Layout>

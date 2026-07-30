@@ -1,0 +1,296 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/Button.astro";
+
+// 核心能力:全部用能力語言,不寫元件料號(商業機密)、不碰醫療用語
+const abilities = [
+  {
+    t: "足壓健檢",
+    d: "行走時自動蒐集足壓分佈,不需要額外操作,長輩正常走路就是在做檢測。",
+  },
+  {
+    t: "步態分析",
+    d: "步速、節奏與左右對稱性等步態指標長期追蹤 — 對稱性變化往往是行動力衰退的領先訊號。",
+  },
+  {
+    t: "跌倒風險提示",
+    d: "以多重感測條件綜合判定異常,第一時間主動通知家人與照護者。",
+  },
+  {
+    t: "Step-to-Wake 自動喚醒",
+    d: "踩下去才醒、脫下來就睡的省電設計,一次充電約可使用 5–7 天,長輩不用記得開關機。",
+  },
+  {
+    t: "無感穿戴",
+    d: "感測模組隱形嵌入鞋墊,搭配可拆洗抗菌布套與防水設計(量產目標 IP67),跟一般鞋墊一樣穿。",
+  },
+  {
+    t: "App 與數據平台",
+    d: "量測數據自動上傳,家人與照護者打開 App 就能看懂長輩的行動狀態與變化。",
+  },
+];
+
+const scenes = [
+  {
+    t: "居家長者與家庭",
+    d: "子女在外地也能掌握爸媽的行動狀態,異常提示第一時間通知。",
+  },
+  {
+    t: "長照與照護機構",
+    d: "例行活動即量測,課程前後的成效看得見,報表輔助照護紀錄。",
+  },
+  {
+    t: "健康促進計畫",
+    d: "與洄瀾樂齡等場域計畫結合,把步態量測帶進社區據點。",
+  },
+];
+---
+
+<Layout
+  title="SilverSole 銀足智慧鞋墊"
+  description="SilverSole 銀足 — 足壓健檢 × 步態分析的主動健康管理智慧鞋墊。無感穿戴、Step-to-Wake 自動喚醒,長照場域驗證中。"
+>
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-20">
+      <a
+        href="/products"
+        class="group inline-flex items-center gap-2 text-sm font-medium text-muted transition-colors hover:text-orbit"
+      >
+        返回產品列表
+      </a>
+
+      <div class="mt-10 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div class="reveal">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
+            Smart Insole
+          </p>
+          <h1
+            class="mt-4 text-4xl leading-tight font-bold text-ink sm:text-5xl"
+          >
+            SilverSole 銀足
+          </h1>
+          <p class="mt-3 text-xl font-medium text-orbit">
+            延青春 — 延長行動自主歲月
+          </p>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+            把足壓健檢與步態分析放進一雙鞋墊。長輩照常走路,行動力的變化就被看見
+            — 這是為高齡生活設計的主動健康管理。
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <Button href="/contact">合作與試用洽詢</Button>
+            <Button href="/technology" variant="outline">看核心技術</Button>
+          </div>
+        </div>
+        <div class="reveal">
+          <img
+            src="/products/silversole-product.webp"
+            alt="SilverSole 銀足智慧鞋墊產品圖:包裝、頂視、側視與後視"
+            width="1254"
+            height="1254"
+            fetchpriority="high"
+            class="w-full rounded-2xl border border-line shadow-sm"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 為什麼做銀足 ─────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
+      <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+        <div class="reveal">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
+            Why SilverSole
+          </p>
+          <h2 class="mt-3 text-3xl font-bold text-ink sm:text-4xl">
+            行動力的衰退,<br />常常等到跌倒才被發現
+          </h2>
+        </div>
+        <div class="reveal space-y-4 text-base leading-relaxed text-muted">
+          <p>
+            步態的變化是漸進的:步速變慢、左右不對稱、重心不穩 —
+            這些訊號平常看不見,家人往往要到意外發生才驚覺。
+          </p>
+          <p>
+            SilverSole 的想法很簡單:<strong class="font-semibold text-ink"
+              >讓每天的走路變成每天的健檢</strong
+            >。
+            不需要改變任何習慣,數據在日常生活中自然累積,變化提早被看見,家人與照護者就有時間提早應對。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 核心能力 ─────────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
+      <div class="reveal mb-12 flex flex-col gap-3">
+        <p
+          class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+        >
+          Capabilities
+        </p>
+        <h2 class="text-3xl font-bold text-ink sm:text-4xl">六個核心能力</h2>
+      </div>
+      <div data-stagger class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          abilities.map((a) => (
+            <div class="reveal rounded-2xl border border-line bg-card p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orbit/40 hover:shadow-md">
+              <span class="mt-1 block h-2.5 w-2.5 rounded-full bg-orbit" />
+              <h3 class="mt-4 text-lg font-bold text-ink">{a.t}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted">{a.d}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ── App ──────────────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div class="reveal">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
+            App
+          </p>
+          <h2 class="mt-3 text-3xl font-bold text-ink sm:text-4xl">
+            讓長輩願意天天走的 App
+          </h2>
+          <div class="mt-6 space-y-4 text-base leading-relaxed text-muted">
+            <p>
+              數據不是只給家人看 — 銀足 App 用<strong
+                class="font-semibold text-ink">遊戲化</strong
+              >讓長輩自己也想動:
+              吉祥物「粗哥」每天陪你完成步數任務、賺遊戲幣、經營菜園,
+              一分鐘足壓健檢像玩遊戲一樣按下去就好,把健康促進變成每天的期待。
+            </p>
+            <p>
+              分析頁把步幅、左右對稱、活力趨勢畫成長輩看得懂的圖;
+              家人端則能掌握裝置狀態與異常提示,不用整天盯著看。
+            </p>
+          </div>
+        </div>
+        <div data-stagger class="grid grid-cols-3 gap-4">
+          {
+            [
+              {
+                src: "/products/silversole-app-home.webp",
+                alt: "銀足 App 首頁:鞋墊連線狀態、一分鐘足壓健檢與跌倒守護",
+              },
+              {
+                src: "/products/silversole-app-gait.webp",
+                alt: "銀足 App 分析頁:活力步態趨勢、步幅與左右對稱指標",
+              },
+              {
+                src: "/products/silversole-app-game.webp",
+                alt: "銀足 App 遊戲頁:吉祥物粗哥陪長輩完成每日任務",
+              },
+            ].map((i) => (
+              <img
+                src={i.src}
+                alt={i.alt}
+                width="640"
+                height="1422"
+                loading="lazy"
+                decoding="async"
+                class="reveal w-full rounded-2xl border border-line shadow-sm"
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 適用場景 ─────────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
+      <div class="reveal mb-12 flex flex-col gap-3">
+        <p
+          class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+        >
+          Use cases
+        </p>
+        <h2 class="text-3xl font-bold text-ink sm:text-4xl">適用場景</h2>
+      </div>
+      <div data-stagger class="grid gap-5 md:grid-cols-3">
+        {
+          scenes.map((s) => (
+            <div class="reveal rounded-2xl border border-line bg-card p-7 shadow-sm">
+              <h3 class="text-lg font-bold text-ink">{s.t}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted">{s.d}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 專利與現況 ───────────────────────────────────────── -->
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
+      <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+        <div
+          class="reveal rounded-2xl border border-line bg-card p-8 shadow-sm"
+        >
+          <p
+            class="font-display text-xs font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
+            Patent
+          </p>
+          <h3 class="mt-3 text-xl font-bold text-ink">
+            智慧鞋墊系統 發明專利申請中
+          </h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted">
+            整體系統(含硬體結構與 Step-to-Wake
+            自動喚醒)已提出中華民國發明專利申請, 技術細節於專利公開前不另揭露。
+          </p>
+        </div>
+        <div
+          class="reveal rounded-2xl border border-line bg-card p-8 shadow-sm"
+        >
+          <p
+            class="font-display text-xs font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
+            Status
+          </p>
+          <h3 class="mt-3 text-xl font-bold text-ink">長照場域驗證中</h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted">
+            與長照場域合作進行真實情境驗證,並透過洄瀾樂齡計畫走進花蓮的社區據點;
+            產品尚未公開販售,合作與試用歡迎洽詢。
+          </p>
+        </div>
+      </div>
+      <p class="reveal mt-10 text-xs leading-relaxed text-faint">
+        ※ SilverSole
+        銀足為消費級智慧裝置,非醫療器材,不提供診斷、治療或處方用途。
+      </p>
+    </div>
+  </section>
+
+  <!-- ── CTA ──────────────────────────────────────────────── -->
+  <section>
+    <div class="mx-auto max-w-7xl px-6 py-16 text-center lg:px-10 lg:py-20">
+      <h2 class="text-3xl font-bold text-ink sm:text-4xl">
+        想把銀足帶進你的場域?
+      </h2>
+      <p class="mx-auto mt-4 max-w-xl text-muted">
+        機構試用、場域合作或技術交流,我們都很樂意聊。
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <Button href="/contact">與我們聯絡</Button>
+        <Button href="/huilan" variant="outline">看落地計畫</Button>
+      </div>
+    </div>
+  </section>
+</Layout>

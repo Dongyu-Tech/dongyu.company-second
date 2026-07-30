@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import OrbitMark from "../components/OrbitMark.astro";
+---
+
+<Layout title="找不到頁面" description="404 — 這一頁飄出軌道了。">
+  <section class="flex min-h-[60vh] items-center">
+    <div class="mx-auto max-w-7xl px-6 py-20 text-center lg:px-10">
+      <div class="rise-in mx-auto flex justify-center opacity-80">
+        <OrbitMark size={72} spin={true} />
+      </div>
+      <p
+        class="rise-in mt-8 font-display text-6xl font-bold text-orbit"
+        style="animation-delay:.05s"
+      >
+        404
+      </p>
+      <h1
+        class="rise-in mt-4 text-3xl font-bold text-ink sm:text-4xl"
+        style="animation-delay:.1s"
+      >
+        這一頁飄出軌道了
+      </h1>
+      <p
+        class="rise-in mx-auto mt-4 max-w-md text-muted"
+        style="animation-delay:.15s"
+      >
+        你要找的頁面不存在或已經移動。回到首頁,重新進入軌道。
+      </p>
+      <div class="rise-in mt-8 flex justify-center" style="animation-delay:.2s">
+        <Button href="/">回首頁</Button>
+      </div>
+    </div>
+  </section>
+</Layout>
