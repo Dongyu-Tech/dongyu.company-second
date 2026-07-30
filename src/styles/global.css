@@ -1,22 +1,34 @@
 @import 'tailwindcss';
 
-/* ── 動域科技 Orbit 品牌設計 token ───────────────────────────── */
+/* ── 動域科技 Orbit 品牌設計 token(2026-07 淺色改版)──────────
+   淺色乾淨風:白底 + 淺灰區塊交錯,磚橙為唯一重點色,
+   深色(night)只用在 Footer 與 Hero 照片遮罩收尾。 */
 @theme {
+  /* 底色 */
+  --color-canvas: #ffffff; /* 頁面底 — 純白 */
+  --color-card: #ffffff; /* 卡片 */
+  --color-soft: #f4f2ef; /* 交錯區塊底 */
+  --color-line: #e8e5e0; /* 分隔線/邊框 */
+
+  /* 深色(只給 Footer / Hero 遮罩 / 深色收尾區) */
+  --color-night: #0e0e10;
+  --color-night-soft: #161619;
+  --color-night-line: #26262b;
+
   /* 品牌色:由 LOGO 推導 */
-  --color-ink: #0e0e10; /* 墨黑 — 底色 */
-  --color-ink-soft: #161619; /* 卡片/區塊 */
-  --color-ink-line: #26262b; /* 分隔線/邊框 */
   --color-orbit: #d9472b; /* 磚橙 — 主重點色(Orbit 行星) */
   --color-orbit-bright: #e85d40; /* hover 亮橙 */
   --color-orbit-dim: #8f2d1b; /* 深橙 */
 
-  /* 文字灰階 */
-  --color-paper: #f5f4f2; /* 主要文字(近白) */
-  --color-muted: #9b9aa0; /* 次要文字 */
-  --color-faint: #6a6a70; /* 更淡 */
+  /* 文字 */
+  --color-ink: #1a191d; /* 主要文字(墨) */
+  --color-muted: #5b5a62; /* 次要文字 */
+  --color-faint: #98969e; /* 更淡 */
+  --color-paper: #f5f4f2; /* 深色區塊上的淺文字 */
+  --color-paper-muted: #a5a4ab; /* 深色區塊上的次要文字 */
 
   /* 字體 — 中文走系統正黑體優先(Windows 微軟正黑體 / Mac 蘋方),
-     與配客嘉參考圖一致;Latin/數字用 Space Grotesk;思源黑體做跨裝置 fallback */
+     Latin/數字用 Space Grotesk;思源黑體做跨裝置 fallback */
   --font-cjk: 'PingFang TC', 'PingFang SC', 'Microsoft JhengHei', '微軟正黑體',
     'Noto Sans TC', system-ui, sans-serif;
   --font-display: 'Space Grotesk', var(--font-cjk);
@@ -29,13 +41,13 @@
 /* ── 基礎 ─────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  background-color: var(--color-ink);
+  background-color: var(--color-canvas);
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-ink);
-  color: var(--color-paper);
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -83,45 +95,105 @@ body {
   .animate-orbit-slow {
     animation: none;
   }
+  .rise-in {
+    animation: none;
+  }
   html {
     scroll-behavior: auto;
   }
 }
 
-/* ── 進場淡入 ─────────────────────────────────────────────── */
+/* ── 進場:模糊對焦 + 上浮(blur-in)──────────────────────────── */
 @keyframes rise-in {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(18px);
+    filter: blur(10px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
   }
 }
 
 .rise-in {
-  animation: rise-in 0.7s var(--ease-orbit) both;
+  animation: rise-in 0.9s var(--ease-orbit) both;
 }
 
-/* ── 捲動進場(IntersectionObserver 觸發 .is-visible)──────────── */
+/* ── 捲動進場:模糊對焦浮現(IntersectionObserver 觸發 .is-visible)── */
 .reveal {
   opacity: 0;
   transform: translateY(22px);
+  filter: blur(8px);
   transition:
-    opacity 0.7s var(--ease-orbit),
-    transform 0.7s var(--ease-orbit);
-  will-change: opacity, transform;
+    opacity 0.8s var(--ease-orbit),
+    transform 0.8s var(--ease-orbit),
+    filter 0.8s var(--ease-orbit);
+  will-change: opacity, transform, filter;
 }
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+  filter: blur(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
     transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
+/* ── 消息內頁文章排版 ─────────────────────────────────────── */
+.news-body p {
+  margin-top: 1.1rem;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--color-muted);
+}
+.news-body p:first-child {
+  margin-top: 0;
+}
+.news-body strong {
+  color: var(--color-ink);
+  font-weight: 700;
+}
+.news-body ul {
+  margin-top: 1.1rem;
+  padding-left: 1.4em;
+  list-style: disc;
+  color: var(--color-muted);
+  line-height: 1.9;
+}
+.news-body li::marker {
+  color: var(--color-orbit);
+}
+.news-body h2 {
+  margin-top: 2.2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.news-body a {
+  color: var(--color-orbit);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Hero 輪播 ────────────────────────────────────────────── */
+.hero-slide {
+  opacity: 0;
+  transition: opacity 1.1s var(--ease-orbit);
+}
+.hero-slide.is-active {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide {
     transition: none;
   }
 }

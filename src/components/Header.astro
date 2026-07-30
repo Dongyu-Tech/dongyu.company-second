@@ -4,37 +4,39 @@ import OrbitMark from './OrbitMark.astro';
 const path = Astro.url.pathname;
 const links = [
   { href: '/', label: '首頁' },
-  { href: '/about', label: '關於' },
+  { href: '/news', label: '最新動態' },
+  { href: '/technology', label: '核心技術' },
   { href: '/products', label: '產品' },
-  { href: '/contact', label: '聯絡' },
+  { href: '/huilan', label: '洄瀾樂齡' },
+  { href: '/about', label: '關於動域' },
 ];
 const isActive = (href: string) =>
   href === '/' ? path === '/' : path.startsWith(href);
 ---
 
 <header
-  class="sticky top-0 z-50 border-b border-ink-line/70 bg-ink/80 backdrop-blur-md"
+  class="sticky top-0 z-50 border-b border-line/80 bg-card/85 backdrop-blur-md"
 >
   <nav
     class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10"
   >
     <a href="/" class="group flex items-center gap-3" aria-label="動域科技 首頁">
       <OrbitMark size={34} spin={true} />
-      <span class="font-display text-lg font-bold tracking-tight text-paper">
+      <span class="font-display text-lg font-bold tracking-tight text-ink">
         動域科技
       </span>
     </a>
 
     <!-- 桌面導覽 -->
-    <ul class="hidden items-center gap-8 md:flex">
+    <ul class="hidden items-center gap-5 md:flex lg:gap-7">
       {
         links.map((l) => (
           <li>
             <a
               href={l.href}
               class:list={[
-                'relative text-sm font-medium transition-colors hover:text-paper',
-                isActive(l.href) ? 'text-paper' : 'text-muted',
+                'relative whitespace-nowrap text-sm font-medium transition-colors hover:text-ink',
+                isActive(l.href) ? 'text-ink' : 'text-muted',
               ]}
             >
               {l.label}
@@ -62,14 +64,14 @@ const isActive = (href: string) =>
       aria-label="開啟選單"
       aria-expanded="false"
     >
-      <span class="block h-0.5 w-6 bg-paper transition-transform"></span>
-      <span class="block h-0.5 w-6 bg-paper transition-opacity"></span>
-      <span class="block h-0.5 w-6 bg-paper transition-transform"></span>
+      <span class="block h-0.5 w-6 bg-ink transition-transform"></span>
+      <span class="block h-0.5 w-6 bg-ink transition-opacity"></span>
+      <span class="block h-0.5 w-6 bg-ink transition-transform"></span>
     </button>
   </nav>
 
   <!-- 行動裝置選單 -->
-  <div id="mobile-menu" class="hidden border-t border-ink-line bg-ink md:hidden">
+  <div id="mobile-menu" class="hidden border-t border-line bg-card md:hidden">
     <ul class="flex flex-col px-6 py-4">
       {
         links.map((l) => (
@@ -78,7 +80,7 @@ const isActive = (href: string) =>
               href={l.href}
               class:list={[
                 'block py-3 text-base font-medium',
-                isActive(l.href) ? 'text-orbit' : 'text-paper',
+                isActive(l.href) ? 'text-orbit' : 'text-ink',
               ]}
             >
               {l.label}

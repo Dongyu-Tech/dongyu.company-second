@@ -5,36 +5,69 @@ interface Props {
   tagline: string;
   desc: string;
   tags: string[];
+  href?: string;
+  image?: string;
+  imageAlt?: string;
   status?: string;
   class?: string;
 }
-const { name, en, tagline, desc, tags, status, class: className = '' } = Astro.props;
+const {
+  name,
+  en,
+  tagline,
+  desc,
+  tags,
+  href,
+  image,
+  imageAlt,
+  status,
+  class: className = '',
+} = Astro.props;
+const Tag = href ? 'a' : 'article';
 ---
 
-<article
+<Tag
+  href={href}
   class:list={[
-    'group relative overflow-hidden rounded-3xl border border-ink-line bg-ink-soft p-8 transition-all duration-500 hover:-translate-y-1 hover:border-orbit/40 lg:p-10',
+    'group relative block overflow-hidden rounded-3xl border border-line bg-card shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-orbit/40 hover:shadow-md',
     className,
   ]}
 >
-  <!-- 背景軌道弧:品牌裝飾,hover 旋轉。細線 + 亮橘行星,避免低透明度橘色變濁 -->
-  <div class="relative">
+  {
+    image && (
+      <img
+        src={image}
+        alt={imageAlt ?? name}
+        loading="lazy"
+        class="aspect-[16/9] w-full object-cover"
+      />
+    )
+  }
+  <div class="relative p-8 lg:p-10">
     <p class="font-display text-xs font-semibold uppercase tracking-[0.2em] text-orbit">
       {en}
     </p>
 
-    <h3 class="mt-2 text-2xl font-bold text-paper lg:text-3xl">{name}</h3>
+    <h3 class="mt-2 text-2xl font-bold text-ink lg:text-3xl">{name}</h3>
     <p class="mt-1 text-base font-medium text-orbit/90">{tagline}</p>
     <p class="mt-4 max-w-xl text-sm leading-relaxed text-muted">{desc}</p>
 
     <ul class="mt-6 flex flex-wrap gap-2">
       {
         tags.map((t) => (
-          <li class="rounded-full bg-ink px-3 py-1 text-xs text-muted ring-1 ring-ink-line">
+          <li class="rounded-full bg-soft px-3 py-1 text-xs text-muted ring-1 ring-line">
             {t}
           </li>
         ))
       }
     </ul>
+
+    {
+      href && (
+        <span class="mt-6 inline-flex items-center text-sm font-medium text-orbit">
+          完整介紹
+        </span>
+      )
+    }
   </div>
-</article>
+</Tag>

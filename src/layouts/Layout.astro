@@ -31,11 +31,32 @@ const fullTitle =
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
 
-    <!-- Open Graph -->
+    <!-- Open Graph / SEO -->
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:locale" content="zh_TW" />
+    <meta property="og:site_name" content="動域科技 Dongyu Tech" />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:image" content={new URL('/og-image.png', Astro.site)} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- 公司結構化資料 -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: '動域科技股份有限公司',
+        alternateName: 'Dongyu Tech',
+        url: 'https://dongyu.company',
+        email: 'dongyu.company@gmail.com',
+        slogan: '讓創新,進入生活軌道',
+        description:
+          '結合軟體、硬體與 AI 能力,將創新構想轉化為真正可落地的智慧產品與服務。',
+      })}
+    />
 
     <!-- 字體:Space Grotesk(英)+ Noto Sans TC(中) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -48,7 +69,7 @@ const fullTitle =
     <!-- 頁面切換平滑轉場 -->
     <ClientRouter />
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col bg-canvas text-ink">
     <Header />
     <main class="flex-1">
       <slot />
