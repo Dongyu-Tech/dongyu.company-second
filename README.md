@@ -34,7 +34,7 @@ pnpm preview     # 預覽 build 結果
 
 - **新增消息**:在 `src/content/news/` 丟一個 `.md`(frontmatter 見 `src/content.config.ts`),支援配圖 `image`、外部連結 `link`、相關報導 `sources`。
 - **圖片**:`public/news/`、`public/products/`、`public/competitions/`;新圖請縮到長邊 ≤1600px 的 JPG。
-- **Hero 輪播圖**:目前暫用 Unsplash 外連圖(`src/pages/index.astro` 的 `slides`),換自有照片時直接改陣列。
+- **Hero 輪播圖**:自託管 WebP(`public/hero/`,來源紀錄見 `_來源.txt`),換自有照片時改 `src/pages/index.astro` 的 `slides` 陣列。
 
 ## 內容紅線(改文案前必讀)
 

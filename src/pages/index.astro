@@ -11,28 +11,16 @@ const news = (await getCollection("news"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 4);
 
-// Hero 輪播圖(暫用 Unsplash 免費圖,正式上線前換成自有/在地化圖檔)
+// Hero 輪播圖:自託管 WebP(來源 Unsplash 免費授權,原始 ID 記於 public/hero/_來源.txt)
 // srcset 讓手機抓小圖,壓 LCP
-const heroImg = (id: string) => {
-  const base = `https://images.unsplash.com/${id}?auto=format&fit=crop&q=72`;
-  return {
-    src: `${base}&w=1600&h=900`,
-    srcset: `${base}&w=800&h=450 800w, ${base}&w=1200&h=675 1200w, ${base}&w=1600&h=900 1600w`,
-  };
-};
+const heroImg = (name: string) => ({
+  src: `/hero/${name}-1600.webp`,
+  srcset: `/hero/${name}-800.webp 800w, /hero/${name}-1200.webp 1200w, /hero/${name}-1600.webp 1600w`,
+});
 const slides = [
-  {
-    ...heroImg("photo-1518770660439-4636190af475"),
-    alt: "電路板特寫 — AIoT 軟硬整合",
-  },
-  {
-    ...heroImg("photo-1581091226825-a6a2a5aee158"),
-    alt: "工程師於產線工作 — 產品設計與製造",
-  },
-  {
-    ...heroImg("photo-1534438327276-14e5300c3a48"),
-    alt: "健身房訓練場景 — 運動科技",
-  },
+  { ...heroImg("hero-aiot"), alt: "電路板特寫 — AIoT 軟硬整合" },
+  { ...heroImg("hero-engineering"), alt: "工程師於產線工作 — 產品設計與製造" },
+  { ...heroImg("hero-gym"), alt: "健身房訓練場景 — 運動科技" },
 ];
 ---
 
