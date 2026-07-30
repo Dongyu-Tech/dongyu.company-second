@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
 import ServiceCard from "../components/ServiceCard.astro";
-import ProductCard from "../components/ProductCard.astro";
 import NewsCard from "../components/NewsCard.astro";
 
 // 最新消息:取最近 4 則
@@ -219,7 +218,7 @@ const slides = [
           >
             Our products
           </p>
-          <h2 class="text-3xl font-bold text-ink sm:text-4xl">主打商品</h2>
+          <h2 class="text-3xl font-bold text-ink sm:text-4xl">商品</h2>
         </div>
         <a
           href="/products"
@@ -229,34 +228,56 @@ const slides = [
         </a>
       </div>
 
-      <div data-stagger class="grid gap-6 lg:grid-cols-2">
-        <ProductCard
-          class="reveal"
-          href="/products/silversole"
-          image="/products/silversole-product.webp"
-          imageAlt="SilverSole 銀足智慧鞋墊產品圖"
-          name="SilverSole 銀足"
-          en="Smart Insole"
-          tagline="延青春 — 延長行動自主歲月"
-          desc="把足壓健檢與步態分析放進一雙鞋墊,長輩照常走路,行動力變化就被看見;Step-to-Wake 自動喚醒,穿上即用。"
-          tags={[
-            "足壓健檢",
-            "步態分析",
-            "Step-to-Wake(專利申請中)",
-            "長照場域驗證",
-          ]}
-        />
-        <ProductCard
-          class="reveal"
-          href="/products/quickplate"
-          image="/products/quickplate-render.webp"
-          imageAlt="QuickPlate 智慧槓片側開機構渲染圖"
-          name="QuickPlate 智慧槓片"
-          en="Smart Weight Plate"
-          tagline="側開秒拆 — 一片即槓、啞、鈴、輪"
-          desc="以發明專利「扣合式槓片結構」(I900457)為核心,側邊秒級換重、一片變形為槓鈴／啞鈴／壺鈴／健腹輪,搭配 QuickLog App 數位訓練系統。"
-          tags={["發明專利 I900457", "側開換重", "一片多用", "QuickLog App"]}
-        />
+      <div data-stagger class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          [
+            {
+              slug: "silversole",
+              en: "Smart Insole",
+              name: "SilverSole 銀足",
+              tagline: "延青春 — 延長行動自主歲月",
+              desc: "足壓健檢 × 步態分析的智慧鞋墊,長輩照常走路,行動力變化就被看見。",
+            },
+            {
+              slug: "quickplate",
+              en: "Smart Weight Plate",
+              name: "QuickPlate 智慧槓片",
+              tagline: "側開秒拆 — 一片即槓、啞、鈴、輪",
+              desc: "發明專利側開扣合,秒級換重,一組槓片變形為四種器材。",
+            },
+            {
+              slug: "bridgemate",
+              en: "BridgeMate",
+              name: "橋伴",
+              tagline: "讓每一份工作都有尊嚴。",
+              desc: "為聘僱移工的企業管好證件期限、雙語薪資與即時翻譯訊息。",
+            },
+            {
+              slug: "easycare",
+              en: "EasyCare",
+              name: "譯護",
+              tagline: "讓雇主與外籍看護,真正聽懂彼此。",
+              desc: "雙向即時翻譯 × 照護情境包,與人力仲介合作的溝通平台。",
+            },
+          ].map((p) => (
+            <a
+              href={`/products/${p.slug}`}
+              class="group reveal flex h-full flex-col rounded-2xl border border-line bg-card p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orbit/40 hover:shadow-md"
+            >
+              <p class="font-display text-xs font-semibold tracking-[0.2em] text-orbit uppercase">
+                {p.en}
+              </p>
+              <h3 class="mt-2 text-lg font-bold text-ink">{p.name}</h3>
+              <p class="mt-1 text-sm font-medium text-orbit/90">{p.tagline}</p>
+              <p class="mt-3 flex-1 text-sm leading-relaxed text-muted">
+                {p.desc}
+              </p>
+              <span class="mt-4 inline-flex items-center text-sm font-medium text-orbit">
+                完整介紹
+              </span>
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>
