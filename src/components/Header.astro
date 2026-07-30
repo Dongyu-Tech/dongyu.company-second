@@ -77,8 +77,12 @@ const isActive = (href: string) =>
     </button>
   </nav>
 
-  <!-- 行動裝置選單 -->
-  <div id="mobile-menu" class="hidden border-t border-line bg-card md:hidden">
+  <!-- 行動裝置選單:絕對定位浮在頁面內容上方(header sticky 是定位基準),
+       展開時不擠壓版面 -->
+  <div
+    id="mobile-menu"
+    class="absolute inset-x-0 top-full hidden max-h-[75vh] overflow-y-auto border-t border-line bg-card shadow-lg md:hidden"
+  >
     <ul class="flex flex-col px-6 py-4">
       {
         links.map((l) => (
@@ -100,10 +104,17 @@ const isActive = (href: string) =>
 </header>
 
 <script>
-  const toggle = document.getElementById("menu-toggle");
-  const menu = document.getElementById("mobile-menu");
-  toggle?.addEventListener("click", () => {
-    const open = menu?.classList.toggle("hidden");
-    toggle.setAttribute("aria-expanded", String(open === false));
+  // 綁在 document 做事件委派:ClientRouter 換頁會整個換掉 header,
+  // 綁在按鈕上的監聽會跟著失效,委派則不受 DOM 置換影響
+  document.addEventListener("click", (e) => {
+    const toggle = (e.target as HTMLElement).closest<HTMLElement>(
+      "#menu-toggle",
+    );
+    if (!toggle) return;
+    const menu = document.getElementById("mobile-menu");
+    if (!menu) return;
+    const isOpen = !menu.classList.toggle("hidden");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.setAttribute("aria-label", isOpen ? "關閉選單" : "開啟選單");
   });
 </script>
