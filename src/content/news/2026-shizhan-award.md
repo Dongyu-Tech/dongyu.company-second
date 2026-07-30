@@ -1,7 +1,7 @@
 ---
 title: SilverSole 銀足於大專校院創新創業實戰模擬學習平臺獲獎
 date: 2026-05-01
-dateLabel: '2026'
+dateLabel: "2026"
 category: 獲獎
 summary: 銀足團隊於大專校院創新創業實戰模擬學習平臺獲獎,以高齡行動健康為題的提案獲得肯定,取得創業資源挹注。
 image: /competitions/dazhuan-2026-stage.jpg

@@ -1,6 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Button from '../components/Button.astro';
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
 ---
 
 <Layout
@@ -12,10 +12,14 @@ import Button from '../components/Button.astro';
     <div class="mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-20">
       <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div class="reveal">
-          <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
             Huilan Active Aging
           </p>
-          <h1 class="mt-4 text-4xl font-bold leading-tight text-ink sm:text-5xl">
+          <h1
+            class="mt-4 text-4xl leading-tight font-bold text-ink sm:text-5xl"
+          >
             洄瀾樂齡
           </h1>
           <p class="mt-3 text-xl font-medium text-orbit">
@@ -23,8 +27,8 @@ import Button from '../components/Button.astro';
           </p>
           <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">
             以「長照活動旅行社」的概念,把樂齡運動課程與科學化的步態量測,
-            巡迴帶進花蓮的社區據點。動域科技擔任技術夥伴,
-            提供 SilverSole 銀足智慧鞋墊與數據平台,讓長輩的行動能力變化在課程前後看得見。
+            巡迴帶進花蓮的社區據點。動域科技擔任技術夥伴, 提供 SilverSole
+            銀足智慧鞋墊與數據平台,讓長輩的行動能力變化在課程前後看得見。
           </p>
           <div class="mt-8 flex flex-wrap gap-4">
             <a
@@ -35,7 +39,8 @@ import Button from '../components/Button.astro';
             >
               前往計畫官網
             </a>
-            <Button href="/contact" variant="outline">與我們討論落地合作</Button>
+            <Button href="/contact" variant="outline">與我們討論落地合作</Button
+            >
           </div>
         </div>
         <div class="reveal">
@@ -54,7 +59,9 @@ import Button from '../components/Button.astro';
     <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
       <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="reveal">
-          <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
             What we do
           </p>
           <h2 class="mt-3 text-3xl font-bold text-ink sm:text-4xl">
@@ -68,8 +75,8 @@ import Button from '../components/Button.astro';
           </p>
           <p>
             洄瀾樂齡像一間「長照活動旅行社」:把課程、指導員、器材與成效報告打包成一條龍,
-            用巡迴的方式把完整的健康促進課程帶進每一個據點 —
-            長輩上課,SilverSole 順便完成足壓與步態量測,課程前後的變化用數據說話。
+            用巡迴的方式把完整的健康促進課程帶進每一個據點 — 長輩上課,SilverSole
+            順便完成足壓與步態量測,課程前後的變化用數據說話。
           </p>
         </div>
       </div>
@@ -80,14 +87,16 @@ import Button from '../components/Button.astro';
   <section class="border-b border-line">
     <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
       <div data-stagger class="grid gap-5 md:grid-cols-2">
-        <div class="reveal rounded-2xl border border-line bg-card p-6 shadow-sm lg:p-8">
+        <div
+          class="reveal rounded-2xl border border-line bg-card p-6 shadow-sm lg:p-8"
+        >
           <h3 class="font-bold text-ink">動域科技的角色</h3>
           <ul class="mt-4 space-y-3">
             {
               [
-                'SilverSole 銀足的足壓與步態量測,結合樂齡運動課程設計',
-                '巡迴文健站的行動化量測流程與器材規劃',
-                '量測數據的視覺化報表,課程前後的變化看得見',
+                "SilverSole 銀足的足壓與步態量測,結合樂齡運動課程設計",
+                "巡迴文健站的行動化量測流程與器材規劃",
+                "量測數據的視覺化報表,課程前後的變化看得見",
               ].map((t) => (
                 <li class="flex gap-3 text-sm leading-relaxed text-muted">
                   <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-orbit" />
@@ -97,14 +106,16 @@ import Button from '../components/Button.astro';
             }
           </ul>
         </div>
-        <div class="reveal rounded-2xl border border-line bg-card p-6 shadow-sm lg:p-8">
+        <div
+          class="reveal rounded-2xl border border-line bg-card p-6 shadow-sm lg:p-8"
+        >
           <h3 class="font-bold text-ink">目前進展</h3>
           <ul class="mt-4 space-y-3">
             {
               [
-                '奪 2026 HSH 創新創業戰鬥營金獎,獲 80 萬元落地執行資源',
-                '計畫官網上線,對外開放合作洽詢',
-                '花蓮文健站巡迴場次規劃執行中',
+                "奪 2026 HSH 創新創業戰鬥營金獎,獲 80 萬元落地執行資源",
+                "計畫官網上線,對外開放合作洽詢",
+                "花蓮文健站巡迴場次規劃執行中",
               ].map((t) => (
                 <li class="flex gap-3 text-sm leading-relaxed text-muted">
                   <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-orbit" />
@@ -137,7 +148,9 @@ import Button from '../components/Button.astro';
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-4">
         <Button href="/contact">與我們聯絡</Button>
-        <Button href="/products/silversole" variant="outline">認識 SilverSole 銀足</Button>
+        <Button href="/products/silversole" variant="outline"
+          >認識 SilverSole 銀足</Button
+        >
       </div>
     </div>
   </section>

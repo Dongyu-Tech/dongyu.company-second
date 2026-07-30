@@ -1,37 +1,37 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Button from '../components/Button.astro';
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
 
 // 技術支柱:對外一律用能力語言,不寫電路/元件規格(內部資訊)
 const pillars = [
   {
-    en: 'Sensing & Algorithms',
-    title: '感測與演算法',
-    desc: '把慣性與壓力感測的原始訊號,變成有意義的行動指標。',
+    en: "Sensing & Algorithms",
+    title: "感測與演算法",
+    desc: "把慣性與壓力感測的原始訊號,變成有意義的行動指標。",
     points: [
-      '慣性 × 壓力多感測資料融合,即時運算行動狀態',
-      '三維度跌倒演算法,提升風險判定的準確度',
-      'Step-to-Wake 踩踏即喚醒的低功耗設計(發明專利申請中)',
+      "慣性 × 壓力多感測資料融合,即時運算行動狀態",
+      "三維度跌倒演算法,提升風險判定的準確度",
+      "Step-to-Wake 踩踏即喚醒的低功耗設計(發明專利申請中)",
     ],
   },
   {
-    en: 'Mechanism & Manufacturing',
-    title: '機構設計與製造',
-    desc: '從 3D 建模直接做到可商品化的硬體,列印就是我們的產線。',
+    en: "Mechanism & Manufacturing",
+    title: "機構設計與製造",
+    desc: "從 3D 建模直接做到可商品化的硬體,列印就是我們的產線。",
     points: [
-      '發明專利「扣合式槓片結構」(I900457):側開式扣合、免卸安全扣秒級換重',
-      '一組槓片變形為槓鈴、啞鈴、壺鈴、健腹輪的多用途機構',
-      '3D 列印不只是打樣,更是快速迭代與小量量產的方式',
+      "發明專利「扣合式槓片結構」(I900457):側開式扣合、免卸安全扣秒級換重",
+      "一組槓片變形為槓鈴、啞鈴、壺鈴、健腹輪的多用途機構",
+      "3D 列印不只是打樣,更是快速迭代與小量量產的方式",
     ],
   },
   {
-    en: 'Software & Data',
-    title: '軟體與數據平台',
-    desc: '裝置吐出的數據,自己接、自己算、自己畫成一眼看懂的畫面。',
+    en: "Software & Data",
+    title: "軟體與數據平台",
+    desc: "裝置吐出的數據,自己接、自己算、自己畫成一眼看懂的畫面。",
     points: [
-      'App 與資料後台自建,不依賴外包',
-      'NFC 動作辨識 + IMU 自動計次,支援 VBT 速度訓練分析',
-      '量測數據視覺化報表,課程與訓練前後的變化看得見',
+      "App 與資料後台自建,不依賴外包",
+      "NFC 動作辨識 + IMU 自動計次,支援 VBT 速度訓練分析",
+      "量測數據視覺化報表,課程與訓練前後的變化看得見",
     ],
   },
 ];
@@ -39,20 +39,20 @@ const pillars = [
 // 差異化:講「我們跟別人不一樣的地方」,每一條都綁真實依據
 const diffs = [
   {
-    title: '軟硬整合一手包',
-    desc: '感測、韌體、機構、App 到資料後台都在同一個團隊,不需要跨公司整合,迭代速度快、責任歸屬清楚。',
+    title: "軟硬整合一手包",
+    desc: "感測、韌體、機構、App 到資料後台都在同一個團隊,不需要跨公司整合,迭代速度快、責任歸屬清楚。",
   },
   {
-    title: '發明專利打底',
-    desc: 'SilverSole 與 QuickPlate 各有一項發明專利佈局 — 「扣合式槓片結構」已核准(I900457),Step-to-Wake 自動喚醒申請中,核心技術有智財保護。',
+    title: "發明專利打底",
+    desc: "SilverSole 與 QuickPlate 各有一項發明專利佈局 — 「扣合式槓片結構」已核准(I900457),Step-to-Wake 自動喚醒申請中,核心技術有智財保護。",
   },
   {
-    title: '場域驗證導向',
-    desc: '產品以「能不能被真實使用」為標準:高齡照護走進長照場域,運動科技走進真實訓練情境,而不是停在展示 demo。',
+    title: "場域驗證導向",
+    desc: "產品以「能不能被真實使用」為標準:高齡照護走進長照場域,運動科技走進真實訓練情境,而不是停在展示 demo。",
   },
   {
-    title: '3D 列印量產思維',
-    desc: '快速迭代與小量量產用同一條產線,改版成本低、交期短,適合需要邊驗證邊修的創新硬體。',
+    title: "3D 列印量產思維",
+    desc: "快速迭代與小量量產用同一條產線,改版成本低、交期短,適合需要邊驗證邊修的創新硬體。",
   },
 ];
 ---
@@ -64,10 +64,12 @@ const diffs = [
   <!-- ── 標題 ─────────────────────────────────────────────── -->
   <section class="border-b border-line">
     <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
-      <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+      <p
+        class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+      >
         Technology
       </p>
-      <h1 class="mt-4 text-4xl font-bold leading-tight text-ink sm:text-5xl">
+      <h1 class="mt-4 text-4xl leading-tight font-bold text-ink sm:text-5xl">
         核心<span class="text-orbit">技術</span>
       </h1>
       <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
@@ -83,7 +85,7 @@ const diffs = [
       {
         pillars.map((p) => (
           <div class="reveal flex flex-col rounded-2xl border border-line bg-card p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orbit/40 hover:shadow-md">
-            <p class="font-display text-xs font-medium uppercase tracking-[0.2em] text-faint">
+            <p class="font-display text-xs font-medium tracking-[0.2em] text-faint uppercase">
               {p.en}
             </p>
             <h2 class="mt-1 text-xl font-bold text-ink">{p.title}</h2>
@@ -106,36 +108,54 @@ const diffs = [
   <section class="border-t border-line">
     <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
       <div class="reveal mb-12 flex flex-col gap-3">
-        <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+        <p
+          class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+        >
           Patents
         </p>
         <h2 class="text-3xl font-bold text-ink sm:text-4xl">發明專利佈局</h2>
-        <p class="max-w-xl text-muted">兩項產品、各一項發明專利,守住核心技術。</p>
+        <p class="max-w-xl text-muted">
+          兩項產品、各一項發明專利,守住核心技術。
+        </p>
       </div>
 
       <div data-stagger class="grid gap-6 md:grid-cols-2">
-        <div class="reveal rounded-3xl border border-line bg-card p-8 shadow-sm">
+        <div
+          class="reveal rounded-3xl border border-line bg-card p-8 shadow-sm"
+        >
           <div class="flex items-center gap-3">
-            <span class="rounded-full bg-orbit/10 px-3 py-1 text-xs font-semibold text-orbit">
+            <span
+              class="rounded-full bg-orbit/10 px-3 py-1 text-xs font-semibold text-orbit"
+            >
               已核准
             </span>
-            <span class="font-display text-xs tracking-wide text-faint">I900457</span>
+            <span class="font-display text-xs tracking-wide text-faint"
+              >I900457</span
+            >
           </div>
           <h3 class="mt-4 text-xl font-bold text-ink">扣合式槓片結構</h3>
-          <p class="mt-2 text-sm font-medium text-orbit/90">QuickPlate 智慧槓片</p>
+          <p class="mt-2 text-sm font-medium text-orbit/90">
+            QuickPlate 智慧槓片
+          </p>
           <p class="mt-3 text-sm leading-relaxed text-muted">
             側開式扣合機構,免卸安全扣即可從側邊秒級抽換重量;同一組槓片可變形為槓鈴、啞鈴、壺鈴與健腹輪。
           </p>
         </div>
 
-        <div class="reveal rounded-3xl border border-line bg-card p-8 shadow-sm">
+        <div
+          class="reveal rounded-3xl border border-line bg-card p-8 shadow-sm"
+        >
           <div class="flex items-center gap-3">
-            <span class="rounded-full bg-soft px-3 py-1 text-xs font-semibold text-muted ring-1 ring-line">
+            <span
+              class="rounded-full bg-soft px-3 py-1 text-xs font-semibold text-muted ring-1 ring-line"
+            >
               申請中
             </span>
           </div>
           <h3 class="mt-4 text-xl font-bold text-ink">Step-to-Wake 自動喚醒</h3>
-          <p class="mt-2 text-sm font-medium text-orbit/90">SilverSole 銀足智慧鞋墊</p>
+          <p class="mt-2 text-sm font-medium text-orbit/90">
+            SilverSole 銀足智慧鞋墊
+          </p>
           <p class="mt-3 text-sm leading-relaxed text-muted">
             踩踏即喚醒的省電設計,讓鞋墊平時深度休眠、一穿上就開始工作,大幅延長電池續航。
           </p>
@@ -148,38 +168,44 @@ const diffs = [
   <section class="border-t border-line">
     <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
       <div class="reveal mb-12 flex flex-col gap-3">
-        <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+        <p
+          class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+        >
           How we work
         </p>
-        <h2 class="text-3xl font-bold text-ink sm:text-4xl">從構想到量產的路</h2>
+        <h2 class="text-3xl font-bold text-ink sm:text-4xl">
+          從構想到量產的路
+        </h2>
       </div>
 
       <div data-stagger class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {
           [
             {
-              n: '01',
-              t: '構想與研究',
-              d: '從真實場域的痛點出發,先驗證題目值不值得做,再動手。',
+              n: "01",
+              t: "構想與研究",
+              d: "從真實場域的痛點出發,先驗證題目值不值得做,再動手。",
             },
             {
-              n: '02',
-              t: '3D 建模與原型',
-              d: '直接進 3D 建模與列印,把想法變成拿得起來、試得動的原型。',
+              n: "02",
+              t: "3D 建模與原型",
+              d: "直接進 3D 建模與列印,把想法變成拿得起來、試得動的原型。",
             },
             {
-              n: '03',
-              t: '場域驗證',
-              d: '把原型帶進長照與運動場域實測,用量測數據修正設計。',
+              n: "03",
+              t: "場域驗證",
+              d: "把原型帶進長照與運動場域實測,用量測數據修正設計。",
             },
             {
-              n: '04',
-              t: '小量生產與迭代',
-              d: '以 3D 列印進行小量生產,依驗證回饋快速改版,為量產做準備。',
+              n: "04",
+              t: "小量生產與迭代",
+              d: "以 3D 列印進行小量生產,依驗證回饋快速改版,為量產做準備。",
             },
           ].map((s) => (
             <div class="reveal rounded-2xl border border-line bg-card p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orbit/40 hover:shadow-md">
-              <span class="font-display text-3xl font-bold text-orbit/30">{s.n}</span>
+              <span class="font-display text-3xl font-bold text-orbit/30">
+                {s.n}
+              </span>
               <h3 class="mt-3 text-lg font-bold text-ink">{s.t}</h3>
               <p class="mt-2 text-sm leading-relaxed text-muted">{s.d}</p>
             </div>
@@ -193,10 +219,14 @@ const diffs = [
   <section class="border-t border-line">
     <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
       <div class="reveal mb-12 flex flex-col gap-3">
-        <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+        <p
+          class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+        >
           Why us
         </p>
-        <h2 class="text-3xl font-bold text-ink sm:text-4xl">我們跟別人不一樣的地方</h2>
+        <h2 class="text-3xl font-bold text-ink sm:text-4xl">
+          我們跟別人不一樣的地方
+        </h2>
       </div>
 
       <div data-stagger class="grid gap-5 md:grid-cols-2">
@@ -216,7 +246,9 @@ const diffs = [
   <!-- ── CTA ──────────────────────────────────────────────── -->
   <section class="border-t border-line">
     <div class="mx-auto max-w-7xl px-6 py-20 text-center lg:px-10">
-      <h2 class="text-3xl font-bold text-ink sm:text-4xl">想深入了解技術怎麼用在你的場景?</h2>
+      <h2 class="text-3xl font-bold text-ink sm:text-4xl">
+        想深入了解技術怎麼用在你的場景?
+      </h2>
       <div class="mt-8 flex flex-wrap justify-center gap-4">
         <Button href="/contact">與我們聊聊</Button>
         <Button href="/products" variant="outline">看產品應用</Button>

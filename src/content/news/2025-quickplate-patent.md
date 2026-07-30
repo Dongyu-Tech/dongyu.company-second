@@ -1,7 +1,7 @@
 ---
 title: QuickPlate「扣合式槓片結構」取得中華民國發明專利
 date: 2025-10-01
-dateLabel: '2025.10'
+dateLabel: "2025.10"
 category: 專利
 summary: QuickPlate 智慧槓片核心技術「扣合式槓片結構」獲中華民國發明專利(證書號 I900457),涵蓋側開式扣合機構與一片多用的變形設計。
 image: /products/quickplate-render.jpg

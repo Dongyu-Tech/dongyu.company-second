@@ -21,15 +21,15 @@ const {
   image,
   imageAlt,
   status,
-  class: className = '',
+  class: className = "",
 } = Astro.props;
-const Tag = href ? 'a' : 'article';
+const Tag = href ? "a" : "article";
 ---
 
 <Tag
   href={href}
   class:list={[
-    'group relative block overflow-hidden rounded-3xl border border-line bg-card shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-orbit/40 hover:shadow-md',
+    "group relative block overflow-hidden rounded-3xl border border-line bg-card shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-orbit/40 hover:shadow-md",
     className,
   ]}
 >
@@ -44,7 +44,9 @@ const Tag = href ? 'a' : 'article';
     )
   }
   <div class="relative p-8 lg:p-10">
-    <p class="font-display text-xs font-semibold uppercase tracking-[0.2em] text-orbit">
+    <p
+      class="font-display text-xs font-semibold tracking-[0.2em] text-orbit uppercase"
+    >
       {en}
     </p>
 

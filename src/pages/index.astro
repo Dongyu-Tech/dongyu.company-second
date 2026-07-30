@@ -1,29 +1,29 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../layouts/Layout.astro';
-import Button from '../components/Button.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-import ProductCard from '../components/ProductCard.astro';
-import NewsCard from '../components/NewsCard.astro';
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import ProductCard from "../components/ProductCard.astro";
+import NewsCard from "../components/NewsCard.astro";
 
 // 最新消息:取最近 4 則
-const news = (await getCollection('news'))
+const news = (await getCollection("news"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 4);
 
 // Hero 輪播圖(暫用 Unsplash 免費圖,正式上線前換成自有/在地化圖檔)
 const slides = [
   {
-    src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80',
-    alt: '電路板特寫 — AIoT 軟硬整合',
+    src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80",
+    alt: "電路板特寫 — AIoT 軟硬整合",
   },
   {
-    src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80',
-    alt: '工程師於產線工作 — 產品設計與製造',
+    src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80",
+    alt: "工程師於產線工作 — 產品設計與製造",
   },
   {
-    src: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80',
-    alt: '健身房訓練場景 — 運動科技',
+    src: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80",
+    alt: "健身房訓練場景 — 運動科技",
   },
 ];
 ---
@@ -35,20 +35,28 @@ const slides = [
     <div class="absolute inset-0" aria-hidden="true">
       {
         slides.map((s, i) => (
-          <div class:list={['hero-slide absolute inset-0', i === 0 && 'is-active']}>
+          <div
+            class:list={["hero-slide absolute inset-0", i === 0 && "is-active"]}
+          >
             <img
               src={s.src}
               alt={s.alt}
               class="h-full w-full object-cover"
               loading="eager"
-              fetchpriority={i === 0 ? 'high' : 'low'}
+              fetchpriority={i === 0 ? "high" : "low"}
             />
           </div>
         ))
       }
       <!-- 深色遮罩:左重右輕,保文字對比 -->
-      <div class="absolute inset-0 bg-gradient-to-r from-night/90 via-night/60 to-night/30"></div>
-      <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-night/70 to-transparent"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-night/90 via-night/60 to-night/30"
+      >
+      </div>
+      <div
+        class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-night/70 to-transparent"
+      >
+      </div>
     </div>
 
     <div class="relative mx-auto max-w-7xl px-6 py-28 lg:px-10 lg:py-40">
@@ -61,7 +69,7 @@ const slides = [
         </div>
 
         <h1
-          class="rise-in font-display mt-6 text-5xl font-bold leading-[1.15] text-white sm:text-6xl lg:text-7xl"
+          class="rise-in mt-6 font-display text-5xl leading-[1.15] font-bold text-white sm:text-6xl lg:text-7xl"
           style="animation-delay:.05s"
         >
           讓創新構想，<br />
@@ -98,8 +106,10 @@ const slides = [
             data-slide={i}
             aria-label={`切換到第 ${i + 1} 張`}
             class:list={[
-              'h-2.5 rounded-full transition-all duration-500',
-              i === 0 ? 'w-8 bg-orbit-bright' : 'w-2.5 bg-white/40 hover:bg-white/70',
+              "h-2.5 rounded-full transition-all duration-500",
+              i === 0
+                ? "w-8 bg-orbit-bright"
+                : "w-2.5 bg-white/40 hover:bg-white/70",
             ]}
           />
         ))
@@ -111,7 +121,9 @@ const slides = [
   <section id="services" class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
     <div class="reveal mb-12 flex flex-wrap items-end justify-between gap-4">
       <div class="flex flex-col gap-3">
-        <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+        <p
+          class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+        >
           What we do
         </p>
         <h2 class="text-3xl font-bold text-ink sm:text-4xl">三大核心能力</h2>
@@ -131,10 +143,19 @@ const slides = [
         en="AI · IoT"
         desc="感測器、低功耗韌體、演算法到雲端,一條鏈自己打通,不用跨廠商拼裝;讓感測訊號變成使用者看得懂的即時資訊。"
       >
-        <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <svg
+          class="h-9 w-9"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <rect x="4" y="4" width="16" height="16" rx="2"></rect>
           <rect x="9" y="9" width="6" height="6"></rect>
-          <path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"></path>
+          <path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"
+          ></path>
         </svg>
       </ServiceCard>
 
@@ -144,8 +165,18 @@ const slides = [
         en="Product Design"
         desc="不只畫概念圖 — 從 3D 建模到 3D 列印,直接做出可商品化的硬體;列印對我們不只是打樣,更是量產方式。"
       >
-        <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+        <svg
+          class="h-9 w-9"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+          ></path>
           <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
           <line x1="12" y1="22.08" x2="12" y2="12"></line>
         </svg>
@@ -157,7 +188,15 @@ const slides = [
         en="Software Engineering"
         desc="Web、App 與資料後台自己寫,讓裝置吐出的數據變成使用者一眼看懂的畫面。"
       >
-        <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <svg
+          class="h-9 w-9"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <polyline points="16 18 22 12 16 6"></polyline>
           <polyline points="8 6 2 12 8 18"></polyline>
         </svg>
@@ -170,7 +209,9 @@ const slides = [
     <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
       <div class="reveal mb-12 flex flex-wrap items-end justify-between gap-4">
         <div class="flex flex-col gap-3">
-          <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
             Our products
           </p>
           <h2 class="text-3xl font-bold text-ink sm:text-4xl">主打商品</h2>
@@ -179,7 +220,8 @@ const slides = [
           href="/products"
           class="group inline-flex items-center gap-2 text-sm font-medium text-muted transition-colors hover:text-orbit"
         >
-          查看全部        </a>
+          查看全部
+        </a>
       </div>
 
       <div data-stagger class="grid gap-6 lg:grid-cols-2">
@@ -192,7 +234,12 @@ const slides = [
           en="Smart Insole"
           tagline="延青春 — 延長行動自主歲月"
           desc="把足壓健檢與步態分析放進一雙鞋墊,長輩照常走路,行動力變化就被看見;Step-to-Wake 自動喚醒,穿上即用。"
-          tags={['足壓健檢', '步態分析', 'Step-to-Wake(專利申請中)', '長照場域驗證']}
+          tags={[
+            "足壓健檢",
+            "步態分析",
+            "Step-to-Wake(專利申請中)",
+            "長照場域驗證",
+          ]}
         />
         <ProductCard
           class="reveal"
@@ -203,7 +250,7 @@ const slides = [
           en="Smart Weight Plate"
           tagline="側開秒拆 — 一片即槓、啞、鈴、輪"
           desc="以發明專利「扣合式槓片結構」(I900457)為核心,側邊秒級換重、一片變形為槓鈴／啞鈴／壺鈴／健腹輪,搭配 QuickLog App 數位訓練系統。"
-          tags={['發明專利 I900457', '側開換重', '一片多用', 'QuickLog App']}
+          tags={["發明專利 I900457", "側開換重", "一片多用", "QuickLog App"]}
         />
       </div>
     </div>
@@ -214,7 +261,9 @@ const slides = [
     <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
       <div class="reveal mb-12 flex flex-wrap items-end justify-between gap-4">
         <div class="flex flex-col gap-3">
-          <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
             News
           </p>
           <h2 class="text-3xl font-bold text-ink sm:text-4xl">最新動態</h2>
@@ -223,7 +272,8 @@ const slides = [
           href="/news"
           class="group inline-flex items-center gap-2 text-sm font-medium text-muted transition-colors hover:text-orbit"
         >
-          查看全部動態        </a>
+          查看全部動態
+        </a>
       </div>
 
       <div data-stagger class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -249,7 +299,9 @@ const slides = [
     <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
       <div class="reveal mb-12 flex flex-wrap items-end justify-between gap-4">
         <div class="flex flex-col gap-3">
-          <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
             Field work
           </p>
           <h2 class="text-3xl font-bold text-ink sm:text-4xl">落地實績</h2>
@@ -258,13 +310,16 @@ const slides = [
           href="/huilan"
           class="group inline-flex items-center gap-2 text-sm font-medium text-muted transition-colors hover:text-orbit"
         >
-          查看全部計畫        </a>
+          查看全部計畫
+        </a>
       </div>
 
       <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
         <!-- 左:案例說明 -->
         <div class="reveal">
-          <p class="font-display text-xs font-semibold uppercase tracking-[0.2em] text-orbit">
+          <p
+            class="font-display text-xs font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
             洄瀾樂齡 × 動域科技
           </p>
           <h3 class="mt-3 text-2xl font-bold text-ink lg:text-3xl">
@@ -282,21 +337,25 @@ const slides = [
               rel="noopener"
               class="group inline-flex items-center gap-2.5 rounded-full bg-orbit px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-orbit-bright hover:shadow-lg hover:shadow-orbit/25"
             >
-              前往計畫官網            </a>
-            <Button href="/contact" variant="outline">與我們討論落地計畫</Button>
+              前往計畫官網
+            </a>
+            <Button href="/contact" variant="outline">與我們討論落地計畫</Button
+            >
           </div>
         </div>
 
         <!-- 右:合作內容 / 目前進展 -->
         <div data-stagger class="space-y-5">
-          <div class="reveal rounded-2xl border border-line bg-card p-6 shadow-sm">
+          <div
+            class="reveal rounded-2xl border border-line bg-card p-6 shadow-sm"
+          >
             <h4 class="font-bold text-ink">合作內容</h4>
             <ul class="mt-4 space-y-3">
               {
                 [
-                  'SilverSole 銀足的足壓與步態量測,結合樂齡運動課程設計',
-                  '巡迴文健站的行動化量測流程與器材規劃',
-                  '量測數據的視覺化報表,課程前後的變化看得見',
+                  "SilverSole 銀足的足壓與步態量測,結合樂齡運動課程設計",
+                  "巡迴文健站的行動化量測流程與器材規劃",
+                  "量測數據的視覺化報表,課程前後的變化看得見",
                 ].map((t) => (
                   <li class="flex gap-3 text-sm leading-relaxed text-muted">
                     <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-orbit" />
@@ -306,14 +365,16 @@ const slides = [
               }
             </ul>
           </div>
-          <div class="reveal rounded-2xl border border-line bg-card p-6 shadow-sm">
+          <div
+            class="reveal rounded-2xl border border-line bg-card p-6 shadow-sm"
+          >
             <h4 class="font-bold text-ink">目前進展</h4>
             <ul class="mt-4 space-y-3">
               {
                 [
-                  '奪 2026 HSH 創新創業戰鬥營金獎,獲 80 萬元落地執行資源',
-                  '計畫官網上線,對外開放合作洽詢',
-                  '花蓮文健站巡迴場次規劃執行中',
+                  "奪 2026 HSH 創新創業戰鬥營金獎,獲 80 萬元落地執行資源",
+                  "計畫官網上線,對外開放合作洽詢",
+                  "花蓮文健站巡迴場次規劃執行中",
                 ].map((t) => (
                   <li class="flex gap-3 text-sm leading-relaxed text-muted">
                     <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-orbit" />
@@ -332,7 +393,9 @@ const slides = [
   <section class="border-t border-line">
     <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
       <div class="reveal mb-12 text-center">
-        <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+        <p
+          class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+        >
           Work with us
         </p>
         <h2 class="mt-3 text-3xl font-bold text-ink sm:text-4xl">
@@ -342,18 +405,35 @@ const slides = [
 
       <div data-stagger class="grid gap-6 md:grid-cols-2">
         <!-- 技術合作 -->
-        <div class="reveal group relative overflow-hidden rounded-3xl border border-line bg-card p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orbit/50 hover:shadow-md lg:p-10">
-          <div class="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/25"></div>
+        <div
+          class="reveal group relative overflow-hidden rounded-3xl border border-line bg-card p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orbit/50 hover:shadow-md lg:p-10"
+        >
+          <div
+            class="pointer-events-none absolute -top-12 -right-12 h-32 w-32 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/25"
+          >
+          </div>
           <div class="relative">
-            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-soft text-orbit ring-1 ring-line">
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path>
+            <span
+              class="flex h-12 w-12 items-center justify-center rounded-full bg-soft text-orbit ring-1 ring-line"
+            >
+              <svg
+                class="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"
+                ></path>
                 <path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4M8 22h8"></path>
               </svg>
             </span>
             <h3 class="mt-5 text-xl font-bold text-ink">尋求技術合作</h3>
             <p class="mt-3 max-w-md text-sm leading-relaxed text-muted">
-              想找軟硬整合、AIoT 或產品設計的開發夥伴?把你的構想或需求告訴我們,一起評估如何落地。
+              想找軟硬整合、AIoT
+              或產品設計的開發夥伴?把你的構想或需求告訴我們,一起評估如何落地。
             </p>
             <div class="mt-7">
               <Button href="/contact">談談合作</Button>
@@ -362,19 +442,37 @@ const slides = [
         </div>
 
         <!-- 產品需求 -->
-        <div class="reveal group relative overflow-hidden rounded-3xl border border-line bg-card p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orbit/50 hover:shadow-md lg:p-10">
-          <div class="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/25"></div>
+        <div
+          class="reveal group relative overflow-hidden rounded-3xl border border-line bg-card p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orbit/50 hover:shadow-md lg:p-10"
+        >
+          <div
+            class="pointer-events-none absolute -top-12 -right-12 h-32 w-32 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/25"
+          >
+          </div>
           <div class="relative">
-            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-soft text-orbit ring-1 ring-line">
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <span
+              class="flex h-12 w-12 items-center justify-center rounded-full bg-soft text-orbit ring-1 ring-line"
+            >
+              <svg
+                class="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                ></path>
                 <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                 <line x1="12" y1="22.08" x2="12" y2="12"></line>
               </svg>
             </span>
             <h3 class="mt-5 text-xl font-bold text-ink">了解我們的產品</h3>
             <p class="mt-3 max-w-md text-sm leading-relaxed text-muted">
-              對 SilverSole 銀足或 QuickPlate 智慧槓片有興趣?看看產品細節,或直接與我們聯絡洽詢。
+              對 SilverSole 銀足或 QuickPlate
+              智慧槓片有興趣?看看產品細節,或直接與我們聯絡洽詢。
             </p>
             <div class="mt-7">
               <Button href="/products" variant="outline">查看產品</Button>
@@ -389,28 +487,32 @@ const slides = [
 <script>
   // Hero 輪播:自動播放 + 圓點切換;hover 暫停;reduced-motion 不自動播
   function setupHeroCarousel() {
-    const hero = document.getElementById('hero');
+    const hero = document.getElementById("hero");
     if (!hero || hero.dataset.carouselReady) return;
-    hero.dataset.carouselReady = '1';
+    hero.dataset.carouselReady = "1";
 
-    const slides = Array.from(hero.querySelectorAll<HTMLElement>('.hero-slide'));
+    const slides = Array.from(
+      hero.querySelectorAll<HTMLElement>(".hero-slide"),
+    );
     const dots = Array.from(
-      hero.querySelectorAll<HTMLButtonElement>('#hero-dots button')
+      hero.querySelectorAll<HTMLButtonElement>("#hero-dots button"),
     );
     if (slides.length <= 1) return;
 
     let current = 0;
     let timer: number | undefined;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     function show(idx: number) {
       current = (idx + slides.length) % slides.length;
-      slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
+      slides.forEach((s, i) => s.classList.toggle("is-active", i === current));
       dots.forEach((d, i) => {
-        d.classList.toggle('w-8', i === current);
-        d.classList.toggle('bg-orbit-bright', i === current);
-        d.classList.toggle('w-2.5', i !== current);
-        d.classList.toggle('bg-white/40', i !== current);
+        d.classList.toggle("w-8", i === current);
+        d.classList.toggle("bg-orbit-bright", i === current);
+        d.classList.toggle("w-2.5", i !== current);
+        d.classList.toggle("bg-white/40", i !== current);
       });
     }
 
@@ -426,20 +528,20 @@ const slides = [
     }
 
     dots.forEach((d, i) =>
-      d.addEventListener('click', () => {
+      d.addEventListener("click", () => {
         show(i);
         pause();
         play();
-      })
+      }),
     );
-    hero.addEventListener('mouseenter', pause);
-    hero.addEventListener('mouseleave', play);
-    document.addEventListener('visibilitychange', () =>
-      document.hidden ? pause() : play()
+    hero.addEventListener("mouseenter", pause);
+    hero.addEventListener("mouseleave", play);
+    document.addEventListener("visibilitychange", () =>
+      document.hidden ? pause() : play(),
     );
 
     play();
   }
 
-  document.addEventListener('astro:page-load', setupHeroCarousel);
+  document.addEventListener("astro:page-load", setupHeroCarousel);
 </script>

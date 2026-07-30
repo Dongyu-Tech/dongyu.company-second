@@ -1,17 +1,17 @@
 ---
-import OrbitMark from './OrbitMark.astro';
+import OrbitMark from "./OrbitMark.astro";
 
 const path = Astro.url.pathname;
 const links = [
-  { href: '/', label: '首頁' },
-  { href: '/news', label: '最新動態' },
-  { href: '/technology', label: '核心技術' },
-  { href: '/products', label: '產品' },
-  { href: '/huilan', label: '洄瀾樂齡' },
-  { href: '/about', label: '關於動域' },
+  { href: "/", label: "首頁" },
+  { href: "/news", label: "最新動態" },
+  { href: "/technology", label: "核心技術" },
+  { href: "/products", label: "產品" },
+  { href: "/huilan", label: "洄瀾樂齡" },
+  { href: "/about", label: "關於動域" },
 ];
 const isActive = (href: string) =>
-  href === '/' ? path === '/' : path.startsWith(href);
+  href === "/" ? path === "/" : path.startsWith(href);
 ---
 
 <header
@@ -20,7 +20,11 @@ const isActive = (href: string) =>
   <nav
     class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10"
   >
-    <a href="/" class="group flex items-center gap-3" aria-label="動域科技 首頁">
+    <a
+      href="/"
+      class="group flex items-center gap-3"
+      aria-label="動域科技 首頁"
+    >
       <OrbitMark size={34} spin={true} />
       <span class="font-display text-lg font-bold tracking-tight text-ink">
         動域科技
@@ -35,8 +39,8 @@ const isActive = (href: string) =>
             <a
               href={l.href}
               class:list={[
-                'relative whitespace-nowrap text-sm font-medium transition-colors hover:text-ink',
-                isActive(l.href) ? 'text-ink' : 'text-muted',
+                "relative text-sm font-medium whitespace-nowrap transition-colors hover:text-ink",
+                isActive(l.href) ? "text-ink" : "text-muted",
               ]}
             >
               {l.label}
@@ -79,8 +83,8 @@ const isActive = (href: string) =>
             <a
               href={l.href}
               class:list={[
-                'block py-3 text-base font-medium',
-                isActive(l.href) ? 'text-orbit' : 'text-ink',
+                "block py-3 text-base font-medium",
+                isActive(l.href) ? "text-orbit" : "text-ink",
               ]}
             >
               {l.label}
@@ -93,10 +97,10 @@ const isActive = (href: string) =>
 </header>
 
 <script>
-  const toggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('mobile-menu');
-  toggle?.addEventListener('click', () => {
-    const open = menu?.classList.toggle('hidden');
-    toggle.setAttribute('aria-expanded', String(open === false));
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  toggle?.addEventListener("click", () => {
+    const open = menu?.classList.toggle("hidden");
+    toggle.setAttribute("aria-expanded", String(open === false));
   });
 </script>

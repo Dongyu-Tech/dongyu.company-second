@@ -1,7 +1,7 @@
 ---
 title: SilverSole 銀足入選 U-start 創新創業計畫第一階段
 date: 2026-06-01
-dateLabel: '2026'
+dateLabel: "2026"
 category: 補助
 summary: 銀足智慧鞋墊團隊入選 2026 年 U-start 創新創業計畫第一階段,獲得新臺幣 35 萬元創業補助,持續朝場域驗證與產品化邁進。
 image: /products/silversole-product.jpg

@@ -1,6 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import OrbitMark from '../components/OrbitMark.astro';
+import Layout from "../layouts/Layout.astro";
+import OrbitMark from "../components/OrbitMark.astro";
 ---
 
 <Layout
@@ -10,12 +10,20 @@ import OrbitMark from '../components/OrbitMark.astro';
   <section class="relative overflow-hidden">
     <!-- 背景 Orbit -->
     <div
-      class="pointer-events-none absolute -left-24 top-1/2 -translate-y-1/2 opacity-[0.06]"
+      class="pointer-events-none absolute top-1/2 -left-24 -translate-y-1/2 opacity-[0.06]"
       aria-hidden="true"
     >
-      <svg class="animate-orbit-slow h-[30rem] w-[30rem] text-orbit" viewBox="0 0 128 128">
+      <svg
+        class="animate-orbit-slow h-[30rem] w-[30rem] text-orbit"
+        viewBox="0 0 128 128"
+      >
         <g transform="translate(64 64)">
-          <path d="M 0 -56 A 56 56 0 1 1 -39.6 39.6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+          <path
+            d="M 0 -56 A 56 56 0 1 1 -39.6 39.6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"></path>
           <circle cx="-39.6" cy="39.6" r="8" fill="currentColor"></circle>
         </g>
       </svg>
@@ -25,10 +33,14 @@ import OrbitMark from '../components/OrbitMark.astro';
       <div class="grid gap-14 lg:grid-cols-2 lg:gap-20">
         <!-- 左:資訊 -->
         <div>
-          <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
             Contact
           </p>
-          <h1 class="mt-4 text-4xl font-bold leading-tight text-ink sm:text-5xl">
+          <h1
+            class="mt-4 text-4xl leading-tight font-bold text-ink sm:text-5xl"
+          >
             一起把想法<br /><span class="text-orbit">送上軌道</span>
           </h1>
           <p class="mt-6 max-w-md text-lg leading-relaxed text-muted">
@@ -40,26 +52,46 @@ import OrbitMark from '../components/OrbitMark.astro';
               href="mailto:dongyu.company@gmail.com"
               class="group flex items-center gap-4 rounded-2xl border border-line bg-card p-5 transition-colors hover:border-orbit/40"
             >
-              <span class="flex h-11 w-11 items-center justify-center rounded-full bg-soft text-orbit ring-1 ring-line">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <span
+                class="flex h-11 w-11 items-center justify-center rounded-full bg-soft text-orbit ring-1 ring-line"
+              >
+                <svg
+                  class="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
                   <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                   <path d="m22 7-10 5L2 7"></path>
                 </svg>
               </span>
               <div>
-                <p class="text-xs uppercase tracking-widest text-faint">Email</p>
-                <p class="font-medium text-ink transition-colors group-hover:text-orbit">
+                <p class="text-xs tracking-widest text-faint uppercase">
+                  Email
+                </p>
+                <p
+                  class="font-medium text-ink transition-colors group-hover:text-orbit"
+                >
                   dongyu.company@gmail.com
                 </p>
               </div>
             </a>
 
-            <div class="flex items-center gap-4 rounded-2xl border border-line bg-card p-5">
-              <span class="flex h-11 w-11 items-center justify-center rounded-full bg-soft ring-1 ring-line">
+            <div
+              class="flex items-center gap-4 rounded-2xl border border-line bg-card p-5"
+            >
+              <span
+                class="flex h-11 w-11 items-center justify-center rounded-full bg-soft ring-1 ring-line"
+              >
                 <OrbitMark size={22} />
               </span>
               <div>
-                <p class="text-xs uppercase tracking-widest text-faint">Company</p>
+                <p class="text-xs tracking-widest text-faint uppercase">
+                  Company
+                </p>
                 <p class="font-medium text-ink">動域科技股份有限公司</p>
                 <p class="text-sm text-muted">Dongyu Tech</p>
               </div>
@@ -80,11 +112,14 @@ import OrbitMark from '../components/OrbitMark.astro';
                 type="text"
                 required
                 placeholder="您的稱呼"
-                class="w-full rounded-xl border border-line bg-canvas px-4 py-3 text-ink placeholder:text-faint focus:border-orbit focus:outline-none focus:ring-1 focus:ring-orbit"
+                class="w-full rounded-xl border border-line bg-canvas px-4 py-3 text-ink placeholder:text-faint focus:border-orbit focus:ring-1 focus:ring-orbit focus:outline-none"
               />
             </div>
             <div>
-              <label for="email" class="mb-2 block text-sm font-medium text-ink">
+              <label
+                for="email"
+                class="mb-2 block text-sm font-medium text-ink"
+              >
                 Email
               </label>
               <input
@@ -93,11 +128,14 @@ import OrbitMark from '../components/OrbitMark.astro';
                 type="email"
                 required
                 placeholder="you@example.com"
-                class="w-full rounded-xl border border-line bg-canvas px-4 py-3 text-ink placeholder:text-faint focus:border-orbit focus:outline-none focus:ring-1 focus:ring-orbit"
+                class="w-full rounded-xl border border-line bg-canvas px-4 py-3 text-ink placeholder:text-faint focus:border-orbit focus:ring-1 focus:ring-orbit focus:outline-none"
               />
             </div>
             <div>
-              <label for="message" class="mb-2 block text-sm font-medium text-ink">
+              <label
+                for="message"
+                class="mb-2 block text-sm font-medium text-ink"
+              >
                 訊息
               </label>
               <textarea
@@ -106,7 +144,7 @@ import OrbitMark from '../components/OrbitMark.astro';
                 rows="5"
                 required
                 placeholder="想跟我們聊些什麼?"
-                class="w-full resize-none rounded-xl border border-line bg-canvas px-4 py-3 text-ink placeholder:text-faint focus:border-orbit focus:outline-none focus:ring-1 focus:ring-orbit"
+                class="w-full resize-none rounded-xl border border-line bg-canvas px-4 py-3 text-ink placeholder:text-faint focus:border-orbit focus:ring-1 focus:ring-orbit focus:outline-none"
               ></textarea>
             </div>
 
@@ -115,7 +153,15 @@ import OrbitMark from '../components/OrbitMark.astro';
               class="group inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-orbit px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-orbit-bright hover:shadow-lg hover:shadow-orbit/25"
             >
               送出訊息
-              <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg
+                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
@@ -133,7 +179,9 @@ import OrbitMark from '../components/OrbitMark.astro';
   <section class="border-t border-line">
     <div class="mx-auto max-w-3xl px-6 py-20 lg:py-24">
       <div class="reveal mb-10 flex flex-col gap-3">
-        <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+        <p
+          class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+        >
           FAQ
         </p>
         <h2 class="text-3xl font-bold text-ink sm:text-4xl">常見問題</h2>
@@ -143,26 +191,28 @@ import OrbitMark from '../components/OrbitMark.astro';
         {
           [
             {
-              q: '可以只委託其中一段嗎?例如只做 App 或只做硬體?',
-              a: '可以。軟體、韌體、機構設計到資料後台都是我們自己做,可依需求單獨承接,也可以整合開發,由你決定切入的範圍。',
+              q: "可以只委託其中一段嗎?例如只做 App 或只做硬體?",
+              a: "可以。軟體、韌體、機構設計到資料後台都是我們自己做,可依需求單獨承接,也可以整合開發,由你決定切入的範圍。",
             },
             {
-              q: '合作流程大概怎麼走?',
-              a: '先透過表單或 Email 聊需求,我們評估可行性後提出方案、時程與報價,雙方確認後開工。過程中以快速原型與階段成果溝通,不會做完才給你看。',
+              q: "合作流程大概怎麼走?",
+              a: "先透過表單或 Email 聊需求,我們評估可行性後提出方案、時程與報價,雙方確認後開工。過程中以快速原型與階段成果溝通,不會做完才給你看。",
             },
             {
-              q: 'SilverSole 銀足、QuickPlate 現在買得到嗎?',
-              a: '目前尚未公開販售:SilverSole 正在長照場域驗證,QuickPlate 在開發階段。想試用、合作或了解進度,歡迎直接聯絡我們。',
+              q: "SilverSole 銀足、QuickPlate 現在買得到嗎?",
+              a: "目前尚未公開販售:SilverSole 正在長照場域驗證,QuickPlate 在開發階段。想試用、合作或了解進度,歡迎直接聯絡我們。",
             },
             {
-              q: '你們接學校、公部門或機構的合作嗎?',
-              a: '接。洄瀾樂齡計畫就是與在地團隊及公部門資源合作的例子;學術研究、場域試辦與 ESG 相關合作都歡迎來談。',
+              q: "你們接學校、公部門或機構的合作嗎?",
+              a: "接。洄瀾樂齡計畫就是與在地團隊及公部門資源合作的例子;學術研究、場域試辦與 ESG 相關合作都歡迎來談。",
             },
           ].map((f) => (
             <details class="reveal group rounded-2xl border border-line bg-card p-6 shadow-sm transition duration-300 open:border-orbit/40">
               <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-ink [&::-webkit-details-marker]:hidden">
                 {f.q}
-                <span class="shrink-0 text-orbit transition-transform duration-300 group-open:rotate-45">+</span>
+                <span class="shrink-0 text-orbit transition-transform duration-300 group-open:rotate-45">
+                  +
+                </span>
               </summary>
               <p class="mt-4 text-sm leading-relaxed text-muted">{f.a}</p>
             </details>
@@ -174,16 +224,18 @@ import OrbitMark from '../components/OrbitMark.astro';
 </Layout>
 
 <script>
-  const form = document.getElementById('contact-form') as HTMLFormElement | null;
-  form?.addEventListener('submit', (e) => {
+  const form = document.getElementById(
+    "contact-form",
+  ) as HTMLFormElement | null;
+  form?.addEventListener("submit", (e) => {
     e.preventDefault();
     const data = new FormData(form);
-    const name = String(data.get('name') ?? '');
-    const email = String(data.get('email') ?? '');
-    const message = String(data.get('message') ?? '');
+    const name = String(data.get("name") ?? "");
+    const email = String(data.get("email") ?? "");
+    const message = String(data.get("message") ?? "");
     const subject = encodeURIComponent(`網站來信:${name}`);
     const body = encodeURIComponent(
-      `姓名:${name}\nEmail:${email}\n\n${message}`
+      `姓名:${name}\nEmail:${email}\n\n${message}`,
     );
     window.location.href = `mailto:dongyu.company@gmail.com?subject=${subject}&body=${body}`;
   });

@@ -1,0 +1,10 @@
+# 建置輸出與相依
+dist/
+.astro/
+node_modules/
+
+# 由套件管理器維護
+pnpm-lock.yaml
+
+# Husky 產生的 hook 包裝
+.husky/_/

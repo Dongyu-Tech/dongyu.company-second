@@ -1,7 +1,7 @@
 ---
 title: 洄瀾樂齡計畫官網正式上線
 date: 2026-07-26
-dateLabel: '2026.07'
+dateLabel: "2026.07"
 category: 里程碑
 summary: 與洄瀾樂齡團隊合作的「高齡科技巡迴賦能計畫」官方網站正式上線,完整介紹計畫理念、樂齡運動課程與合作方式。
 link: https://hlll.dongyu.company

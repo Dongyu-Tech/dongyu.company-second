@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 /* ── 動域科技 Orbit 品牌設計 token(2026-07 淺色改版)──────────
    淺色乾淨風:白底 + 淺灰區塊交錯,磚橙為唯一重點色,
@@ -29,10 +29,11 @@
 
   /* 字體 — 中文走系統正黑體優先(Windows 微軟正黑體 / Mac 蘋方),
      Latin/數字用 Space Grotesk;思源黑體做跨裝置 fallback */
-  --font-cjk: 'PingFang TC', 'PingFang SC', 'Microsoft JhengHei', '微軟正黑體',
-    'Noto Sans TC', system-ui, sans-serif;
-  --font-display: 'Space Grotesk', var(--font-cjk);
-  --font-sans: 'Space Grotesk', var(--font-cjk);
+  --font-cjk:
+    "PingFang TC", "PingFang SC", "Microsoft JhengHei", "微軟正黑體",
+    "Noto Sans TC", system-ui, sans-serif;
+  --font-display: "Space Grotesk", var(--font-cjk);
+  --font-sans: "Space Grotesk", var(--font-cjk);
 
   /* 動畫 */
   --ease-orbit: cubic-bezier(0.22, 1, 0.36, 1);

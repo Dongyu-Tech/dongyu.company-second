@@ -1,24 +1,24 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Button from '../../components/Button.astro';
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/Button.astro";
 
 // QuickLog 數位功能:App 介面設計完成、韌體開發中 → 一律用「規劃/設計」語氣,不寫成已完成
 const digital = [
   {
-    t: 'NFC 靠近即辨識',
-    d: '手機靠近槓片就辨識器材與動作,不用手動選單。',
+    t: "NFC 靠近即辨識",
+    d: "手機靠近槓片就辨識器材與動作,不用手動選單。",
   },
   {
-    t: 'IMU 自動計次',
-    d: '外掛慣性感測模組自動記錄組數與次數,專心訓練就好。',
+    t: "IMU 自動計次",
+    d: "外掛慣性感測模組自動記錄組數與次數,專心訓練就好。",
   },
   {
-    t: 'VBT 速度分析',
-    d: '以動作速度回饋訓練強度,科學化安排負荷與恢復。',
+    t: "VBT 速度分析",
+    d: "以動作速度回饋訓練強度,科學化安排負荷與恢復。",
   },
   {
-    t: '數位捕手',
-    d: '偵測單人訓練力竭受困的風險,主動發出警示與求救通知。',
+    t: "數位捕手",
+    d: "偵測單人訓練力竭受困的風險,主動發出警示與求救通知。",
   },
 ];
 ---
@@ -39,13 +39,19 @@ const digital = [
 
       <div class="mt-10 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div class="reveal">
-          <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
             Smart Weight Plate
           </p>
-          <h1 class="mt-4 text-4xl font-bold leading-tight text-ink sm:text-5xl">
+          <h1
+            class="mt-4 text-4xl leading-tight font-bold text-ink sm:text-5xl"
+          >
             QuickPlate 智慧槓片
           </h1>
-          <p class="mt-3 text-xl font-medium text-orbit">側開秒拆 — 一片即槓、啞、鈴、輪</p>
+          <p class="mt-3 text-xl font-medium text-orbit">
+            側開秒拆 — 一片即槓、啞、鈴、輪
+          </p>
           <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">
             以發明專利「扣合式槓片結構」為核心:免卸安全扣、從側邊秒級換重,
             一組槓片變形為槓鈴、啞鈴、壺鈴與健腹輪 — 把整間器材室收進一個角落。
@@ -71,7 +77,9 @@ const digital = [
     <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
       <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="reveal">
-          <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
             Why QuickPlate
           </p>
           <h2 class="mt-3 text-3xl font-bold text-ink sm:text-4xl">
@@ -84,8 +92,12 @@ const digital = [
             — 麻煩到讓人放棄。
           </p>
           <p>
-            QuickPlate 用一個專利機構同時解掉這兩件事:<strong class="font-semibold text-ink">側開扣合讓換重從分鐘變秒級</strong>,
-            <strong class="font-semibold text-ink">一片多用讓一組槓片頂四種器材</strong>。
+            QuickPlate 用一個專利機構同時解掉這兩件事:<strong
+              class="font-semibold text-ink">側開扣合讓換重從分鐘變秒級</strong
+            >,
+            <strong class="font-semibold text-ink"
+              >一片多用讓一組槓片頂四種器材</strong
+            >。
           </p>
         </div>
       </div>
@@ -96,23 +108,31 @@ const digital = [
   <section class="border-b border-line">
     <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
       <div class="reveal mb-12 flex flex-col gap-3">
-        <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+        <p
+          class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+        >
           Patented mechanism
         </p>
-        <h2 class="text-3xl font-bold text-ink sm:text-4xl">發明專利「扣合式槓片結構」</h2>
+        <h2 class="text-3xl font-bold text-ink sm:text-4xl">
+          發明專利「扣合式槓片結構」
+        </h2>
         <p class="max-w-xl text-muted">
           中華民國發明專利 證書號 I900457,專利權期間至 2045 年。
         </p>
       </div>
       <div data-stagger class="grid gap-5 md:grid-cols-2">
-        <div class="reveal rounded-2xl border border-line bg-card p-8 shadow-sm">
+        <div
+          class="reveal rounded-2xl border border-line bg-card p-8 shadow-sm"
+        >
           <h3 class="text-xl font-bold text-ink">側開式扣合</h3>
           <p class="mt-3 text-sm leading-relaxed text-muted">
             不用卸下安全扣,槓片從側邊直接開合上下槓 —
             換重量從「拆裝流程」變成「一個動作」,秒級完成。
           </p>
         </div>
-        <div class="reveal rounded-2xl border border-line bg-card p-8 shadow-sm">
+        <div
+          class="reveal rounded-2xl border border-line bg-card p-8 shadow-sm"
+        >
           <h3 class="text-xl font-bold text-ink">一片多用變形</h3>
           <p class="mt-3 text-sm leading-relaxed text-muted">
             同一組槓片透過組合,變形為槓鈴、啞鈴、壺鈴與健腹輪,
@@ -128,7 +148,9 @@ const digital = [
     <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
       <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div class="reveal">
-          <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+          <p
+            class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+          >
             QuickLog App
           </p>
           <h2 class="mt-3 text-3xl font-bold text-ink sm:text-4xl">
@@ -144,7 +166,9 @@ const digital = [
                   <span class="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-orbit" />
                   <div>
                     <h3 class="font-bold text-ink">{f.t}</h3>
-                    <p class="mt-0.5 text-sm leading-relaxed text-muted">{f.d}</p>
+                    <p class="mt-0.5 text-sm leading-relaxed text-muted">
+                      {f.d}
+                    </p>
                   </div>
                 </li>
               ))
@@ -167,7 +191,9 @@ const digital = [
   <section class="border-b border-line">
     <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
       <div class="reveal mb-12 flex flex-col gap-3">
-        <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-orbit">
+        <p
+          class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+        >
           Status
         </p>
         <h2 class="text-3xl font-bold text-ink sm:text-4xl">開發現況</h2>
@@ -175,9 +201,15 @@ const digital = [
       <div data-stagger class="grid gap-5 sm:grid-cols-3">
         {
           [
-            { t: '發明專利已核准', d: '「扣合式槓片結構」I900457,核心機構有智財保護。' },
-            { t: '機構與介面設計完成', d: '3D 工程模型與 QuickLog App 介面設計就緒。' },
-            { t: '產品化開發中', d: '韌體與量產開發進行中,尚未公開販售。' },
+            {
+              t: "發明專利已核准",
+              d: "「扣合式槓片結構」I900457,核心機構有智財保護。",
+            },
+            {
+              t: "機構與介面設計完成",
+              d: "3D 工程模型與 QuickLog App 介面設計就緒。",
+            },
+            { t: "產品化開發中", d: "韌體與量產開發進行中,尚未公開販售。" },
           ].map((x) => (
             <div class="reveal rounded-2xl border border-line bg-card p-7 shadow-sm">
               <h3 class="text-lg font-bold text-ink">{x.t}</h3>
@@ -192,7 +224,9 @@ const digital = [
   <!-- ── CTA ──────────────────────────────────────────────── -->
   <section>
     <div class="mx-auto max-w-7xl px-6 py-16 text-center lg:px-10 lg:py-20">
-      <h2 class="text-3xl font-bold text-ink sm:text-4xl">對 QuickPlate 有興趣?</h2>
+      <h2 class="text-3xl font-bold text-ink sm:text-4xl">
+        對 QuickPlate 有興趣?
+      </h2>
       <p class="mx-auto mt-4 max-w-xl text-muted">
         無論是產品合作、通路洽談或想追蹤開發進度,歡迎與我們聯絡。
       </p>
