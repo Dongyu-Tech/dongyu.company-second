@@ -77,8 +77,12 @@ const isActive = (href: string) =>
     </button>
   </nav>
 
-  <!-- 行動裝置選單 -->
-  <div id="mobile-menu" class="hidden border-t border-line bg-card md:hidden">
+  <!-- 行動裝置選單:絕對定位浮在頁面內容上方(header sticky 是定位基準),
+       展開時不擠壓版面 -->
+  <div
+    id="mobile-menu"
+    class="absolute inset-x-0 top-full hidden max-h-[75vh] overflow-y-auto border-t border-line bg-card shadow-lg md:hidden"
+  >
     <ul class="flex flex-col px-6 py-4">
       {
         links.map((l) => (
