@@ -7,6 +7,10 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://dongyu.company",
   integrations: [sitemap()],
+  build: {
+    // 頁面 CSS 很小,直接內聯省一個阻塞請求
+    inlineStylesheets: "always",
+  },
   vite: {
     plugins: [tailwindcss()],
   },

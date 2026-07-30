@@ -86,8 +86,11 @@ const scenes = [
         </div>
         <div class="reveal">
           <img
-            src="/products/silversole-product.jpg"
+            src="/products/silversole-product.webp"
             alt="SilverSole 銀足智慧鞋墊產品圖:包裝、頂視、側視與後視"
+            width="1254"
+            height="1254"
+            fetchpriority="high"
             class="w-full rounded-2xl border border-line shadow-sm"
           />
         </div>
@@ -181,22 +184,25 @@ const scenes = [
           {
             [
               {
-                src: "/products/silversole-app-home.jpg",
+                src: "/products/silversole-app-home.webp",
                 alt: "銀足 App 首頁:鞋墊連線狀態、一分鐘足壓健檢與跌倒守護",
               },
               {
-                src: "/products/silversole-app-gait.jpg",
+                src: "/products/silversole-app-gait.webp",
                 alt: "銀足 App 分析頁:活力步態趨勢、步幅與左右對稱指標",
               },
               {
-                src: "/products/silversole-app-game.jpg",
+                src: "/products/silversole-app-game.webp",
                 alt: "銀足 App 遊戲頁:吉祥物粗哥陪長輩完成每日任務",
               },
             ].map((i) => (
               <img
                 src={i.src}
                 alt={i.alt}
+                width="640"
+                height="1422"
                 loading="lazy"
+                decoding="async"
                 class="reveal w-full rounded-2xl border border-line shadow-sm"
               />
             ))

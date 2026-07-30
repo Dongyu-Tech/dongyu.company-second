@@ -16,14 +16,14 @@
   --color-night-line: #26262b;
 
   /* 品牌色:由 LOGO 推導 */
-  --color-orbit: #d9472b; /* 磚橙 — 主重點色(Orbit 行星) */
+  --color-orbit: #c8401f; /* 磚橙 — 主重點色(文字/按鈕用,白底 AA 對比≥4.5;LOGO 圖形仍用 #D9472B) */
   --color-orbit-bright: #e85d40; /* hover 亮橙 */
   --color-orbit-dim: #8f2d1b; /* 深橙 */
 
   /* 文字 */
   --color-ink: #1a191d; /* 主要文字(墨) */
   --color-muted: #5b5a62; /* 次要文字 */
-  --color-faint: #98969e; /* 更淡 */
+  --color-faint: #71707a; /* 更淡(白底上維持 AA 對比) */
   --color-paper: #f5f4f2; /* 深色區塊上的淺文字 */
   --color-paper-muted: #a5a4ab; /* 深色區塊上的次要文字 */
 

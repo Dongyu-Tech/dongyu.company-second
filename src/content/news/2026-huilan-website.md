@@ -5,7 +5,7 @@ dateLabel: "2026.07"
 category: 里程碑
 summary: 與洄瀾樂齡團隊合作的「高齡科技巡迴賦能計畫」官方網站正式上線,完整介紹計畫理念、樂齡運動課程與合作方式。
 link: https://hlll.dongyu.company
-image: /news/huilan-group.jpg
+image: /news/huilan-group.webp
 imageAlt: 長輩於戶外進行團體樂齡運動
 ---
 

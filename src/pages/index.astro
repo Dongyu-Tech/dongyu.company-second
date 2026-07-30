@@ -12,17 +12,25 @@ const news = (await getCollection("news"))
   .slice(0, 4);
 
 // Hero 輪播圖(暫用 Unsplash 免費圖,正式上線前換成自有/在地化圖檔)
+// srcset 讓手機抓小圖,壓 LCP
+const heroImg = (id: string) => {
+  const base = `https://images.unsplash.com/${id}?auto=format&fit=crop&q=72`;
+  return {
+    src: `${base}&w=1600&h=900`,
+    srcset: `${base}&w=800&h=450 800w, ${base}&w=1200&h=675 1200w, ${base}&w=1600&h=900 1600w`,
+  };
+};
 const slides = [
   {
-    src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80",
+    ...heroImg("photo-1518770660439-4636190af475"),
     alt: "電路板特寫 — AIoT 軟硬整合",
   },
   {
-    src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80",
+    ...heroImg("photo-1581091226825-a6a2a5aee158"),
     alt: "工程師於產線工作 — 產品設計與製造",
   },
   {
-    src: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80",
+    ...heroImg("photo-1534438327276-14e5300c3a48"),
     alt: "健身房訓練場景 — 運動科技",
   },
 ];
@@ -40,10 +48,15 @@ const slides = [
           >
             <img
               src={s.src}
+              srcset={s.srcset}
+              sizes="100vw"
               alt={s.alt}
+              width="1600"
+              height="900"
               class="h-full w-full object-cover"
-              loading="eager"
-              fetchpriority={i === 0 ? "high" : "low"}
+              loading={i === 0 ? "eager" : "lazy"}
+              fetchpriority={i === 0 ? "high" : "auto"}
+              decoding="async"
             />
           </div>
         ))
@@ -105,13 +118,17 @@ const slides = [
             type="button"
             data-slide={i}
             aria-label={`切換到第 ${i + 1} 張`}
-            class:list={[
-              "h-2.5 rounded-full transition-all duration-500",
-              i === 0
-                ? "w-8 bg-orbit-bright"
-                : "w-2.5 bg-white/40 hover:bg-white/70",
-            ]}
-          />
+            class="flex h-11 w-11 items-center justify-center"
+          >
+            <span
+              class:list={[
+                "h-2.5 rounded-full transition-all duration-500",
+                i === 0
+                  ? "w-8 bg-orbit-bright"
+                  : "w-2.5 bg-white/40 hover:bg-white/70",
+              ]}
+            />
+          </button>
         ))
       }
     </div>
@@ -228,7 +245,7 @@ const slides = [
         <ProductCard
           class="reveal"
           href="/products/silversole"
-          image="/products/silversole-product.jpg"
+          image="/products/silversole-product.webp"
           imageAlt="SilverSole 銀足智慧鞋墊產品圖"
           name="SilverSole 銀足"
           en="Smart Insole"
@@ -244,7 +261,7 @@ const slides = [
         <ProductCard
           class="reveal"
           href="/products/quickplate"
-          image="/products/quickplate-render.jpg"
+          image="/products/quickplate-render.webp"
           imageAlt="QuickPlate 智慧槓片側開機構渲染圖"
           name="QuickPlate 智慧槓片"
           en="Smart Weight Plate"
@@ -509,10 +526,12 @@ const slides = [
       current = (idx + slides.length) % slides.length;
       slides.forEach((s, i) => s.classList.toggle("is-active", i === current));
       dots.forEach((d, i) => {
-        d.classList.toggle("w-8", i === current);
-        d.classList.toggle("bg-orbit-bright", i === current);
-        d.classList.toggle("w-2.5", i !== current);
-        d.classList.toggle("bg-white/40", i !== current);
+        const dot = d.firstElementChild as HTMLElement | null;
+        if (!dot) return;
+        dot.classList.toggle("w-8", i === current);
+        dot.classList.toggle("bg-orbit-bright", i === current);
+        dot.classList.toggle("w-2.5", i !== current);
+        dot.classList.toggle("bg-white/40", i !== current);
       });
     }
 
