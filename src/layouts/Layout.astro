@@ -56,23 +56,8 @@ const fullTitle =
       })}
     />
 
-    <!-- 字體:Space Grotesk(英)+ Noto Sans TC(中);900 未使用不載 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- 字體:Space Grotesk 自託管 woff2(global.css 引入);中文走系統正黑體/蘋方,不載 CJK 網頁字型 -->
     <link rel="preconnect" href="https://images.unsplash.com" />
-    <!-- 非阻塞載入:中文有系統正黑體先頂著,網頁字型晚到不擋首繪 -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
 
     <!-- 頁面切換平滑轉場 -->
     <ClientRouter />

@@ -1,4 +1,9 @@
 @import "tailwindcss";
+/* Space Grotesk 自託管 woff2(@fontsource);中文一律走系統字體,不載 CJK 網頁字型 */
+@import "@fontsource/space-grotesk/400.css";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/space-grotesk/700.css";
 
 /* ── 動域科技 Orbit 品牌設計 token(2026-07 淺色改版)──────────
    淺色乾淨風:白底 + 淺灰區塊交錯,磚橙為唯一重點色,
