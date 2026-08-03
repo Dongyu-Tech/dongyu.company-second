@@ -11,16 +11,10 @@ const { title, en, desc, class: className = "" } = Astro.props;
 
 <div
   class:list={[
-    "group relative overflow-hidden rounded-2xl border border-line bg-card p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orbit/40 hover:shadow-md",
+    "rounded-2xl border border-line bg-card p-7 shadow-sm",
     className,
   ]}
 >
-  <!-- hover 時右上角浮現的軌道弧線 -->
-  <div
-    class="pointer-events-none absolute -top-10 -right-10 h-28 w-28 rounded-full border-2 border-orbit/0 transition-all duration-500 group-hover:border-orbit/25"
-  >
-  </div>
-
   <div class="mb-5 text-orbit">
     <slot />
   </div>

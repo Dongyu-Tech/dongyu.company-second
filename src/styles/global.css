@@ -133,9 +133,9 @@ body {
   transform: translateY(22px);
   filter: blur(8px);
   transition:
-    opacity 0.8s var(--ease-orbit),
-    transform 0.8s var(--ease-orbit),
-    filter 0.8s var(--ease-orbit);
+    opacity 0.3s var(--ease-orbit),
+    transform 0.3s var(--ease-orbit),
+    filter 0.3s var(--ease-orbit);
   will-change: opacity, transform, filter;
 }
 .reveal.is-visible {
