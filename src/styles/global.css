@@ -188,6 +188,19 @@ body {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+/* 內文插圖(markdown 的 ![]() ) */
+.news-body img {
+  margin-top: 1.8rem;
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid var(--color-line);
+}
+.news-body small {
+  display: block;
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+  color: var(--color-faint);
+}
 
 /* ── Hero 輪播 ────────────────────────────────────────────── */
 .hero-slide {
