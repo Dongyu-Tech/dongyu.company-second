@@ -10,16 +10,29 @@ const news = (await getCollection("news"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 4);
 
-// Hero 輪播圖:自託管 WebP(來源 Unsplash 免費授權,原始 ID 記於 public/hero/_來源.txt)
+// Hero 輪播圖:全部改用動域自己的實拍照(來源記於 public/hero/_來源.txt)
 // srcset 讓手機抓小圖,壓 LCP
 const heroImg = (name: string) => ({
   src: `/hero/${name}-1600.webp`,
   srcset: `/hero/${name}-800.webp 800w, /hero/${name}-1200.webp 1200w, /hero/${name}-1600.webp 1600w`,
 });
 const slides = [
-  { ...heroImg("hero-aiot"), alt: "電路板特寫 — AIoT 軟硬整合" },
-  { ...heroImg("hero-engineering"), alt: "工程師於產線工作 — 產品設計與製造" },
-  { ...heroImg("hero-gym"), alt: "健身房訓練場景 — 運動科技" },
+  {
+    ...heroImg("hero-workshop"),
+    alt: "動域科技研發工作室:團隊成員組裝感測模組,後方為 3D 列印機",
+  },
+  {
+    ...heroImg("hero-biomedx"),
+    alt: "動域科技於 2026 桃園青創博覽會與 BIOMED-X 新創聯展攤位,團隊手持 SilverSole 銀足智慧鞋墊",
+  },
+  {
+    ...heroImg("hero-expo"),
+    alt: "動域科技團隊於 2026 未來商務展中原大學主題館與各新創團隊合影",
+  },
+  {
+    ...heroImg("hero-award"),
+    alt: "洄瀾樂齡團隊於 2026 HSH 創新創業戰鬥營獲頒金獎",
+  },
 ];
 ---
 
@@ -242,22 +255,22 @@ const slides = [
               slug: "quickplate",
               en: "Smart Weight Plate",
               name: "QuickPlate 智慧槓片",
-              tagline: "側開秒拆 — 一片即槓、啞、鈴、輪",
-              desc: "發明專利側開扣合,秒級換重,一組槓片變形為四種器材。",
+              tagline: "側開秒拆 — 換重量不再拆整根槓",
+              desc: "發明專利側開扣合,秒級換重;機構設計完成,尚未打樣。",
             },
             {
               slug: "bridgemate",
               en: "BridgeMate",
               name: "橋伴",
               tagline: "讓每一份工作都有尊嚴。",
-              desc: "為聘僱移工的企業管好證件期限、雙語薪資與即時翻譯訊息。",
+              desc: "為聘僱移工的企業管好證件期限、雙語薪資與雙語訊息介面。",
             },
             {
               slug: "easycare",
               en: "EasyCare",
               name: "譯護",
               tagline: "讓雇主與外籍看護,真正聽懂彼此。",
-              desc: "雙向即時翻譯 × 照護情境包,與人力仲介合作的溝通平台。",
+              desc: "三語溝通介面 × 照護情境包,與人力仲介合作的溝通平台。",
             },
           ].map((p) => (
             <a
@@ -268,7 +281,7 @@ const slides = [
                 {p.en}
               </p>
               <h3 class="mt-2 text-lg font-bold text-ink">{p.name}</h3>
-              <p class="mt-1 text-sm font-medium text-orbit/90">{p.tagline}</p>
+              <p class="mt-1 text-sm font-medium text-orbit">{p.tagline}</p>
               <p class="mt-3 flex-1 text-sm leading-relaxed text-muted">
                 {p.desc}
               </p>

@@ -1,6 +1,13 @@
-Hero 輪播圖來源(Unsplash License,可免費商用、毋須署名)
-下載日:2026-07-30,經裁切 16:9 並轉 WebP(800/1200/1600w)
+Hero 輪播圖來源(2026-08-03 起改用動域自有實拍照,不再使用圖庫照)
 
-hero-aiot        = https://unsplash.com/photos/1518770660439-4636190af475(電路板特寫)
-hero-engineering = https://unsplash.com/photos/1581091226825-a6a2a5aee158(工程師於產線)
-hero-gym         = https://unsplash.com/photos/1534438327276-14e5300c3a48(健身房)
+hero-workshop = 動域科技/_素材/場域照/工作場域_組裝_2026-07-16_裁切.jpg
+                研發工作室實作現場;畫面未露出電路板本體(僅品牌外盒)
+hero-biomedx  = 動域科技/_素材/場域照/2026_桃園青創博覽會BIOMED-X_攤位.jpg
+                2026 桃園青創博覽會 × BIOMED-X 新創聯展攤位(C3-7),團隊手持 SilverSole
+hero-expo     = 動域科技/_素材/場域照/2026_未來商務展_中原大學攤位_合照.jpg
+                2026 未來商務展中原大學主題館合影(官方攝影 ACCUPAI)
+hero-award    = 動域科技/2026HSH_洄瀾樂齡/照片/2026_HSH_會場.jpg
+                2026 HSH 創新創業戰鬥營金獎頒獎
+
+皆裁為 16:9、輸出 800/1200/1600w WebP。
+原 Unsplash 圖庫照(hero-aiot / hero-engineering / hero-gym)已移除。
