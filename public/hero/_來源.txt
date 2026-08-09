@@ -1,7 +1,5 @@
 Hero 輪播圖來源(2026-08-03 起改用動域自有實拍照,不再使用圖庫照)
 
-hero-workshop = 動域科技/_素材/場域照/工作場域_組裝_2026-07-16_裁切.jpg
-                研發工作室實作現場;畫面未露出電路板本體(僅品牌外盒)
 hero-biomedx  = 動域科技/_素材/場域照/2026_桃園青創博覽會BIOMED-X_攤位.jpg
                 2026 桃園青創博覽會 × BIOMED-X 新創聯展攤位(C3-7),團隊手持 SilverSole
 hero-expo     = 動域科技/_素材/場域照/2026_未來商務展_中原大學攤位_合照.jpg
@@ -11,3 +9,4 @@ hero-award    = 動域科技/2026HSH_洄瀾樂齡/照片/2026_HSH_會場.jpg
 
 皆裁為 16:9、輸出 800/1200/1600w WebP。
 原 Unsplash 圖庫照(hero-aiot / hero-engineering / hero-gym)已移除。
+hero-workshop(研發工作室實作現場)不放輪播,檔案收在 _封存素材/hero/。
