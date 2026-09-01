@@ -31,4 +31,16 @@ const news = defineCollection({
   }),
 });
 
-export const collections = { news };
+/**
+ * 隱私權政策:一個 App 專案 = src/content/privacy/ 下一個資料夾,
+ * 底下每個語言一個 .md(zh-tw.md / en.md)。條文原稿由各 App 專案複製過來,
+ * 刻意不加 frontmatter 以保持與原稿一致 —— 顯示用的產品名、頁面標題等
+ * 寫在 src/data/privacy.ts 的 PRIVACY_PRODUCTS。
+ * pattern 只收資料夾底下那一層,所以 privacy/README.md 不會被讀進來。
+ * entry id 形如 "heymybro/zh-tw"。
+ */
+const privacy = defineCollection({
+  loader: glob({ pattern: "*/*.md", base: "./src/content/privacy" }),
+});
+
+export const collections = { news, privacy };

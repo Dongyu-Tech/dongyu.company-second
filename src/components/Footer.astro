@@ -2,6 +2,11 @@
 import OrbitMark from "./OrbitMark.astro";
 
 const year = new Date().getFullYear();
+// App 上架時要填「公開可存取的隱私權政策網址」,所以頁尾也留一個入口
+const privacyLinks = [
+  { href: "/products/heymybro/privacy", label: "欸! 粗哥" },
+  { href: "/products/silversole/privacy", label: "SilverSole 銀足" },
+];
 const links = [
   { href: "/", label: "首頁" },
   { href: "/news", label: "最新動態" },
@@ -76,6 +81,28 @@ const links = [
                 洄瀾樂齡計畫官網 ↗
               </a>
             </li>
+          </ul>
+        </nav>
+
+        <nav>
+          <p
+            class="text-xs font-semibold tracking-widest text-paper-muted uppercase"
+          >
+            隱私權政策
+          </p>
+          <ul class="mt-4 space-y-3">
+            {
+              privacyLinks.map((l) => (
+                <li>
+                  <a
+                    href={l.href}
+                    class="text-sm whitespace-nowrap text-paper-muted transition-colors hover:text-paper"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </nav>
 
