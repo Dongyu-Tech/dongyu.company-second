@@ -1,0 +1,91 @@
+---
+import { getEntry, render } from "astro:content";
+import Layout from "../../../../layouts/Layout.astro";
+import { PRIVACY_LANGS, PRIVACY_PRODUCTS } from "../../../../data/privacy";
+
+// 條文原稿在 src/content/privacy/<專案>/<語言>.md,顯示用資料在 src/data/privacy.ts
+export function getStaticPaths() {
+  return PRIVACY_PRODUCTS.flatMap((product) =>
+    PRIVACY_LANGS.map((lang) => ({
+      params: { product: product.slug, lang: lang.seg },
+      props: { product, lang },
+    })),
+  );
+}
+
+const { product, lang } = Astro.props;
+
+const entry = await getEntry("privacy", `${product.slug}/${lang.key}`);
+if (!entry) {
+  throw new Error(
+    `找不到隱私權政策原稿:src/content/privacy/${product.slug}/${lang.key}.md`,
+  );
+}
+const { Content } = await render(entry);
+
+const isEn = lang.key === "en";
+const meta = product.meta[lang.key];
+const basePath = `/products/${product.slug}/privacy`;
+---
+
+<Layout title={meta.title} description={meta.description} lang={lang.htmlLang}>
+  <article>
+    <!-- ── 麵包屑 + 語言切換 ─────────────────────────────── -->
+    <section class="border-b border-line">
+      <div class="mx-auto max-w-3xl px-6 py-10 lg:py-14">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <a
+            href={product.back.href}
+            class="text-sm font-medium text-muted transition-colors hover:text-orbit"
+          >
+            {isEn ? product.back.labelEn : product.back.label}
+          </a>
+
+          <nav
+            aria-label={isEn ? "Language" : "語言"}
+            class="flex items-center gap-1 rounded-full border border-line bg-soft p-1"
+          >
+            {
+              PRIVACY_LANGS.map((l) => {
+                const href = l.seg ? `${basePath}/${l.seg}` : basePath;
+                const current = l.key === lang.key;
+                return (
+                  <a
+                    href={href}
+                    hreflang={l.htmlLang}
+                    aria-current={current ? "page" : undefined}
+                    class:list={[
+                      "rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors",
+                      current
+                        ? "bg-card text-ink shadow-sm ring-1 ring-line"
+                        : "text-muted hover:text-orbit",
+                    ]}
+                  >
+                    {l.label}
+                  </a>
+                );
+              })
+            }
+          </nav>
+        </div>
+
+        <p
+          class="mt-8 font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+        >
+          Privacy Policy
+        </p>
+        <p class="mt-2 text-sm text-faint">{meta.name}</p>
+      </div>
+    </section>
+
+    <!-- ── 政策內文(由 .md render)──────────────────────── -->
+    <section>
+      <div class="mx-auto max-w-3xl px-6 py-12 lg:py-16">
+        {/* 條文結尾自己就有「聯絡我們」章節,這裡不要再補一組信箱以免打架 */}
+        <div class="legal-body">
+          <Content />
+        </div>
+      </div>
+    </section>
+  </article>
+</Layout>

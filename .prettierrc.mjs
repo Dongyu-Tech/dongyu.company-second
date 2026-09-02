@@ -9,5 +9,13 @@ export default {
       files: "*.astro",
       options: { parser: "astro" },
     },
+    {
+      // 隱私權政策原稿是從各 App 專案複製過來的,兩邊換行習慣不一樣
+      //(「欸! 粗哥」把段落硬折到 ~95 字元)。折行的中文接回 HTML 時會在字
+      // 與字之間留下空格,所以這裡一律把段落攤成單行;真正要斷行的地方
+      // 用 markdown 硬換行(行尾反斜線)標,prettier 會保留。
+      files: "src/content/privacy/**/*.md",
+      options: { proseWrap: "never" },
+    },
   ],
 };

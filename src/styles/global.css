@@ -216,3 +216,133 @@ body {
     transition: none;
   }
 }
+
+/* ── 法律條文頁排版(隱私權政策等由 .md render 的長文)─────────
+   跟消息內頁不同:條文有大量 h2/h3 編號、表格與清單,
+   所以字級收斂、行距放寬,重點放在掃讀得到章節。 */
+.legal-body {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+.legal-body > :first-child {
+  margin-top: 0;
+}
+.legal-body h1 {
+  margin-top: 0;
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-ink);
+}
+.legal-body h2 {
+  margin-top: 2.8rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--color-line);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+.legal-body h3 {
+  margin-top: 1.9rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.legal-body p {
+  margin-top: 1rem;
+}
+.legal-body strong {
+  color: var(--color-ink);
+  font-weight: 700;
+}
+.legal-body a {
+  color: var(--color-orbit);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(
+    in srgb,
+    var(--color-orbit) 40%,
+    transparent
+  );
+  transition: text-decoration-color 0.2s var(--ease-orbit);
+}
+.legal-body a:hover {
+  text-decoration-color: var(--color-orbit);
+}
+.legal-body ul,
+.legal-body ol {
+  margin-top: 1rem;
+  padding-left: 1.4em;
+}
+.legal-body ul {
+  list-style: disc;
+}
+.legal-body ol {
+  list-style: decimal;
+}
+.legal-body li {
+  margin-top: 0.4rem;
+}
+.legal-body li::marker {
+  color: var(--color-orbit);
+}
+.legal-body code {
+  border-radius: 0.35rem;
+  background-color: var(--color-soft);
+  padding: 0.12em 0.4em;
+  font-size: 0.88em;
+  color: var(--color-ink);
+}
+/* 原稿用 `> ` 標的補充/警語,做成左側橙線的提示框 */
+.legal-body blockquote {
+  margin-top: 1.4rem;
+  border-left: 3px solid var(--color-orbit);
+  border-radius: 0 0.75rem 0.75rem 0;
+  background-color: var(--color-soft);
+  padding: 1rem 1.25rem;
+}
+.legal-body blockquote > :first-child {
+  margin-top: 0;
+}
+/* 原稿的 `---` 分隔線:章節已經有 h2 上緣線了,這裡不再重複畫 */
+.legal-body hr {
+  display: none;
+}
+
+/* 表格:條文表格欄位多,窄螢幕改成橫向捲動(外層 div 由 rehype 包上) */
+.legal-body .table-scroll {
+  margin-top: 1.4rem;
+  overflow-x: auto;
+  border: 1px solid var(--color-line);
+  border-radius: 0.9rem;
+  -webkit-overflow-scrolling: touch;
+}
+.legal-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+/* 每欄給一個最小寬度:兩欄表在手機上塞得下,三欄以上才會需要橫捲 */
+.legal-body th,
+.legal-body td {
+  min-width: 7.5rem;
+  padding: 0.7rem 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+.legal-body thead {
+  background-color: var(--color-soft);
+}
+.legal-body th {
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.legal-body thead th {
+  border-bottom: 1px solid var(--color-line);
+}
+.legal-body tbody tr + tr > * {
+  border-top: 1px solid var(--color-line);
+}
