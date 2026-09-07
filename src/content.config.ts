@@ -24,6 +24,9 @@ const news = defineCollection({
     linkLabel: z.string().optional(),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
+    /** 內頁主圖改用這張完整原圖(直式海報之類的);卡片與 OG 仍吃 image 的 16:10 版 */
+    imageFull: z.string().optional(),
+    imageFullAlt: z.string().optional(),
     /** 相關報導/外部連結,顯示在內頁底部 */
     sources: z
       .array(z.object({ title: z.string(), url: z.string().url() }))
