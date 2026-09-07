@@ -11,6 +11,10 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
+
+// 內頁主圖:有完整原圖就用它,沒有就退回卡片那張
+const heroSrc = d.imageFull ?? d.image;
+const heroAlt = d.imageFullAlt ?? d.imageAlt ?? d.title;
 ---
 
 <Layout title={d.title} description={d.summary}>
@@ -37,10 +41,10 @@ const d = entry.data;
     <section>
       <div class="mx-auto max-w-3xl px-6 py-12 lg:py-16">
         {
-          d.image && (
+          heroSrc && (
             <img
-              src={d.image}
-              alt={d.imageAlt ?? d.title}
+              src={heroSrc}
+              alt={heroAlt}
               class="mb-10 w-full rounded-2xl border border-line shadow-sm"
             />
           )
