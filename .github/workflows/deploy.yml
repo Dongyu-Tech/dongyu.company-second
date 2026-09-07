@@ -1,0 +1,59 @@
+name: Deploy
+
+# 正式站部署。只有 main 會觸發 —— 合併 PR 進 main 之後,這裡會自動建置並
+# 部署到 Cloudflare。請不要在自己電腦跑 `wrangler deploy`,原因見 CONTRIBUTING.md。
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # 需要重跑時可以在 Actions 頁面手動觸發
+
+# 同時間只跑一個正式部署,避免兩次合併互相覆蓋。
+# cancel-in-progress 設 false:部署到一半不要被砍掉。
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build & deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      # secret 還沒設好之前就跳過部署,不要讓 main 一路紅燈。
+      # 設定方式見 CONTRIBUTING.md「環境設定」。
+      - name: 檢查 secret 有沒有設
+        id: guard
+        env:
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::尚未設定 CLOUDFLARE_API_TOKEN,略過正式站部署。設定方式見 CONTRIBUTING.md。"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy to Cloudflare
+        if: steps.guard.outputs.ready == 'true'
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          packageManager: pnpm
+          command: deploy

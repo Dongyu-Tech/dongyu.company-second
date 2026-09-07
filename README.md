@@ -15,6 +15,23 @@ pnpm build       # 產生靜態網站到 dist/
 pnpm preview     # 預覽 build 結果
 ```
 
+## 部署
+
+正式站 <https://dongyu.company>(Cloudflare Workers)。**合併進 `main` 會自動建置並部署**,
+不要在自己電腦跑 `wrangler deploy` —— 原因與踩過的坑見 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+| Workflow     | 何時跑        | 做什麼                               |
+| ------------ | ------------- | ------------------------------------ |
+| Format check | PR、push main | `pnpm format:check`                  |
+| Build        | PR、push main | `pnpm build`,不需要 secret           |
+| Preview      | PR            | 產生該 PR 專屬預覽網址,用留言貼回 PR |
+| Deploy       | push main     | 建置並部署正式站                     |
+
+Deploy 與 Preview 需要 repo secret `CLOUDFLARE_API_TOKEN`、`CLOUDFLARE_ACCOUNT_ID`,
+設定方式見 CONTRIBUTING.md 最後一節。
+
+改動流程(開分支、發消息、開 PR、線上壞掉怎麼回滾)一律見 **[CONTRIBUTING.md](CONTRIBUTING.md)**。
+
 ## 頁面
 
 | 路徑                      | 內容                                                                      |

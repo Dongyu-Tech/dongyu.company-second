@@ -1,0 +1,89 @@
+name: Preview
+
+# 每個 PR 產生一組獨立的預覽網址,審查時直接點開看,不用把分支拉下來跑。
+# 用 `wrangler versions upload`:上傳一個新版本但「不」導流量,正式站不受影響。
+on:
+  pull_request:
+
+concurrency:
+  group: preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write # 用來把預覽網址貼回 PR
+
+jobs:
+  preview:
+    name: Build & upload preview
+    runs-on: ubuntu-latest
+    # 外部 fork 的 PR 拿不到 secret,跳過以免整條紅掉
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: 檢查 secret 有沒有設
+        id: guard
+        env:
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::尚未設定 CLOUDFLARE_API_TOKEN,略過預覽部署。設定方式見 CONTRIBUTING.md。"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload preview version
+        id: upload
+        if: steps.guard.outputs.ready == 'true'
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          packageManager: pnpm
+          command: versions upload
+
+      - name: 找出預覽網址
+        id: url
+        if: steps.guard.outputs.ready == 'true'
+        env:
+          DEPLOYMENT_URL: ${{ steps.upload.outputs.deployment-url }}
+          COMMAND_OUTPUT: ${{ steps.upload.outputs.command-output }}
+        run: |
+          url="$DEPLOYMENT_URL"
+          # deployment-url 在 versions upload 不一定會有值,退而從指令輸出撈
+          if [ -z "$url" ]; then
+            url=$(printf '%s' "$COMMAND_OUTPUT" \
+              | grep -oE 'https://[a-z0-9-]+\.[a-z0-9-]+\.workers\.dev' \
+              | head -n1)
+          fi
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+
+      - name: 把預覽網址貼到 PR
+        if: steps.url.outputs.url != ''
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: preview
+          message: |
+            ### 預覽網址
+
+            ${{ steps.url.outputs.url }}
+
+            這是這個 PR 的獨立預覽,**正式站 dongyu.company 不受影響**。
+            每次推新的 commit 會更新這則留言。
