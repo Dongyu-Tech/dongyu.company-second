@@ -10,17 +10,13 @@ const news = (await getCollection("news"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 4);
 
-// Hero 輪播圖:全部改用動域自己的實拍照(來源記於 public/hero/_來源.txt)
+// Hero 輪播圖:全部改用動域自己的實拍照(來源記於 public/hero/_sources.txt)
 // srcset 讓手機抓小圖,壓 LCP
 const heroImg = (name: string) => ({
   src: `/hero/${name}-1600.webp`,
   srcset: `/hero/${name}-800.webp 800w, /hero/${name}-1200.webp 1200w, /hero/${name}-1600.webp 1600w`,
 });
 const slides = [
-  {
-    ...heroImg("hero-biomedx"),
-    alt: "動域科技於 2026 桃園青創博覽會與 BIOMED-X 新創聯展攤位,團隊手持 SilverSole 銀足智慧鞋墊",
-  },
   {
     ...heroImg("hero-expo"),
     alt: "動域科技團隊於 2026 未來商務展中原大學主題館與各新創團隊合影",
