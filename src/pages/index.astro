@@ -10,7 +10,7 @@ const news = (await getCollection("news"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 4);
 
-// Hero 輪播圖:全部改用動域自己的實拍照(來源記於 public/hero/_來源.txt)
+// Hero 輪播圖:全部改用動域自己的實拍照(來源記於 public/hero/_sources.txt)
 // srcset 讓手機抓小圖,壓 LCP
 const heroImg = (name: string) => ({
   src: `/hero/${name}-1600.webp`,
