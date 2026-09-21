@@ -4,8 +4,8 @@ import Button from "../components/Button.astro";
 ---
 
 <Layout
-  title="洄瀾樂齡"
-  description="洄瀾樂齡 — 高齡科技巡迴賦能計畫:把樂齡運動課程與步態量測巡迴帶進花蓮的文健站。2026 HSH 創新創業戰鬥營金獎,動域科技擔任技術夥伴。"
+  title="銀足樂齡"
+  description="銀足樂齡 SilverSole Active Aging — 鞋墊科技培力課程全台推展計畫:把樂齡運動課程與步態量測帶進社區據點。2026 HSH 創新創業戰鬥營金獎(以洄瀾樂齡之名獲獎),SilverSole 銀足的樂齡服務線。"
 >
   <!-- ── Hero ─────────────────────────────────────────────── -->
   <section class="border-b border-line">
@@ -15,30 +15,22 @@ import Button from "../components/Button.astro";
           <p
             class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
           >
-            Huilan Active Aging
+            SilverSole Active Aging
           </p>
           <h1
             class="mt-4 text-4xl leading-tight font-bold text-ink sm:text-5xl"
           >
-            洄瀾樂齡
+            銀足樂齡
           </h1>
           <p class="mt-3 text-xl font-medium text-orbit">
-            把樂齡運動,開進花蓮的每一個文健站。
+            把樂齡運動,開進社區據點。
           </p>
           <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">
-            以「長照活動旅行社」的概念,把樂齡運動課程與科學化的步態量測,
-            巡迴帶進花蓮的社區據點。動域科技擔任技術夥伴, 提供 SilverSole
-            銀足智慧鞋墊與數據平台,讓長輩的行動能力變化在課程前後看得見。
+            把樂齡運動課程與科學化的步態量測帶進社區據點,課程、指導員、器材與成效報告一起到位。
+            SilverSole 銀足智慧鞋墊與數據平台由動域科技自己做,
+            讓長輩的行動能力變化在課程前後看得見。
           </p>
           <div class="mt-8 flex flex-wrap gap-4">
-            <a
-              href="https://hlll.dongyu.company"
-              target="_blank"
-              rel="noopener"
-              class="group inline-flex items-center gap-2.5 rounded-full bg-orbit px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-orbit-bright hover:shadow-lg hover:shadow-orbit/25"
-            >
-              前往計畫官網
-            </a>
             <Button href="/contact" variant="outline">與我們討論落地合作</Button
             >
           </div>
@@ -73,13 +65,13 @@ import Button from "../components/Button.astro";
         </div>
         <div class="reveal space-y-4 text-base leading-relaxed text-muted">
           <p>
-            花蓮的文健站分散在狹長的縱谷與海線,課程與器材資源進不去、成效說不清,
-            是社區照護現場共同的難題。
+            據點離資源越遠,課程與器材越進不去,成效也說不清楚。
+            這是照護現場共同的難題。
           </p>
           <p>
-            洄瀾樂齡像一間「長照活動旅行社」:把課程、指導員、器材與成效報告打包成一條龍,
-            用巡迴的方式把完整的健康促進課程帶進每一個據點 — 長輩上課,SilverSole
-            順便完成足壓與步態量測,課程前後的變化用數據說話。
+            銀足樂齡把課程、指導員、器材與成效報告打包成一條龍,
+            整套帶到據點:長輩上課,SilverSole
+            順便完成足壓與步態量測,課程前後差多少看得出來。
           </p>
         </div>
       </div>
@@ -93,12 +85,12 @@ import Button from "../components/Button.astro";
         <div
           class="reveal rounded-2xl border border-line bg-card p-6 shadow-sm lg:p-8"
         >
-          <h3 class="font-bold text-ink">動域科技的角色</h3>
+          <h3 class="font-bold text-ink">我們提供什麼</h3>
           <ul class="mt-4 space-y-3">
             {
               [
                 "SilverSole 銀足的足壓與步態量測,結合樂齡運動課程設計",
-                "巡迴文健站的行動化量測流程與器材規劃",
+                "到點服務的行動化量測流程與器材規劃",
                 "量測數據的視覺化報表,課程前後的變化看得見",
               ].map((t) => (
                 <li class="flex gap-3 text-sm leading-relaxed text-muted">
@@ -116,9 +108,9 @@ import Button from "../components/Button.astro";
           <ul class="mt-4 space-y-3">
             {
               [
-                "奪 2026 HSH 創新創業戰鬥營金獎,獲 80 萬元落地執行資源",
-                "計畫官網上線,對外開放合作洽詢",
-                "花蓮文健站巡迴場次規劃執行中",
+                "以洄瀾樂齡之名奪 2026 HSH 創新創業戰鬥營金獎(花蓮縣政府 15 萬元),2026 年更名銀足樂齡",
+                "課程模組完成:24 個動作、三大主題系列、場次組合與動作安全上限",
+                "對外開放據點合作洽詢",
               ].map((t) => (
                 <li class="flex gap-3 text-sm leading-relaxed text-muted">
                   <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-orbit" />
@@ -134,7 +126,7 @@ import Button from "../components/Button.astro";
           href="/news/2026-hsh-80w"
           class="text-sm font-medium text-orbit underline decoration-orbit/40 underline-offset-4 transition-colors hover:decoration-orbit"
         >
-          閱讀金獎報導:洄瀾樂齡奪 2026 HSH 創新創業戰鬥營金獎
+          閱讀金獎報導:洄瀾樂齡奪 2026 HSH 創新創業戰鬥營金獎(即現在的銀足樂齡)
         </a>
       </div>
     </div>
@@ -144,7 +136,7 @@ import Button from "../components/Button.astro";
   <section>
     <div class="mx-auto max-w-7xl px-6 py-16 text-center lg:px-10 lg:py-20">
       <h2 class="text-3xl font-bold text-ink sm:text-4xl">
-        你的據點也想加入巡迴?
+        你的據點也想開課?
       </h2>
       <p class="mx-auto mt-4 max-w-xl text-muted">
         文健站、社區據點或關心高齡健康的單位,歡迎與我們聯絡,一起把課程開進來。

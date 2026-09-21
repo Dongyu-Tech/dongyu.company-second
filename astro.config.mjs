@@ -58,6 +58,8 @@ export default defineConfig({
   // (隱私權政策 /products/heymybro/privacy 不受影響,已經可以看)
   redirects: {
     "/products/heymybro": "/404",
+    // 洄瀾樂齡 2026-09-21 更名銀足樂齡,舊路由留著不讓外部連結斷掉
+    "/huilan": "/active-aging",
   },
   markdown: {
     rehypePlugins: [rehypeWrapTables],
