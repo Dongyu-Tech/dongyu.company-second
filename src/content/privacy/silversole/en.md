@@ -1,7 +1,7 @@
 # SilverSole App Privacy Policy
 
-**Last updated: August 31, 2026**\
-**Effective date: August 31, 2026**
+**Last updated: October 27, 2026**\
+**Effective date: October 27, 2026**
 
 > This is the English translation of the SilverSole privacy policy. In the event of any discrepancy, the [Traditional Chinese version](/products/silversole/privacy) shall prevail.
 
@@ -38,11 +38,15 @@ By downloading, installing, or using the App, you confirm that you have read and
 
 | Category | Items | When collected |
 | --- | --- | --- |
-| Account identifiers | Email address, password | Sign-up and sign-in |
+| Account identifiers | Email address, password (email sign-up only) | Sign-up and sign-in |
+| Third-party sign-in data | Sign in with Google: the email address, name, and profile picture URL provided by Google. Sign in with Apple: the email address provided by Apple (which may be an Apple private relay address); the App does not request your name from Apple | When you choose to sign in with Google or Apple |
+| Friend profile | Nickname (optional; "銀足朋友" ("SilverSole Friend") is shown if left blank), a default avatar or a profile photo you upload, a system-assigned 8-digit friend code, whether you appear in organization member lists | When you use the friends feature or edit your profile |
+| Friend and organization relationships | Friends list, friend requests (expire if not answered within 7 days), block list, organizations you join (such as community care centers or day-care centers) | When you add friends, respond to requests, block someone, or join an organization |
+| Reports | The reported nickname or photo, the reason for the report | When you report another user |
 | Device binding data | Smart insole Device ID, device nickname | When pairing or binding a device |
 | Preferences | Role (caregiver / wearer), transmission method, dark mode, theme, language | When you change settings |
 
-> Sign-up requires **only an email address and a password**. We do not ask for your name, national ID, date of birth, phone number, or profile photo. Passwords are stored as one-way hashes by our backend provider; the Company cannot recover your plaintext password.
+> Email sign-up requires **only an email address and a password**; a nickname and profile photo are optional, and every feature works without them. We do not ask for your national ID, date of birth, or phone number. Passwords are stored as one-way hashes by our backend provider; the Company cannot recover your plaintext password.
 
 ### 3.2 Data received from the smart insole
 
@@ -63,7 +67,7 @@ Over a Bluetooth Low Energy (BLE) connection, the App receives the following fro
 
 | Purpose | Description | Leaves your phone? |
 | --- | --- | --- |
-| Show your current position on the map | The App requests your current coordinates from the operating system when you tap "locate" on the map screen or configure a safe zone | **No.** Used on-device only; not uploaded, not stored |
+| Show your current position on the map | The App requests your current coordinates from the operating system when you tap "locate" on the map screen or configure a safe zone. The App obtains your location only while you have the map open and never tracks your location in the background | **No.** Used on-device only; not uploaded, not stored |
 | Show the insole's location | The App reads location records (latitude, longitude, accuracy, timestamp) associated with your device from the backend | Provided by the backend; the App only reads and displays them |
 
 ### 3.4 Automatically generated technical data
@@ -71,8 +75,24 @@ Over a Bluetooth Low Energy (BLE) connection, the App receives the following fro
 | Category | Description |
 | --- | --- |
 | Session and authentication data | Access token, user identifier (UUID) |
-| Update checks | The App queries GitHub for new releases; that request exposes your IP address and User-Agent to GitHub |
+| Update checks | Android builds installed from Google Play check for and install updates through Google Play. iOS builds are updated through the App Store / TestFlight. Only Android builds **not** installed from Google Play query GitHub for new releases; that request exposes your IP address and User-Agent to GitHub |
+| Firmware updates | The App downloads insole firmware version information and update files from the Company's cloud storage (Supabase) and updates the insole firmware over Bluetooth. No personal data is uploaded in this process |
 | Error and diagnostic logs | Kept locally on your phone for debugging only; not automatically transmitted to the Company |
+
+### 3.5 Friends and who can see your data
+
+You can add friends by QR code, by friend code, or through an organization you both belong to. The friends feature exchanges **profiles only**; it does **not** share your insole measurements, plantar pressure, gait, fall events, or location.
+
+| Who | What they can see |
+| --- | --- |
+| Your friends | Your nickname and profile photo (or the default avatar if you have not uploaded one) |
+| Other members of the same organization (not friends) | Your nickname and default avatar (**not your photo**); you can turn off "Show in organization lists" in your profile |
+| Anyone who scans your QR code or enters your friend code | Your nickname and default avatar, so they can confirm whether to add you |
+| People you have blocked | They cannot see you and cannot invite you again |
+
+Profile photos are resized on your phone before upload (512 pixels on the longest side) and stored in non-public cloud storage. Only you and your friends can read them, through short-lived links.
+
+To keep the community safe, you can report inappropriate nicknames or photos and block other users. Reported users are not told who reported them. Company staff review reports and may remove offending nicknames or photos and suspend the ability to upload photos.
 
 ---
 
@@ -82,10 +102,12 @@ We collect and use your personal data for the following specific purposes:
 
 | Purpose | Description |
 | --- | --- |
-| Account management and authentication | Creating your account, signing in, maintaining sessions, password reset |
+| Account management and authentication | Creating your account, signing in (including Sign in with Google and Sign in with Apple), maintaining sessions, password reset |
 | Device connection and binding | Scanning, pairing, and connecting the smart insole; remembering your preferred device |
 | Core functionality | Real-time gait and pressure charts, battery and connection status, fall alerts, activity statistics and analytics |
 | Location and safe-zone features | Displaying device location and safe-zone boundaries on the map |
+| Friends and social interaction | Letting you add family, friends, or organization members as friends and showing each other's nicknames and avatars |
+| Community safety and report handling | Reviewing reports, removing violating content, limiting abuse (for example, daily caps on lookups, invitations, and uploads) |
 | Service operation and improvement | Troubleshooting, bug fixing, delivering update notifications |
 | Legal compliance | Responding to lawful requests from competent authorities |
 
@@ -99,6 +121,8 @@ We collect and use your personal data for the following specific purposes:
 | --- | --- | --- |
 | Bluetooth (scan / connect) | Discover and connect to the smart insole | The device cannot connect; all live features are unavailable |
 | Location (precise / approximate) | (1) Required by the OS for Bluetooth scanning on Android 11 and below; (2) showing your position on the map and setting safe zones | Map positioning is unavailable; on some Android versions Bluetooth scanning will not work |
+| Camera | (1) Scanning a friend's or organization's QR code; (2) taking a profile photo; (3) the mini-games' "camera mode", which lets users without an insole play with body movements. Game footage is processed in real time on your phone only — **never recorded or uploaded** | You cannot scan QR codes (you can still enter a code), cannot take a profile photo (you can still pick one from your photos), and games fall back to on-screen buttons |
+| Photos | Picking a profile photo from your library; the App reads only the one photo you select | You cannot choose a profile photo from your library (the default avatar remains available) |
 | Notifications | Ongoing Bluetooth connection notice, fall and anomaly alerts | You will not receive alerts |
 | Foreground service (Android) | Keeps the insole's Bluetooth connection alive while the App is in the background or the screen is locked | The connection drops when you leave the App, producing gaps in your records |
 | Network access | Reaching the backend, loading maps and mini-games, checking for updates | Only offline features remain usable |
@@ -118,6 +142,7 @@ The following is kept on your device only and is never uploaded automatically:
 - Paired Bluetooth device list and preferred device
 - A rolling buffer of recent live sensor samples (cleared when the App closes)
 - The fall-event counter (valid for the current App session only; reset on restart)
+- The result level and date of your most recent foot check (kept on your phone only, for display on the home screen)
 - Local storage created by the mini-game web pages inside the in-app WebView
 
 **How to delete**: clear the App's data in your system settings, or uninstall the App.
@@ -126,10 +151,14 @@ The following is kept on your device only and is never uploaded automatically:
 
 | Data | Retention |
 | --- | --- |
-| Account data (email, hashed password, UUID) | For the life of the account; deleted within 30 days of an account-deletion request |
+| Account data (email, hashed password, UUID, data provided by third-party sign-in) | For the life of the account. **Deleted immediately** when you delete your account in the App; system backups rotate out within 30 days |
+| Friend profile, profile photo, friendships, requests, blocks, organization memberships | For the life of the account; deleted immediately together with your account |
+| Reports | Up to 12 months after the report is resolved. If you delete your account, reports you filed are kept with your identity removed; reports filed against you are deleted |
 | Device status and heartbeat records | 12 months |
 | Measurement and activity records | 12 months |
 | Location records | 3 months |
+
+Measurement, device status, and location records are stored under the insole's Device ID, not under your account. When you delete your account, we unbind the insole from your account, so these records are no longer associated with you, and they are deleted when the retention periods above expire. If you would like them deleted sooner, please email the privacy contact.
 
 Once the retention period expires, the purpose of collection ceases, or you exercise your right to erasure, we delete, destroy, or anonymize your personal data, unless retention is required by law.
 
@@ -141,12 +170,15 @@ The App integrates the following third-party services, each governed by its own 
 
 | Service | Provider | Purpose | Data it may receive |
 | --- | --- | --- | --- |
-| Supabase | Supabase Inc. | Authentication, database, backend functions | Email, hashed password, device data, measurement and location records, connection IP |
+| Supabase | Supabase Inc. | Authentication, database, backend functions | Email, hashed password, friend profiles and profile photos, device data, measurement and location records, connection IP |
+| Sign in with Google | Google LLC | Signing in with a Google account (optional) | Your Google account's email address, name, and profile picture |
+| Sign in with Apple | Apple Inc. | Signing in with an Apple account (optional, iOS) | Your Apple ID email address or private relay address |
 | Google Maps Platform | Google LLC | Map tiles and rendering | Map viewport coordinates, device and network information |
 | Cloudflare | Cloudflare, Inc. | Hosting of the in-app HTML5 mini-games | IP address, browser information |
+| Google Play / App Store | Google LLC / Apple Inc. | Installing and updating the App | As set out in each store's policies |
 | GitHub | GitHub, Inc. (Microsoft) | Checking for and downloading App updates | IP address, User-Agent |
 
-The App contains **no** third-party advertising SDKs, behavioral tracking SDKs, or social login SDKs.
+The App contains **no** third-party advertising SDKs or behavioral tracking SDKs, and it does not track you across other companies' apps or websites. Sign in with Google and Sign in with Apple are used only to verify your identity.
 
 ### In-app web content and mini-games
 
@@ -191,8 +223,9 @@ Under Taiwan's Personal Data Protection Act (and, where applicable, comparable l
 You may also at any time:
 
 - Change your preferences and bound devices inside the App.
+- Change or clear your nickname and profile photo, choose whether you appear in organization lists, and block or unblock other users inside the App.
 - Revoke any permission in your system settings.
-- **Delete your account** — email the privacy contact in Section 2. We will complete the request within 30 days of receiving it and verifying your identity.
+- **Delete your account:** you can do this at any time in the App — open the **Person** page and tap **Delete account**. Once you confirm, your account, friend profile, profile photo, and friendships are deleted immediately and your insole is unbound. This cannot be undone. If you cannot use the App, you may instead email the privacy contact in Section 2; we will complete the request within 30 days of verifying your identity.
 
 We will respond within **15 days** of receiving your request (extendable once by a further 15 days, with reasons given). We may need to verify your identity before acting, to prevent unauthorized access to your data.
 
