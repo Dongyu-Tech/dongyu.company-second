@@ -52,7 +52,8 @@ function rehypeWrapTables() {
 // https://astro.build/config
 export default defineConfig({
   site: "https://dongyu.company",
-  integrations: [sitemap()],
+  // /f/ 是 SilverSole App 加好友連結的落地頁,不進 sitemap。
+  integrations: [sitemap({ filter: (page) => !page.includes("/f/") })],
   // 「欸! 粗哥」(Hey! My Bro)產品頁還沒寫,先把路由佔起來導去 404;
   // 之後補上 src/pages/products/heymybro.astro 時把這段拿掉。
   // (隱私權政策 /products/heymybro/privacy 不受影響,已經可以看)

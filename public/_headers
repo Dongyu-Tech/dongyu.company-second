@@ -1,0 +1,9 @@
+# Cloudflare 靜態檔的回應標頭。
+# iOS 讀 apple-app-site-association 時要 JSON(檔名不能有副檔名)。
+/.well-known/apple-app-site-association
+  Content-Type: application/json
+
+# 加好友連結的落地頁:網址帶著個人的 token,不收錄、不外送 Referer。
+/f/*
+  X-Robots-Tag: noindex
+  Referrer-Policy: no-referrer
