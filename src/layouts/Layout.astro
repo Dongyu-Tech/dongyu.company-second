@@ -9,12 +9,15 @@ interface Props {
   description?: string;
   /** 頁面語言,整站預設中文;英文版頁面(如英文隱私權政策)傳 "en" */
   lang?: "zh-Hant" | "en";
+  /** 不給搜尋引擎收錄(例如 /f/ 加好友連結的落地頁) */
+  noindex?: boolean;
 }
 
 const {
   title = "動域科技 Dongyu Tech",
   description = "動域科技 — 結合軟體、硬體與 AI 能力,將創新構想轉化為真正可落地的智慧產品與服務。",
   lang = "zh-Hant",
+  noindex = false,
 } = Astro.props;
 
 const ogLocale = lang === "en" ? "en_US" : "zh_TW";
@@ -33,6 +36,7 @@ const fullTitle =
 
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
 
     <!-- Open Graph / SEO -->
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />

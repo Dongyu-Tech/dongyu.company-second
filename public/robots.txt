@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+# SilverSole App 加好友連結的落地頁(網址帶著個人的 token)
+Disallow: /f/
 
 Sitemap: https://dongyu.company/sitemap-index.xml

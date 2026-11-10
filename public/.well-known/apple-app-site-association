@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["C72Z4YMRAD.com.dongyutech.silversole"],
+        "components": [
+          { "/": "/f/*", "comment": "SilverSole 加好友連結" },
+          { "/": "/f", "comment": "SilverSole 加好友連結(沒有結尾斜線)" }
+        ]
+      }
+    ]
+  }
+}
