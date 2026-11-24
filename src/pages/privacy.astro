@@ -1,0 +1,117 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+
+// 依個人資料保護法第 8 條告知事項撰寫。
+// 重點事實：本站聯絡表單不上傳伺服器，送出時是開啟使用者自己的郵件軟體，
+// 因此網站端不存在任何個資資料庫 — 這一點務必如實寫出，不可寫成「我們會妥善保存」。
+const updated = "2026 年 11 月";
+---
+
+<Layout
+  title="隱私權政策"
+  description="動域科技隱私權政策 — 說明本網站蒐集、處理及利用個人資料的方式，以及當事人依個人資料保護法享有的權利。"
+>
+  <section class="border-b border-line">
+    <div class="mx-auto max-w-3xl px-6 py-16 lg:py-20">
+      <p
+        class="font-display text-sm font-semibold tracking-[0.2em] text-orbit uppercase"
+      >
+        Privacy
+      </p>
+      <h1 class="mt-4 text-4xl leading-tight font-bold text-ink sm:text-5xl">
+        隱私權政策
+      </h1>
+      <p class="mt-4 text-sm text-faint">最後更新：{updated}</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="news-body mx-auto max-w-3xl px-6 py-12 lg:py-16">
+      <p>
+        動域科技股份有限公司（DONGYU CO.,
+        LTD.，以下稱「本公司」）重視您的隱私。本政策說明本網站（dongyu.company）如何蒐集、處理及利用個人資料，以及您依《個人資料保護法》享有的權利。
+      </p>
+
+      <h2>一、本網站不設個資資料庫</h2>
+      <p>
+        本網站為靜態網站，<strong
+          >沒有會員系統、沒有資料庫，也不會將您輸入的任何內容上傳至本公司伺服器</strong
+        >。「聯絡我們」頁面的表單在您按下送出時，僅會開啟您裝置上的郵件軟體並自動帶入內容，實際寄件動作由您自行完成。因此，除非您主動寄出郵件，本公司不會取得您的任何資料。
+      </p>
+
+      <h2>二、蒐集之目的、類別與利用方式</h2>
+      <ul>
+        <li>
+          <strong>蒐集目的</strong>：回覆您的洽詢、聯繫合作事宜。
+        </li>
+        <li>
+          <strong>資料類別</strong
+          >：您在來信中主動提供的姓名、電子郵件地址及信件內容。
+        </li>
+        <li>
+          <strong>利用期間</strong
+          >：自收到來信起，至洽詢事項處理完畢或您要求刪除為止。
+        </li>
+        <li>
+          <strong>利用地區</strong>：中華民國境內。
+        </li>
+        <li>
+          <strong>利用對象與方式</strong
+          >：僅本公司內部負責回覆的人員以電子郵件方式利用，<strong
+            >不會提供、交換或出售予第三人</strong
+          >，亦不用於行銷。
+        </li>
+      </ul>
+      <p>
+        本公司使用 Google
+        提供之電子郵件服務（Gmail）接收與保存往來信件，該服務之資料處理適用
+        Google 之隱私權政策。
+      </p>
+
+      <h2>三、Cookie 與流量分析</h2>
+      <p>
+        本網站<strong
+          >未使用 Cookie，也未安裝任何第三方流量分析或廣告追蹤工具</strong
+        >。網站字型與圖片皆自本站伺服器提供，不會在您瀏覽時向第三方發出請求。
+      </p>
+
+      <h2>四、第三方內容嵌入</h2>
+      <p>
+        部分產品頁面嵌入 YouTube 影片（採用 youtube-nocookie
+        隱私加強模式），或連結至本公司其他網域的產品原型。當您播放影片或點擊外部連結時，對方服務可能依其自身政策蒐集資料，該部分不在本政策範圍內。
+      </p>
+
+      <h2>五、您的權利</h2>
+      <p>
+        依《個人資料保護法》第 3
+        條，您得就本公司保有之您的個人資料，行使下列權利：查詢或請求閱覽、請求製給複製本、請求補充或更正、請求停止蒐集處理或利用、請求刪除。
+      </p>
+      <p>
+        欲行使上述權利，請來信 <a href="mailto:dongyu.company@gmail.com"
+          >dongyu.company@gmail.com</a
+        >，本公司將於收到請求後儘速處理。您也可以選擇不提供個人資料，惟本公司將無法回覆您的洽詢。
+      </p>
+
+      <h2>六、資料安全</h2>
+      <p>
+        本網站全站採用 HTTPS
+        加密傳輸。由於本網站不保存個人資料，相關往來信件則存放於前述電子郵件服務，並限由必要人員存取。
+      </p>
+
+      <h2>七、未成年人</h2>
+      <p>
+        本網站內容以企業及機構合作洽詢為主，並非針對未成年人設計。若未滿十八歲，請於法定代理人同意後再與本公司聯繫。
+      </p>
+
+      <h2>八、政策修訂</h2>
+      <p>
+        本公司得因應法令或服務調整修訂本政策，修訂後將於本頁公告並更新上方日期，不另行個別通知。
+      </p>
+
+      <div class="mt-12 flex flex-wrap gap-4 border-t border-line pt-8">
+        <Button href="/contact">與我們聯絡</Button>
+      </div>
+    </div>
+  </section>
+</Layout>
